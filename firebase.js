@@ -25,8 +25,8 @@ const auth = getAuth(firebaseApp);
 //detect auth state
 onAuthStateChanged(auth, user=>{
   if (user !== null) {
-    console.log('access granted');
+    console.log('Signed in as user: ', user);
   } else {
-    console.log('access denied');
+    console.log('Guest mode. If you would like to access the entire app, please sign in. Or if you do not have an account, please sign up');
   }
 })

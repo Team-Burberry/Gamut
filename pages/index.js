@@ -4,6 +4,10 @@ import styles from '../styles/Home.module.css'
 import firebase from '../firebase.js'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
+import LogOut from '../components/logOut/LogOut.jsx'
+import Login from '../components/login/Login.jsx'
+import SignUp from '../components/signUp/SignUp.jsx'
+
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -14,71 +18,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <div>
-          <button onClick={
-            (e)=>{
-              const auth = getAuth();
-              signOut(auth).then(() => {
-                console.log('signed out');
-              }).catch((error) => {
-                console.log('Something went wrong with the sign out process: ');
-              });
-            }
-          }>Sign Out</button>
-          <h1>Log in</h1>
-          <input type="email" placeholder="partyHausRulz@gmail.com"/>
-          <input type="password" placeholder="IzCheatingWithHardCodingThis"/>
-          <button onClick={e=>{
-            const email = 'partyHausRulz@gmail.com';
-            const password = 'IzCheatingWithHardCodingThis';
-            const auth = getAuth();
-            signInWithEmailAndPassword(auth, email, password)
-              .then((userCredential) => {
-                const user = userCredential.user;
-                console.log('[SIGN IN]:', user);
-                //redirect to feed page
-              })
-              .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-              });
-          }}>Log In</button>
-        </div>
-        <div>
-          <h2>SignUp</h2>
-          <form>
-            <input type="text" placeholder="name"/>
-            <input type="email" placeholder="email@email.com"/>
-            <input type="password" placeholder="******"/>
-            <input type="date"/>
-            <input type="text" placeholder="city"/>
-            <input type="text" placeholder="state"/>
-            <select name="gender">
-              <option value="">Gender selection</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="non-binary">Non Binary</option>
-            </select>
-            <button>Next</button>
-            <button onClick={e=>{
-              const email = 'partyHausRulz@gmail.com';
-              const password = 'IzCheatingWithHardCodingThis';
-
-              const auth = getAuth();
-              createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                  const user = userCredential.user;
-                  console.log(userCredential);
-                })
-                .catch((error) => {
-                  const errorCode = error.code;
-                  const errorMessage = error.message;
-                  console.log(errorCode, errorMessage);
-                });
-            }}>Submit</button>
-          </form>
-          <p>Have an account? <a href="./login">login</a></p>
-        </div>
+        <LogOut/>
+        <Login/>
+        <SignUp/>
       </main>
     </div>
   )
