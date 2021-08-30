@@ -6,7 +6,7 @@ export default function Login(){
       <input type="password" placeholder="******"/>
       <button>Login</button>
       <p>Don't have an account?</p>
-      <a href="#">Sign Up</a>
+      <a href="./signup">Sign Up</a>
     </div>
   )
 }
