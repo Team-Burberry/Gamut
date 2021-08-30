@@ -7,7 +7,7 @@ export default function Login(){
       <input type="text" placeholder="Enter email here"/>
       <input type="password" placeholder="******"/>
       <button>Login</button>
-      <p>Don't have an account?</p>
+      <p>Dont have an account?</p>
       <a href="./signup">Sign Up</a>
     </div>
   )
