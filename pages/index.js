@@ -5,7 +5,6 @@ import firebase from '../firebase.js'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 export default function Home() {
-
   return (
     <div className={styles.container}>
       <Head>
