@@ -1,6 +1,7 @@
-import { userCreate } from '../../lib/models'
+import { createUser } from '../../lib/models'
 
 export default function handler(req, res) {
-  userCreate(req.body)
-  res.status(201)
+  createUser(req.body)
+    .then(result => res.status(201).send(result))
+    .catch(err => res.status(400).send(err))
 }
