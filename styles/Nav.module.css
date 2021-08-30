@@ -1,0 +1,17 @@
+.container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.icon {
+
+  padding: 1rem;
+  align-self: center;
+
+}
