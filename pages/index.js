@@ -2,9 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import firebase from '../firebase.js'
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
-// import firebaseSignUp from '../firebaseSignUp.js'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 export default function Home() {
 
@@ -17,19 +15,30 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
         <div>
-        <h1>Log in</h1>
+          <button onClick={
+            (e)=>{
+              console.log('trying to sign out');
+              const auth = getAuth();
+              signOut(auth).then(() => {
+                console.log('signed out');
+              }).catch((error) => {
+                console.log('Something went wrong with the sign out process: ');
+              });
+            }
+          }>Sign Out</button>
+          <h1>Log in</h1>
           <input type="email" placeholder="partyHausRulz@gmail.com"/>
           <input type="password" placeholder="IzCheatingWithHardCodingThis"/>
           <button onClick={e=>{
+            const email = 'partyHausRulz@gmail.com';
+            const password = 'IzCheatingWithHardCodingThis';
             const auth = getAuth();
             signInWithEmailAndPassword(auth, email, password)
               .then((userCredential) => {
                 const user = userCredential.user;
                 console.log('[SIGN IN]:', user);
+                //redirect to feed page
               })
               .catch((error) => {
                 const errorCode = error.code;
@@ -38,33 +47,62 @@ export default function Home() {
           }}>Log In</button>
         </div>
         <div>
-          <h1>SignUp</h1>
-          <input type="email" placeholder="partyHaus123"/>
-          <input type="password" placeholder="sup3rS3cr3t"/>
-          <button onClick={e=>{
-            const email = 'partyHausRulz@gmail.com';
-            const password = 'IzCheatingWithHardCodingThis';
+          <h2>SignUp</h2>
+          <form>
+            <input type="text" placeholder="name"/>
+            <input type="email" placeholder="email@email.com"/>
+            <input type="password" placeholder="******"/>
+            <input type="date"/>
+            <input type="text" placeholder="city"/>
+            <input type="text" placeholder="state"/>
+            <select name="gender">
+              <option value="">Gender selection</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="non-binary">Non Binary</option>
+            </select>
+            <button>Next</button>
+            <button onClick={e=>{
+              const email = 'partyHausRulz@gmail.com';
+              const password = 'IzCheatingWithHardCodingThis';
 
-            const auth = getAuth();
-            createUserWithEmailAndPassword(auth, email, password)
-              .then((userCredential) => {
-                const user = userCredential.user;
-                console.log(userCredential);
-              })
-              .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
-              });
-          }}>Submit</button>
+              const auth = getAuth();
+              createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                  const user = userCredential.user;
+                  console.log(userCredential);
+                })
+                .catch((error) => {
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  console.log(errorCode, errorMessage);
+                });
+            }}>Submit</button>
+          </form>
+          <p>Have an account? <a href="./login">login</a></p>
         </div>
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
       </main>
-
-
     </div>
   )
 }
+
+/*
+Set an authentication state observer and get user data
+For each of your app's pages that need information about the signed-in user, attach an observer to the global authentication object. This observer gets called whenever the user's sign-in state changes.
+
+Attach the observer using the onAuthStateChanged method. When a user successfully signs in, you can get information about the user in the observer.
+*/
+// import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+// const auth = getAuth();
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     // User is signed in, see docs for a list of available properties
+//     // https://firebase.google.com/docs/reference/js/firebase.User
+//     const uid = user.uid;
+//     // ...
+//   } else {
+//     // User is signed out
+//     // ...
+//   }
+// });
