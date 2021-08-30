@@ -4,11 +4,11 @@ import { Flex, Spacer, InputGroup, InputLeftElement, Input,SearchIcon , PhoneIco
 const SearchBar = () => {
   return (
     <Flex direction="column" p={3}>
-      <Heading mb={5}as='h1' size="xl"> Search</Heading>
+      <Heading mb={5}as='h1' size="xl">Search</Heading>
 
         <form w='100%'
           onSubmit={(e) => submitForm(e)}
-          
+
         >
           <InputGroup w='100%'>
             <InputLeftElement
@@ -24,11 +24,5 @@ const SearchBar = () => {
   );
 };
 
-const SearchImg = () => {
-
-  return (
-    <SearchIcon color="gray.300" />
-  )
-}
 
 export default SearchBar;

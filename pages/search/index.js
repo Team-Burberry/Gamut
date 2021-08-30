@@ -1,5 +1,10 @@
 import SearchBar from '../../components/search/SearchBar';
-import MenuBar from '../../components/search/MenuBar';
+import dynamic from 'next/dynamic';
+const MenuBar = dynamic(() => import('../../components/search/MenuBar'), {
+  ssr: false
+});
+import SearchPost from '../../components/search/SearchPost';
+import Nav from '../../components/navbar/Nav';
 
 const Search = () => {
 
@@ -8,6 +13,8 @@ const Search = () => {
     <>
     <SearchBar/>
     <MenuBar/>
+    <SearchPost/>
+    <Nav/>
     </>
   )
 }

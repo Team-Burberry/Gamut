@@ -1,5 +1,7 @@
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import {useContext, useState} from 'react'
+// import dynamic from 'next/dynamic'
+import  { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
+
 
 
 
