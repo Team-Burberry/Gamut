@@ -1,8 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import firebase from '../firebase.js'
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+// import firebaseSignUp from '../firebaseSignUp.js'
 
 export default function Home() {
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,6 +21,25 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
+        <h1>Sign Up</h1>
+        <input type="email" placeholder="partyHaus123"/>
+        <input type="password" placeholder="sup3rS3cr3t"/>
+        <button onClick={e=>{
+          const email = 'partyHausRulz@gmail.com';
+          const password = 'IzCheatingWithHardCodingThis';
+
+          const auth = getAuth();
+          createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+              console.log(userCredential);
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              console.log(errorCode, errorMessage);
+            });
+        }}>Submit</button>
         <p className={styles.description}>
           Get started by editing{' '}
           <code className={styles.code}>pages/index.js</code>
