@@ -46,6 +46,7 @@ const Login = () => {
         }}>Log In</Button>
       </VStack>
       <p>Don&apos;t have an account? <a href="./signup">Sign Up</a></p>
+      <p><a href="./search">View site as a guest</a></p>
     </div>
   )};
 
