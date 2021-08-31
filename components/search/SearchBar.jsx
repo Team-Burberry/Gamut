@@ -2,6 +2,10 @@
 import { Flex, Spacer, InputGroup, InputLeftElement, Input,SearchIcon , PhoneIcon, Heading} from "@chakra-ui/react";
 
 const SearchBar = () => {
+
+  const handleSearch = () => {
+    
+  }
   return (
     <Flex direction="column" p={3}>
       <Heading mb={5}as='h1' size="xl">Search</Heading>

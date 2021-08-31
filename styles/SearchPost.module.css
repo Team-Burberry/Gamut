@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  min-width: 90%;
+  background-color: gray;
+  height: 6rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+}
+
+.bigContainer {
+  margin-top: 1.7rem;
+  padding: 12px;
+}

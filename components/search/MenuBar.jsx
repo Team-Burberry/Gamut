@@ -1,39 +1,16 @@
 import {useContext, useState} from 'react'
 // import dynamic from 'next/dynamic'
 import  { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
+import MainContext from '../../context/MainContext';
 
 
 
 
 function MenuBar() {
-  const [items, setItems] = useState([
-    {
-    title:'food',
-    id: 0,
-  }
-  ,{
-    title:'sports',
-    id: 1,
-  }
-  ,{
-    title:'movies',
-    id: 2,
-  }
-  ,{
-    title:'politics',
-    id: 3,
-  }
-  ,{
-    title:'test',
-    id: 4,
-  }
-  ,{
-    title:'test',
-    id: 5,
-  }
-]);
+
   const [selected, setSelected] = useState([]);
   const [position, setPosition] = useState(0);
+  const {exploreData} = useContext(MainContext);
 
   const isItemSelected = (id) => !!selected.find((el) => el === id);
 
@@ -49,7 +26,7 @@ function MenuBar() {
 
   return (
         <ScrollMenu >
-          {items.map(({ id, title }) => (
+          {exploreData.map(({ id, title }) => (
             <Card
               itemId={id} // NOTE: itemId is required for track items
               title={title}

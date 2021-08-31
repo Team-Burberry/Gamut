@@ -5,12 +5,12 @@ import style from '../../styles/Nav.module.css'
 const Nav = () => {
   return (
     <div className={`${style.container}`}>
-      <i className={`fa fa-home ${style.icon}`}></i>
+      <i className={`fa fa-home fa-lg ${style.icon}`}></i>
       <Link href='/search'>
-      <i className={`fa fa-search ${style.icon}`}></i>
+      <i className={`fa fa-search fa-lg ${style.icon}`}></i>
       </Link>
-      <i className={`fa fa-plus ${style.icon}`}></i>
-      <i className={`fa fa-user ${style.icon}`}></i>
+      <i className={`fa fa-plus fa-lg ${style.icon}`}></i>
+      <i className={`fa fa-user fa-lg ${style.icon}`}></i>
 
     </div>
   )
