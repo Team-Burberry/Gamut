@@ -1,9 +1,12 @@
-const Feed= () => {
-  return (
-    <div>
-      <h1>Logged-in Feed</h1>
-    </div>
-  )
-};
+import Feed from '../components/feed.jsx';
 
-export default Feed;
+const FeedPage = () => {
+
+
+  return (
+    <>
+    <Feed/>
+    </>
+  )
+}
+export default FeedPage
