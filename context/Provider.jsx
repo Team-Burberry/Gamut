@@ -1,91 +1,37 @@
 import MainContext from './MainContext';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import axios from 'axios'
 
-//dummy data
-const dummyData = [
-  {
-    id: 1,
-    user: 34,
-    category: 'sports',
-    title: 'testing',
-    intraction: 4
 
-  },
-  {
-    id: 1,
-    user: 34,
-    category: 'sports',
-    title: 'music',
-    intraction: 4
-
-  }
-  ,
-  {
-    id: 1,
-    user: 34,
-    category: 'sports',
-    title: 'food',
-    intraction: 4
-
-  }
-  ,
-  {
-    id: 1,
-    user: 34,
-    category: 'sports',
-    title: 'religion',
-    intraction: 4
-
-  }
-  ,
-  {
-    id: 1,
-    user: 34,
-    category: 'sports',
-    title: 'food',
-    intraction: 4
-
-  }
-  ,
-  {
-    id: 1,
-    user: 34,
-    category: 'sports',
-    title: 'politics',
-    intraction: 4
-
-  },
-  {
-    id: 1,
-    user: 34,
-    category: 'sports',
-    title: 'food',
-    intraction: 4
-
-  }
-  ,
-  {
-    id: 1,
-    user: 34,
-    category: 'sports',
-    title: 'politics',
-    intraction: 4
-
-  }
-]
 const Provider = ({children})=>{
   //this is for when the page loads for the trending result
-  const [exploreData, setExploreData] = useState(dummyData);
+  const [exploreData, setExploreData] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [filterData, setFilterData] = useState([])
 
 
+  const searchData = async() => {
+    const {data} = await axios.get('/api/getPosts')
+    setExploreData(data)
+    setFilterData(data)
+    setCategory([...new Set(data.map(item => item.category))])
 
-  const handleSearch = async(category) => {
-    //find the query
-    const {data} = await axios.get('api/getPost')
-    //setExploreData(data)
+
   }
+  useEffect(() => {
+    searchData()
+  }, [])
+
+  const filterPostByCategory = (category) => {
+    let copy = [...exploreData];
+    console.log(copy)
+    copy = copy.filter(item => item.category.includes(category));
+    setFilterData(copy);
+
+  }
+
   return (
-    <MainContext.Provider value={{exploreData}}>
+    <MainContext.Provider value={{exploreData, searchData, filterPostByCategory, category, filterData}}>
       {children}
     </MainContext.Provider>
   )

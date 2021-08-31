@@ -8,12 +8,14 @@ import SearchPost from '../../components/search/SearchPost';
 import Nav from '../../components/navbar/Nav';
 
 const Search = () => {
-  
+
 
   return (
     <>
+    <div style={{position: 'sticky', top: '0', backgroundColor: 'white'}}>
     <SearchBar/>
     <MenuBar/>
+    </div>
     <SearchPost/>
     <Nav/>
     </>

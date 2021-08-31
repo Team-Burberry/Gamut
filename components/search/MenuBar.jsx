@@ -10,13 +10,14 @@ function MenuBar() {
 
   const [selected, setSelected] = useState([]);
   const [position, setPosition] = useState(0);
-  const {exploreData} = useContext(MainContext);
+  const {exploreData, category, filterPostByCategory, searchData} = useContext(MainContext);
 
   const isItemSelected = (id) => !!selected.find((el) => el === id);
 
   const handleClick = (id) => ({ getItemById, scrollToItem }) => {
     const itemSelected = isItemSelected(id)
-
+    if (itemSelected) searchData();
+    else filterPostByCategory(id);
     setSelected((currentSelected) =>
       itemSelected
         ? currentSelected.filter((el) => el !== id)
@@ -26,13 +27,13 @@ function MenuBar() {
 
   return (
         <ScrollMenu >
-          {exploreData.map(({ id, title }) => (
+          {category.map((item) => (
             <Card
-              itemId={id} // NOTE: itemId is required for track items
-              title={title}
-              key={id}
-              onClick={handleClick(id)}
-              selected={isItemSelected(id)}
+              itemId={item} // NOTE: itemId is required for track items
+              title={item}
+              key={item}
+              onClick={handleClick(item)}
+              selected={isItemSelected(item)}
             />)
           )}
 
@@ -55,9 +56,12 @@ function Card({
       onClick={() => onClick(visibility)}
       style={{
         padding: "15px",
-        backgroundColor: 'gray',
+        backgroundColor: 'white',
         margin: '5px',
-        minWidth: '70px'
+        minWidth: '100px',
+        borderRadius: '10px',
+        textAlign: 'center',
+        border: '1px solid gray'
       }}
       tabIndex={0}
     >

@@ -1,15 +1,32 @@
 .container {
   display: flex;
-  flex-direction: row;
-  min-width: 90%;
-  background-color: gray;
-  height: 6rem;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  border: 1px solid gray;
+  padding: 1rem;
   justify-content: center;
   margin-bottom: 1rem;
+  border-radius: 10px;
 
 }
 
 .bigContainer {
   margin-top: 1.7rem;
   padding: 12px;
+}
+
+.container h2 {
+  align-self: center;
+}
+
+.interaction {
+  display: flex;
+  align-self: flex-end;
+  min-width: 50px;
+}
+
+.interaction img {
+  width: 10px;
+  margin:0 5px;
 }
