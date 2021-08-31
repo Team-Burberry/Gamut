@@ -1,5 +1,6 @@
 import React from 'react';
-import firebase from '../../firebase.js'
+import Router from 'next/router';
+import firebase from '../../firebase.js';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 import {Button} from "@chakra-ui/react"
@@ -17,7 +18,10 @@ const Login = () => (
         .then((userCredential) => {
           const user = userCredential.user;
           console.log('[SIGN IN]:', user);
-          //redirect to feed page
+          const {pathname} = Router;
+          if (pathname == '/') {
+            Router.push('/search');
+          }
         })
         .catch((error) => {
           const errorCode = error.code;
