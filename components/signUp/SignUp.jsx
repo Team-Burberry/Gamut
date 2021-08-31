@@ -88,6 +88,15 @@ const SignUp = () => {
               //submit account info to db
                 //if post is successful
                   //forward user to feed page
+            let userInfo = {
+              username: username,
+              email: email,
+              birthdate: birthdate,//unix date number
+              city: city,
+              state: state,
+              gender: gender,
+              interests: interests//array of strings
+            }
                 //else
                   //notify user of error
             //else
