@@ -1,3 +1,5 @@
+
+
 export default function Login(){
   return (
     <div>
@@ -7,6 +9,8 @@ export default function Login(){
       <button>Login</button>
       <p>Don't have an account?</p>
       <a href="#">Sign Up</a>
+
     </div>
+
   )
 }
