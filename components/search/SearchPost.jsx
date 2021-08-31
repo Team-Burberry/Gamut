@@ -28,7 +28,8 @@ const SearchPost = () => {
           )}
 
           {item.category === "Food" && (
-          <FontAwesomeIcon icon={faPizzaSlice} className={style.title}/>
+            <i className={`fa fa-cutlery ${style.title}`} />
+
           )}
           {item.category === "Politics" && (
             <i className={`fa fa-balance-scale ${style.title}`} />

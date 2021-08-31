@@ -8,15 +8,23 @@ const Provider = ({children})=>{
   const [exploreData, setExploreData] = useState([]);
   const [category, setCategory] = useState([]);
   const [filterData, setFilterData] = useState([])
+  const [categoryOptions, setCategoryOptions] = useState({
+    'Sports' : 'fa-futbol-o',
+    'Food': 'fa fa-cutlery',
+    'Politics': 'fa fa-balance-scale',
+    'Travel': 'fa fa-plane"',
+    'Religion': 'fa fa-book',
+    'Music': 'fa fa-music'
 
+
+  })
 
   const searchData = async() => {
     const {data} = await axios.get('/api/getPosts')
     setExploreData(data)
     setFilterData(data)
     setCategory([...new Set(data.map(item => item.category))])
-
-
+    console.log(category)
   }
   useEffect(() => {
     searchData()
@@ -27,7 +35,6 @@ const Provider = ({children})=>{
     console.log(copy)
     copy = copy.filter(item => item.category.includes(category));
     setFilterData(copy);
-
   }
 
   return (

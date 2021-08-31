@@ -66,7 +66,6 @@ function Card({
       tabIndex={0}
     >
     <p>{title}</p>
-
     </div>
   );
 }

@@ -5,7 +5,6 @@ const MainContext = createContext({
   filterPostByCategory: () => {},
   category: [],
   filterData: [],
-
 })
 
 export default MainContext
