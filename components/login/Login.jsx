@@ -36,10 +36,7 @@ const Login = () => {
               .then((userCredential) => {
                 const user = userCredential.user;
                 console.log('[SIGN IN]:', user);
-                const {pathname} = Router;
-                if (pathname == '/') {
-                  Router.push('/search');
-                }
+                Router.push('/search');
               })
               .catch((error) => {
                 const errorCode = error.code;

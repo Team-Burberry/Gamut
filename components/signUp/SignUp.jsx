@@ -10,10 +10,11 @@ const SignUp = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [dob, setDOB] = useState(null); //unix date number
+  const [birthdate, setBirthdate] = useState(null); //unix date number
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [gender, setGender] = useState('');
+  const [interests, setInterests] =useState([]);
 
   return (
     <div className = {styles.container}>
@@ -49,7 +50,7 @@ const SignUp = () => {
             type="date"
             onChange = {
               e => {
-                setDOB(e.target.value);
+                setBirthdate(e.target.value);
           }}/>
           <Input
             size="sm"
@@ -107,7 +108,7 @@ const SignUp = () => {
         </VStack>
 
       </form>
-      <p>Have an account? <a href="./login">login</a></p>
+      <p>Have an account? <a href="./login">log in</a></p>
     </div>
 )};
 

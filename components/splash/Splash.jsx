@@ -1,26 +1,31 @@
 import React, {useEffect} from 'react';
+import Image from 'next/image';
 import Router from 'next/router';
 
-import firebase from '../firebase.js';
+import firebase from '../../firebase.js';
 import { getAuth } from "firebase/auth";
 
-import LogOut from '../components/logOut/LogOut.jsx';
+import LogOut from '../logOut/LogOut.jsx';
 
-import {Heading} from "@chakra-ui/react";
+import Logo from '../../public/Gamut_logo_small.png';
+import {Heading, VStack} from "@chakra-ui/react";
 
 const Splash = () => {
   useEffect(() => {
     const auth = getAuth();
     if (auth.currentUser) {
-      Router.
+      Router.push('/search');
+    } else {
+      Router.push('/login');
     }
   });
 
   return (
-    <React.Fragment>
-      <LogOut/>
+    <VStack>
       <Heading>Gamut</Heading>
-      <p>🔥</p>
-    </React.Fragment>
+      <Image src = {Logo} alt = "Gamut fire logo"/>
+    </VStack>
   );
 }
+
+export default Splash;
