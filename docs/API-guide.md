@@ -2,7 +2,7 @@
 
 ## Get Posts for Feed
 
-`GET /api/getPosts` Retrieves a list of posts.
+`GET /api/getPosts`
 
 | Parameter | Type |
 | --- | --- |
@@ -58,7 +58,7 @@
 
 ## Get Posts for Explore Page
 
-`GET /api/getTrendingPosts` Retrieves a list of posts.
+`GET /api/getTrendingPosts`
 
 | Parameter | Type |
 | --- | --- |
@@ -114,7 +114,7 @@
 
 ## Get User Info
 
-`GET /api/getUserInfo` Retrieves a list of posts.
+`GET /api/getUserInfo`
 
 | Parameter | Type |
 | --- | --- |
@@ -150,7 +150,7 @@ axios.get('/api/getUserInfo', {
 
 ## Create User
 
-`POST /api/createUser` Create a new user.
+`POST /api/createUser`
 
 | Parameter | Type |
 | --- | --- |
@@ -182,7 +182,7 @@ axios.post('/api/createUser', {
 
 ## Update User Interests
 
-`POST /api/updateInterests` Create a new user.
+`POST /api/updateInterests`
 
 | Parameter | Type |
 | --- | --- |
@@ -206,7 +206,7 @@ axios.post('/api/updateInterests', {
 
 ## Create Post
 
-`POST /api/createPost` Create a new user.
+`POST /api/createPost`
 
 | Parameter | Type |
 | --- | --- |
@@ -234,7 +234,7 @@ axios.post('/api/createPost', {
 
 ## Update User Interests
 
-`POST /api/updateInterests` Create a new user.
+`POST /api/updateInterests`
 
 | Parameter | Type |
 | --- | --- |
@@ -258,7 +258,7 @@ axios.post('/api/updateInterests', {
 
 ## Update Interaction
 
-`POST /api/updateInteraction` Create a new user.
+`POST /api/updateInteraction`
 
 | Parameter | Type
 | --- | ---
@@ -266,7 +266,7 @@ axios.post('/api/updateInterests', {
 | postId | string |
 | interaction | number between -100 and 100 |
 
-### Request Body Shape
+### Request
 
 ```JavaScript
 axios.post('/api/updateInteraction', {
