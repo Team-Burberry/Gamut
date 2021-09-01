@@ -11,6 +11,15 @@ const Profile = () => {
     img: 'https://st2.depositphotos.com/1104517/11965/v/600/depositphotos_119659092-stock-illustration-male-avatar-profile-picture-vector.jpg',
     bio: 'I am the goat!'
   }
+  const getData = () => {
+    // axios.get('/api/getUserInfo', { params: { email: "pillsbury.doughboy@gmail.com" }})
+    //   .then((response) => {
+    //     console.log(response);
+    //   })
+    //   .catch((err) => {
+    //     console.log('fetch err: ', err);
+    //   })
+  }
   return (
     <>
       <Head>
@@ -22,10 +31,11 @@ const Profile = () => {
         <div>
           <div>Profile Name</div>
           <div>21</div>
+          <div>City, State</div>
         </div>
       </div>
       <Edit />
-      <div>Bio</div>
+      {/* <div>Bio</div> */}
       <Nav />
     </>
   )

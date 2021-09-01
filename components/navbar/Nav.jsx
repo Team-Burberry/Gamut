@@ -33,13 +33,13 @@ const Nav = () => {
       </Link>
       {!auth.currentUser ?
       <i onClick={()=> showModal()}className={`fa fa-plus fa-lg ${style.icon}`}/>
-      : <Link href='/'>
+      : <Link href='/new-post'>
       <i className={`fa fa-plus fa-lg ${style.icon}`}/>
       </Link>
       }
       {!auth.currentUser ?
         <i onClick={() => showModal()}className={`fa fa-user fa-lg ${style.icon}`}/>
-      : <Link href='/'>
+      : <Link href='/profile'>
       <i className={`fa fa-user fa-lg ${style.icon}`}/>
       </Link>
       }

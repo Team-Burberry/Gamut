@@ -33,10 +33,10 @@ const Edit = () => {
               <FormLabel>State</FormLabel>
               <Input />
             </FormControl>
-            <FormControl>
+            {/* <FormControl>
               <FormLabel>Bio</FormLabel>
               <Textarea placeholder="Enter Your Bio Here"></Textarea>
-            </FormControl>
+            </FormControl> */}
           </ModalBody>
 
           <ModalFooter>

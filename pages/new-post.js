@@ -4,6 +4,7 @@ import Nav from '../components/navbar/Nav.jsx';
 import { FormControl, FormLabel, Textarea, Input, Select, Button } from "@chakra-ui/react";
 import Confirm from '../components/new-post/Confirm.jsx';
 import Head from 'next/head';
+import axios from 'axios';
 
 const NewPost = () => {
 
@@ -24,15 +25,16 @@ const NewPost = () => {
   };
 
   const info = {
-    email: 'corey@gmail.com',
     category: cat || '',
+    email: 'pillsbury.doughboy@gmail.com',
     body: txt || '',
     title: top || ''
   };
 
   const handleSubmit = () => {
     event.preventDefault();
-    console.log(info);
+    // console.log(info);
+    axios.post('/api/createPost', info)
   }
 
 
