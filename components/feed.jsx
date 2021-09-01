@@ -2,75 +2,67 @@ import styles from '../styles/Feed.module.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Carousel from 'react-elastic-carousel';
-// import firebase from '../../firebase.js'
-// import { getAuth} from "firebase/auth";
-
-const db = [
-  {
-    name: 'Richard Hendricks',
-    text: 'How is it going',
-    date: '08-30-2021',
-    category: 'Category'
-  },
-  {
-    name: 'Toni Fribourg',
-    text: 'Sooooo busy',
-    date: '08-30-2021',
-    category: 'Category'
-  },
-  {
-    name: 'Monica Hall',
-    text: 'I want to get this done asap',
-    date: '08-30-2021',
-    category: 'Category'
-  }
-];
+import Image from 'next/image'
+import logo from '../public/logo.png'
+import firebase from '../firebase.js'
+import { getAuth} from "firebase/auth";
+import NavBar from './navbar/Nav.jsx'
 
 export default function Feed() {
   const [data, setData] = useState([]);
   const [votes, setVotes] = useState(0);
+  const [show, setShow] = useState(false);
+
 
   const checkLoginStatus = () => {
-    // const auth = getAuth();
-    // if(auth.currentUser === null) {
+    const auth = getAuth();
+    if(auth.currentUser === null) {
 
-    // }
+    }
   };
 
   useEffect(()=>{
     checkLoginStatus();
+    axios.get('http://localhost:3000/api/getPosts')
+         .then(res => {
+           setData(res.data)
+         })
+         .catch(err => console.log(err))
   }, [])
 
   return (
     <>
     <div className={styles.cardContainer}>
-    <Carousel verticalMode itemsToShow={1} onChange={(currentItem, pageIndex) =>
+    <Carousel verticalMode itemsToShow={1} showArrows={false} onChange={(currentItem, pageIndex) =>
     console.log(pageIndex)}>
-      {db.map((card,index) =>
+      {data.map((post,index) =>
         <div className={styles.card} key={index}>
           <div className={styles.feedContainer}>
-            <span className={styles.username}>{card.name}</span>
-            <span className={styles.date}>{card.date}</span>
-            <span className={styles.category}>{card.category}</span>
+            <span className={styles.username}>{post.user}</span>
+            <span className={styles.date}>Date</span>
+            <span className={styles.category}>{post.category}</span>
           </div>
           <div className={styles.post}>
-            <p className={styles.topic}>topic</p>
-            <p className={styles.text}>{card.text}</p>
+            <p className={styles.topic}>{post.title}</p>
+            <p className={styles.text}>{post.body}</p>
+            <div className={styles.logo}>
+            <Image src={logo} alt='logo'/>
+            <span className={styles.interactions}>{post.interactions}</span>
+            </div>
           </div>
 
-          {/* <div className={styles.middle}>
-            <div className={styles.sliderMiddle}>0</div>
-          </div> */}
           <div className={styles.field}>
             <div className={styles.sliderLeft}>-100</div>
             <input className={styles.slider} type='range' min='-100' max='100' value={votes} steps='1'
-            onChange={(e)=>{setVotes(e.target.value);console.log(votes)}}></input>
+            onChange={(e)=>{setVotes(e.target.value);}}></input>
             <div className={styles.sliderRight}>100</div>
           </div>
 
         </div> )}
     </Carousel>
+    <NavBar />
     </div>
+
   </>
   )
 }

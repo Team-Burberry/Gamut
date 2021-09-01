@@ -1,34 +1,35 @@
 .cardContainer {
-  width: 400px;
-  margin-left: 200px;
-  margin-top: 100px;
+  width: 100vw;
+  height: 100vh;
 }
 
 .card {
-  height: 550px;
-  width:270px;
+  height: 100vh;
   border: 1px solid white;
-  background-color:rgb(50, 81, 128);
   place-items: center;
   border-radius: 30px;
 }
 
 .feedContainer {
-  height:60px;
-  margin-top: 20px;
+  height:100px;
+  margin-top: 60px;
   margin-left:15px;
-  color: white;
+  color: black;
   font-size:small;
 }
 
+.username {
+  margin-top: 100px;
+}
+
 .date {
-  margin-left: 45px;
+  margin-left: 100px
 }
 
 .category {
   display: block;
   font-size: large;
-  margin-top:5px;
+  padding-top:40px;
 }
 
 .topic {
@@ -38,7 +39,7 @@
 
 .post {
   background-color:rgb(216, 235, 201);
-  height:300px;
+  height:400px;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -54,14 +55,13 @@
 }
 
 .sliderLeft, .sliderRight {
-  color:white;
   font-size: smaller;
   text-align: center;
 }
 
 .slider {
   width: 70%;
-  margin-top: 25px;
+  margin-top: 100px;
 }
 
 .field {
@@ -69,4 +69,19 @@
   display:flex;
   align-items: center;
   justify-content: center;
+}
+
+.logo {
+  width: 7%;
+  height: 7%;
+  display: flex;
+  margin-left:200px;
+  margin-top: 260px;
+}
+
+.interactions {
+  position:absolute;
+  display: flex;
+  margin-left: 20px;
+  font-size: smaller;
 }
