@@ -11,13 +11,11 @@ import NavBar from './navbar/Nav.jsx'
 export default function Feed() {
   const [data, setData] = useState([]);
   const [votes, setVotes] = useState(0);
-  const [show, setShow] = useState(false);
 
 
   const checkLoginStatus = () => {
     const auth = getAuth();
-    if(auth.currentUser === null) {
-
+    if(auth.currentUser !== null) {
     }
   };
 
@@ -50,14 +48,12 @@ export default function Feed() {
             <span className={styles.interactions}>{post.interactions}</span>
             </div>
           </div>
-
           <div className={styles.field}>
             <div className={styles.sliderLeft}>-100</div>
             <input className={styles.slider} type='range' min='-100' max='100' value={votes} steps='1'
             onChange={(e)=>{setVotes(e.target.value);}}></input>
             <div className={styles.sliderRight}>100</div>
           </div>
-
         </div> )}
     </Carousel>
     <NavBar />
