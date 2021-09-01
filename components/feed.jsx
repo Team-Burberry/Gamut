@@ -11,12 +11,34 @@ import MainContext from "../context/MainContext";
 
 export default function Feed() {
   const { exploreData } = useContext(MainContext);
+  const [filteredPosts, setFilteredPosts] = useState([]);
   const [votes, setVotes] = useState(0);
+  const auth = getAuth();
+  let posts = filteredPosts.length === 0 ? exploreData : filteredPosts
 
-console.log(exploreData)
   const checkLoginStatus = () => {
-    const auth = getAuth();
     if(auth.currentUser !== null) {
+      axios.get('http://localhost:3000/getPosts', {params: {email: auth.currentUser.email}})
+            .then((res) => {
+              setFilteredPosts(res.data)
+          }
+        )
+            .catch(err => console.log(err))
+    }
+  };
+
+  useEffect(()=>{
+    checkLoginStatus();
+  })
+
+  const handleSwipe = (index) => {
+    if(auth.currentUser !== null){
+      axios
+        .post(`http://localhost:3000/updateInteraction`, {email: auth.currentUser.email, postId: posts[index].id, interaction: votes})
+        .then((res) => {
+          res.send('Success')
+        })
+        .catch((err) => res.send(err));
     }
   };
 
@@ -24,8 +46,8 @@ console.log(exploreData)
     <>
     <div className={styles.cardContainer}>
     <Carousel verticalMode itemsToShow={1} showArrows={false} onChange={(currentItem, pageIndex) =>
-    console.log(pageIndex)}>
-      {exploreData.map((post,index) =>
+    handleSwipe(pageIndex)}>
+      {posts.map((post,index) =>
         <div className={styles.card} key={index}>
           <div className={styles.feedContainer}>
             <span className={styles.username}>{post.username}</span>
@@ -40,17 +62,16 @@ console.log(exploreData)
             <span className={styles.interactions}>{post.interactions}</span>
             </div>
           </div>
-          <div className={styles.field}>
+          {filteredPosts.length !== 0 ? <div className={styles.field}>
             <div className={styles.sliderLeft}>-100</div>
             <input className={styles.slider} type='range' min='-100' max='100' value={votes} steps='1'
             onChange={(e)=>{setVotes(e.target.value);}}></input>
             <div className={styles.sliderRight}>100</div>
-          </div>
+          </div> : null}
         </div> )}
     </Carousel>
     <NavBar />
     </div>
-
   </>
   )
 }
