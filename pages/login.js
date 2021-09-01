@@ -1,14 +1,7 @@
+import Login from '../components/login/Login.jsx';
 
-
-export default function Login(){
+export default function LoginPage(){
   return (
-    <div>
-      <h2>Login</h2>
-      <input type="text" placeholder="Enter email here"/>
-      <input type="password" placeholder="******"/>
-      <button>Login</button>
-      <p>Dont have an account?</p>
-      <a href="./signup">Sign Up</a>
-    </div>
+    <Login/>
   )
 }
