@@ -7,13 +7,12 @@
   flex-direction: row;
   align-content: center;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  z-index: 3;
   background-color: white;
   padding-bottom: 20px;
-  z-index: 3;
 }
 .icon {
-
   padding: 1rem;
   align-self: center;
 

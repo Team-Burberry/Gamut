@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Carousel from 'react-elastic-carousel';
 import Image from 'next/image'
-import logo from '../public/logo.png'
+import logo from '../public/Gamut_logo_small.png'
 import firebase from '../firebase.js'
 import { getAuth} from "firebase/auth";
 import NavBar from './navbar/Nav.jsx'
