@@ -3,6 +3,7 @@ import { useState, useContext } from 'react';
 import Nav from '../components/navbar/Nav.jsx';
 import { FormControl, FormLabel, Textarea, Input, Select, Button } from "@chakra-ui/react";
 import Confirm from '../components/new-post/Confirm.jsx';
+import Head from 'next/head';
 
 const NewPost = () => {
 
@@ -22,45 +23,53 @@ const NewPost = () => {
     console.log(e.target.value);
   };
 
-  const handleSubmit = () => {
-    event.preventDefault();
-    console.log('hi ', cat, top, txt);
-  }
-
   const info = {
-    email: '',
+    email: 'corey@gmail.com',
     category: cat || '',
     body: txt || '',
     title: top || ''
+  };
+
+  const handleSubmit = () => {
+    event.preventDefault();
+    console.log(info);
   }
+
+
   // const { handleSubmit } = useContext(MainContext);
   const allcat = ['Sports', 'Food', 'Politics', 'Arts & Crafts', 'Film & TV', 'Video Games', 'Fashion', 'Technology', 'Travel', 'Automotive', 'Celebrity', 'Music', 'Science & Nature', 'Religion'];
 
   return (
     <>
+      <Head>
+        <title>Create New Post</title>
+      </Head>
       <h1 className="newP">
         Welcome to New Post Page.
       </h1>
       <form>
-        <Select placeholder="Select your category" onChange={handleCat}>
-          {allcat.map((item) => {
-            return (
-              <option value={item}>{item}</option>
-            )
-          })}
-        </Select>
+        <FormControl isRequired>
+          <FormLabel>Category</FormLabel>
+          <Select placeholder="Select your category" onChange={handleCat} isRequired>
+            {allcat.map((item) => {
+              return (
+                <option value={item}>{item}</option>
+              )
+            })}
+          </Select>
+        </FormControl>
         <br></br>
-        <FormControl>
+        <FormControl isRequired>
+          <FormLabel>Topic</FormLabel>
           <Input onChange={handleTop} placeholder="Topic" />
         </FormControl>
         <br></br>
         <FormControl>
-          <FormLabel>Feel Free to Share Your Thoughts</FormLabel>
+          <FormLabel>Share your idea here (optional)</FormLabel>
           <Textarea onChange={handleTxt} placeholder="Please feel free to share your ideas!" />
         </FormControl>
         <br></br>
-        {/* <Button colorScheme="red" onClick={handleSubmit}>Post</Button> */}
-        <Confirm colorScheme="red" handleSubmit={handleSubmit} />
+        <Confirm colorScheme="red" done={(!top || !cat ? false: true)} handleSubmit={handleSubmit} />
       </form>
       <Nav />
     </>

@@ -1,5 +1,7 @@
 import Edit from '../components/profile/Edit.jsx';
 import Nav from '../components/navbar/Nav.jsx';
+import Head from 'next/head';
+
 
 const Profile = () => {
 
@@ -11,10 +13,17 @@ const Profile = () => {
   }
   return (
     <>
+      <Head>
+        <title>Create New Post</title>
+      </Head>
       <h1>Profile</h1>
-      <img className="profile-img" src={dummy.img} />
-      <div>Profile Name</div>
-      <div>21</div>
+      <div>
+        <img className="profile-img" src={dummy.img} />
+        <div>
+          <div>Profile Name</div>
+          <div>21</div>
+        </div>
+      </div>
       <Edit />
       <div>Bio</div>
       <Nav />
