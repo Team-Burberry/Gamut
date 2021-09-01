@@ -60,12 +60,12 @@ export default function Feed() {
             <span className={styles.interactions}>{post.interactions}</span>
             </div>
           </div>
-          {filteredPosts.length !== 0 ? <div className={styles.field}>
+          <div className={styles.field}>
             <div className={styles.sliderLeft}>-100</div>
             <input className={styles.slider} type='range' min='-100' max='100' value={votes} steps='1'
             onChange={(e)=>{setVotes(e.target.value);}}></input>
             <div className={styles.sliderRight}>100</div>
-          </div> : null}
+          </div>
         </div> )}
     </Carousel>
     <NavBar />
