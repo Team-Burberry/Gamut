@@ -46,10 +46,18 @@ const NewPost = () => {
       <Head>
         <title>Create New Post</title>
       </Head>
-      <h1 className="newP">
-        Welcome to New Post Page.
-      </h1>
+      <Confirm colorScheme="red" done={(!top || !cat ? false: true)} handleSubmit={handleSubmit} />
       <form>
+        <FormControl isRequired>
+          <FormLabel>Topic</FormLabel>
+          <Input onChange={handleTop} placeholder="Topic" />
+        </FormControl>
+        <br></br>
+        <FormControl>
+          <FormLabel>Share your idea here (optional)</FormLabel>
+          <Textarea onChange={handleTxt} placeholder="Please feel free to share your ideas!" />
+        </FormControl>
+        <br></br>
         <FormControl isRequired>
           <FormLabel>Category</FormLabel>
           <Select placeholder="Select your category" onChange={handleCat} isRequired>
@@ -61,17 +69,6 @@ const NewPost = () => {
           </Select>
         </FormControl>
         <br></br>
-        <FormControl isRequired>
-          <FormLabel>Topic</FormLabel>
-          <Input onChange={handleTop} placeholder="Topic" />
-        </FormControl>
-        <br></br>
-        <FormControl>
-          <FormLabel>Share your idea here (optional)</FormLabel>
-          <Textarea onChange={handleTxt} placeholder="Please feel free to share your ideas!" />
-        </FormControl>
-        <br></br>
-        <Confirm colorScheme="red" done={(!top || !cat ? false: true)} handleSubmit={handleSubmit} />
       </form>
       <Nav />
     </>

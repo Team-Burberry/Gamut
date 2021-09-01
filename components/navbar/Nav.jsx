@@ -27,7 +27,9 @@ const Nav = () => {
     {openModal && <MyModal/>}
     </div>
     <div className={`${style.container}`}>
+      <Link href="/feed">
       <i className={`fa fa-home fa-lg ${style.icon}`}/>
+      </Link>
       <Link href='/search'>
       <i className={`fa fa-search fa-lg ${style.icon}`}/>
       </Link>
