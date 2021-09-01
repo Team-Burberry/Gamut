@@ -4,9 +4,9 @@
 
 `GET /api/getPosts` Retrieves a list of posts.
 
-| Parameter | Type
-| --- | --- |---|
-| email | string
+| Parameter | Type |
+| --- | --- |
+| email | string |
 
 ### Request
 
@@ -60,9 +60,9 @@
 
 `GET /api/getTrendingPosts` Retrieves a list of posts.
 
-| Parameter | Type
+| Parameter | Type |
 | --- | --- |
-| category | string
+| category | string |
 
 ### Request
 
@@ -116,9 +116,9 @@
 
 `GET /api/getUserInfo` Retrieves a list of posts.
 
-| Parameter | Type
-| --- | --- |---|
-| email | string
+| Parameter | Type |
+| --- | --- |
+| email | string |
 
 ### Request
 
@@ -152,14 +152,14 @@ axios.get('/api/getUserInfo', {
 
 `POST /api/createUser` Create a new user.
 
-| Parameter | Type
-| --- | ---
-| userName | string
-| email | string
-| birthDate | string
-| city | string
-| state | string
-| gender | string
+| Parameter | Type |
+| --- | --- |
+| userName | string |
+| email | string |
+| birthDate | string |
+| city | string |
+| state | string |
+| gender | string |
 
 ### Request Body Shape
 
@@ -184,10 +184,10 @@ axios.post('/api/createUser', {
 
 `POST /api/updateInterests` Create a new user.
 
-| Parameter | Type
-| --- | ---
-| email | string
-| interests | array of strings
+| Parameter | Type |
+| --- | --- |
+| email | string |
+| interests | array of strings |
 
 ### Request
 
@@ -208,12 +208,12 @@ axios.post('/api/updateInterests', {
 
 `POST /api/createPost` Create a new user.
 
-| Parameter | Type
-| --- | ---
-| category | string
-| email | string
-| body | string
-| title | string
+| Parameter | Type |
+| --- | --- |
+| category | string |
+| email | string |
+| body | string |
+| title | string |
 
 ### Request
 
@@ -236,10 +236,10 @@ axios.post('/api/createPost', {
 
 `POST /api/updateInterests` Create a new user.
 
-| Parameter | Type
-| --- | ---
-| email | string
-| interests | array of strings
+| Parameter | Type |
+| --- | --- |
+| email | string |
+| interests | array of strings |
 
 ### Request
 
@@ -262,9 +262,9 @@ axios.post('/api/updateInterests', {
 
 | Parameter | Type
 | --- | ---
-| email | string
-| postId | string
-| interaction | number between -100 and 100
+| email | string |
+| postId | string |
+| interaction | number between -100 and 100 |
 
 ### Request Body Shape
 
