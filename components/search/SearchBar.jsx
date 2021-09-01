@@ -1,11 +1,11 @@
 /* eslint-disable react/no-children-prop */
 import { Flex, Spacer, InputGroup, InputLeftElement, Input,SearchIcon , PhoneIcon, Heading} from "@chakra-ui/react";
 import MainContext from '../../context/MainContext';
-import {useContext, useState} from 'react'
+import {useContext, useState} from 'react';
 
 const SearchBar = () => {
   const { searchData, filterPostByCategory} = useContext(MainContext);
-  const [category, setCategory] = useState('')
+  const [category, setCategory] = useState('');
 
   const submitForm = (e) => {
     e.preventDefault();

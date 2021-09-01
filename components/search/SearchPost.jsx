@@ -3,11 +3,11 @@ import { useContext, useState } from "react";
 import style from "../../styles/SearchPost.module.css";
 import MainContext from "../../context/MainContext";
 import { useRouter } from "next/router";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { faMusic } from '@fortawesome/free-solid-svg-icons'
-import {faPrayingHands} from '@fortawesome/free-solid-svg-icons'
-import {faPizzaSlice} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faMusic } from '@fortawesome/free-solid-svg-icons';
+import {faPrayingHands} from '@fortawesome/free-solid-svg-icons';
+import {faPizzaSlice} from '@fortawesome/free-solid-svg-icons';
 
 const SearchPost = () => {
   const { exploreData, filterData } = useContext(MainContext);
@@ -46,12 +46,11 @@ const SearchPost = () => {
           )}
           <h2>{item.title}</h2>
           <div className={style.interaction}>
-            <img src="logo.png" alt='gamut logo' />
+            <img src="logo.png" alt='gamut logo'/>
             <p>{item.interactions}</p>
           </div>
         </div>
       ))}
-
       {/* <button onClick={() => setPost(post + 1)}>Load More</button> */}
     </div>
   );
