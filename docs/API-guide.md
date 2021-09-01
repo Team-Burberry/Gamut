@@ -21,7 +21,7 @@
      ```JavaScript
      axios.get('/api/getPosts', {
           params: {
-               "email": "pillsbury.doughboy@gmail.com"
+               email: "pillsbury.doughboy@gmail.com"
           }
      });
      ```
@@ -77,7 +77,7 @@
      ```JavaScript
      axios.get('/api/getTrendingPosts', {
           params: {
-               "category": "Technology"
+               category: "Technology"
           }
      });
      ```
@@ -125,7 +125,7 @@
 ```JavaScript
 axios.get('/api/getUserInfo', {
      params: {
-          "email": "pillsbury.doughboy@gmail.com"
+          email: "pillsbury.doughboy@gmail.com"
      }
 });
 ```
@@ -165,12 +165,12 @@ axios.get('/api/getUserInfo', {
 
 ```JavaScript
 axios.post('/api/createUser', {
-     "username": "PillsburyDoughBoy",
-     "email": "pillsbury.doughboy@gmail.com",
-     "birthDate": "1630382373725",
-     "city": "Sacramento",
-     "state": "CA",
-     "gender": "Male"
+     username: "PillsburyDoughBoy",
+     email: "pillsbury.doughboy@gmail.com",
+     birthDate: "1630382373725",
+     city: "Sacramento",
+     state: "CA",
+     gender: "Male"
 });
 ```
 
@@ -193,8 +193,8 @@ axios.post('/api/createUser', {
 
 ```JavaScript
 axios.post('/api/updateInterests', {
-     "email": "pillsbury.doughboy@gmail.com",
-     "interests": ["Food", "Politics"]
+     email: "pillsbury.doughboy@gmail.com",
+     interests: ["Food", "Politics"]
 });
 ```
 
@@ -219,10 +219,10 @@ axios.post('/api/updateInterests', {
 
 ```JavaScript
 axios.post('/api/createPost', {
-    "category": "Food",
-    "email": "pillsbury.doughboy@gmail.com",
-    "body": "I have the best buns ;)",
-    "title": "Tasty Treats"
+    category: "Food",
+    email: "pillsbury.doughboy@gmail.com",
+    body: "I have the best buns ;)",
+    title: "Tasty Treats"
 });
 ```
 
@@ -245,8 +245,8 @@ axios.post('/api/createPost', {
 
 ```JavaScript
 axios.post('/api/updateInterests', {
-    "email": "pillsbury.doughboy@gmail.com",
-    "interests": ["Food", "Politics"]
+    email: "pillsbury.doughboy@gmail.com",
+    interests: ["Food", "Politics"]
 });
 ```
 
@@ -270,14 +270,12 @@ axios.post('/api/updateInterests', {
 
 ```JavaScript
 axios.post('/api/updateInteraction', {
-    "email": "pillsbury.doughboy@gmail.com",
-    "postId": "8d80cbfc-2520-407b-a0df-7ba33d429bfd",
-    "interaction": -100
+    email: "pillsbury.doughboy@gmail.com",
+    postId: "8d80cbfc-2520-407b-a0df-7ba33d429bfd",
+    interaction: -100
 });
 ```
 
 ### Response
 
 `Status: 201 Created`
-
----
