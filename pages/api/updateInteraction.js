@@ -1,10 +1,11 @@
-import { getPosts } from '../../lib/models';
+import { updateInteraction } from '../../lib/models'
 
 export default function handler(req, res) {
+
   return new Promise(resolve => {
-    getPosts()
+    updateInteraction(req.body)
     .then(result => {
-      res.status(200).send(result)
+      res.status(201).send(result)
       resolve()
     })
     .catch(err => res.status(400).send(err))
