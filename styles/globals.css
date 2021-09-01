@@ -16,6 +16,10 @@ a {
   box-sizing: border-box;
 }
 
+.profile-img {
+  height: 70px;
+  width: 70px;
+}
 ::-webkit-scrollbar {
   display: none
 }
