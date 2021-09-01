@@ -1,9 +1,9 @@
 .menuBar {
-  padding: 15px;
-  background-color: white;
-  margin: 5px;
-  min-width: 100px;
+  padding: 12px;
+  background-color: #EBEBEB;
+  margin: 10px;
+  min-width: 160px;
   border-radius: 10px;
   text-align: center;
-  border: 1px solid gray;
+  color: #484848;
 }
