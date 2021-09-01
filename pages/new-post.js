@@ -53,9 +53,9 @@ const NewPost = () => {
         <FormControl isRequired>
           <FormLabel>Category</FormLabel>
           <Select placeholder="Select your category" onChange={handleCat} isRequired>
-            {allcat.map((item) => {
+            {allcat.map((item,index) => {
               return (
-                <option value={item}>{item}</option>
+                <option key={index} value={item}>{item}</option>
               )
             })}
           </Select>
