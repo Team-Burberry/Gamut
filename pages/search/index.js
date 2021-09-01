@@ -7,10 +7,11 @@ const MenuBar = dynamic(() => import('../../components/search/MenuBar'), {
 import SearchPost from '../../components/search/SearchPost';
 import Nav from '../../components/navbar/Nav';
 
+
 const Search = () => {
   return (
     <>
-      <div style={{position: 'sticky', top: '0', backgroundColor: 'white'}}>
+      <div style={{position: 'sticky', top: '0', backgroundColor: '#1E3D59'}}>
         <SearchBar/>
         <MenuBar/>
       </div>
