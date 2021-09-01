@@ -23,6 +23,14 @@ const Provider = ({children})=>{
     'Video Games': 'fa-gamepad',
   })
 
+  const [colorSchema, setColorSchema] = useState({
+    'Orange ': '#FF6E40',
+    'Light Gray': '#EBEBEB',
+    'Dark Gray': ' #484848',
+    'Navy Blue': '#1E3D59',
+    'White': '#fff',
+  })
+
   const searchData = async() => {
     let {data} = await axios.get('/api/getPosts')
     setExploreData(data)

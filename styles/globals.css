@@ -1,4 +1,12 @@
 
+:root {
+  --orange: #FF6E40;
+  --lightGray: #EBEBEB;
+  --darkGray:  #484848;
+  --navyBlue: #1E3D59;
+  --white: #fff;
+}
+
 html,
 body {
   padding: 0;
