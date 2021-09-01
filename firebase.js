@@ -1,12 +1,6 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
 import {getAuth, onAuthStateChanged} from 'firebase/auth';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBLbvxaz9xaPcAK06O-YcwsTQfjOtWZzMM",
   authDomain: "hr--bo-burberry-gamut.firebaseapp.com",
@@ -17,16 +11,15 @@ const firebaseConfig = {
   measurementId: "G-WLZ2SKE7RX"
 };
 
-// Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(firebaseApp);
 const auth = getAuth(firebaseApp);
 
-//detect auth state
 onAuthStateChanged(auth, user=>{
   if (user !== null) {
+    //update user to show currentUser.email
     console.log('Signed in as user: ', user);
   } else {
+    //update context to show "guest"
     console.log('Guest mode. If you would like to access the entire app, please sign in. Or if you do not have an account, please sign up');
   }
 })
