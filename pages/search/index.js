@@ -1,5 +1,6 @@
 import SearchBar from '../../components/search/SearchBar';
 import dynamic from 'next/dynamic';
+import axios from 'axios';
 const MenuBar = dynamic(() => import('../../components/search/MenuBar'), {
   ssr: false
 });
@@ -7,15 +8,15 @@ import SearchPost from '../../components/search/SearchPost';
 import Nav from '../../components/navbar/Nav';
 
 const Search = () => {
-
-
   return (
     <>
-    <SearchBar/>
-    <MenuBar/>
-    <SearchPost/>
-    <Nav/>
+      <div style={{position: 'sticky', top: '0', backgroundColor: 'white'}}>
+        <SearchBar/>
+        <MenuBar/>
+      </div>
+      <SearchPost/>
+      <Nav/>
     </>
   )
 }
-export default Search
+export default Search;
