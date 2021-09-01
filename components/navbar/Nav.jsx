@@ -7,6 +7,7 @@ import {useState, useEffect} from 'react';
 import  styles  from '../../styles/modal.module.css';
 import MyModal from './Modal';
 import {useDisclosure} from  "@chakra-ui/react";
+import LogOut from '../logOut/LogOut';
 
 const Nav = () => {
   // const [user, setUser] = useState(false)
@@ -14,10 +15,6 @@ const Nav = () => {
   const [userLogIn, setUserLogIn] = useState(false);
   const auth = getAuth();
   const { isOpen, onOpen, onClose } = useDisclosure()
-  console.log(auth.currentUser)
-  // const handleUser = () => {
-  //   if (auth.currentUser) setUser(auth.currentUser)
-  // }
 
   useEffect(() => {
     if (auth.currentUser) setUserLogIn(true)
@@ -49,7 +46,9 @@ const Nav = () => {
       <a><i className={`fa fa-user fa-lg ${style.icon}`}/></a>
       </Link>
       }
+      <LogOut/>
     </div>
+
     </>
   )
 }

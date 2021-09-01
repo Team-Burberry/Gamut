@@ -28,15 +28,14 @@ const Provider = ({children})=>{
     setExploreData(data)
     setFilterData(data)
     setCategory([...new Set(data.map(item => item.category))])
-    console.log(category)
   }
+
   useEffect(() => {
     searchData()
   }, [])
 
   const filterPostByCategory = (category) => {
     let copy = [...exploreData];
-    console.log(copy)
     copy = copy.filter(item => item.category.includes(category));
     setFilterData(copy);
   }
