@@ -1,45 +1,21 @@
-import {useContext, useState} from 'react'
+import {useContext, useState} from 'react';
 // import dynamic from 'next/dynamic'
 import  { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
-
+import MainContext from '../../context/MainContext';
+import style from '../../styles/SearchMenu.module.css'
 
 
 
 function MenuBar() {
-  const [items, setItems] = useState([
-    {
-    title:'food',
-    id: 0,
-  }
-  ,{
-    title:'sports',
-    id: 1,
-  }
-  ,{
-    title:'movies',
-    id: 2,
-  }
-  ,{
-    title:'politics',
-    id: 3,
-  }
-  ,{
-    title:'test',
-    id: 4,
-  }
-  ,{
-    title:'test',
-    id: 5,
-  }
-]);
   const [selected, setSelected] = useState([]);
   const [position, setPosition] = useState(0);
+  const {exploreData, category, filterPostByCategory, searchData} = useContext(MainContext);
 
   const isItemSelected = (id) => !!selected.find((el) => el === id);
-
   const handleClick = (id) => ({ getItemById, scrollToItem }) => {
     const itemSelected = isItemSelected(id)
-
+    if (itemSelected) searchData();
+    else filterPostByCategory(id);
     setSelected((currentSelected) =>
       itemSelected
         ? currentSelected.filter((el) => el !== id)
@@ -49,21 +25,18 @@ function MenuBar() {
 
   return (
         <ScrollMenu >
-          {items.map(({ id, title }) => (
+          {category.map((item) => (
             <Card
-              itemId={id} // NOTE: itemId is required for track items
-              title={title}
-              key={id}
-              onClick={handleClick(id)}
-              selected={isItemSelected(id)}
+              itemId={item} // NOTE: itemId is required for track items
+              title={item}
+              key={item}
+              onClick={handleClick(item)}
+              selected={isItemSelected(item)}
             />)
           )}
-
         </ScrollMenu>
   );
 }
-
-
 
 function Card({
   onClick,
@@ -74,18 +47,8 @@ function Card({
   const visibility = useContext(VisibilityContext)
 
   return (
-    <div
-      onClick={() => onClick(visibility)}
-      style={{
-        padding: "15px",
-        backgroundColor: 'gray',
-        margin: '5px',
-        minWidth: '70px'
-      }}
-      tabIndex={0}
-    >
-    <p>{title}</p>
-
+    <div className={style.menuBar} onClick={() => onClick(visibility)} tabIndex={0}>
+      <p>{title}</p>
     </div>
   );
 }

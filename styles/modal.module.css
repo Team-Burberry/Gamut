@@ -1,0 +1,16 @@
+.modal {
+  padding: 50px;
+  opacity: 100%;
+  width: auto;
+  height: 500px;
+  box-shadow: 0 5px 16px rgba(0,0,0, 0.2);
+  background: #fff;
+  color: #000;
+  position: fixed;
+  z-index: 10;
+  border-radius: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+}
