@@ -3,6 +3,8 @@ import { Flex, Spacer, InputGroup, InputLeftElement, Input,SearchIcon , PhoneIco
 import MainContext from '../../context/MainContext';
 import {useContext, useState} from 'react';
 
+import styles from '../../styles/SearchNav.module.css';
+
 const SearchBar = () => {
   const { searchData, filterPostByCategory} = useContext(MainContext);
   const [category, setCategory] = useState('');
@@ -21,7 +23,7 @@ const SearchBar = () => {
   }
 
   return (
-    <Flex direction="column" p={3}>
+    <Flex className={styles.text}direction="column" p={3}>
       <Heading mb={5}as='h1' size="xl">Search</Heading>
 
         <form w='100%'onSubmit={(e) => submitForm(e)}>
