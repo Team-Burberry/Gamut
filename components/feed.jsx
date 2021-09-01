@@ -28,8 +28,8 @@ console.log(exploreData)
       {exploreData.map((post,index) =>
         <div className={styles.card} key={index}>
           <div className={styles.feedContainer}>
-            <span className={styles.username}>{post.user}</span>
-            <span className={styles.date}>Date</span>
+            <span className={styles.username}>{post.username}</span>
+            <span className={styles.date}>{Date(post.date)}</span>
             <span className={styles.category}>{post.category}</span>
           </div>
           <div className={styles.post}>
