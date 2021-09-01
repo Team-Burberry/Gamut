@@ -4,26 +4,26 @@
 
 `GET /api/getPosts` Retrieves a list of posts.
 
-| Parameter | Type | Description |
+| Parameter | Type
 | --- | --- |---|
-| email | string | Specify user  |
+| email | string
 
-### Request Body Shape
+### Request
 
 - Guest
 
-     ```json
-     {
-          "email": ""
-     }
+     ```JavaScript
+     axios.get('/api/getPosts');
      ```
 
 - Registered User
 
-     ```json
-     {
-          "email": "pillsbury.doughboy@gmail.com"
-     }
+     ```JavaScript
+     axios.get('/api/getPosts', {
+          params: {
+               "email": "pillsbury.doughboy@gmail.com"
+          }
+     });
      ```
 
 ### Response
@@ -54,25 +54,32 @@
 ]
 ```
 
+---
+
 ## Get Posts for Explore Page
 
 `GET /api/getTrendingPosts` Retrieves a list of posts.
 
-| Parameter | Type | Description |
-| --- | --- |---|
-| category | string | Specify category |
+| Parameter | Type
+| --- | --- |
+| category | string
 
-### Request Body Shape
+### Request
 
 - All Categories
-  - empty request body
+
+     ```JavaScript
+     axios.get('/api/getTrendingPosts');
+     ```
 
 - Specific Category
 
-     ```json
-     {
-          "category": "Technology"
-     }
+     ```JavaScript
+     axios.get('/api/getTrendingPosts', {
+          params: {
+               "category": "Technology"
+          }
+     });
      ```
 
 ### Response
@@ -102,3 +109,175 @@
     // ...
 ]
 ```
+
+---
+
+## Get User Info
+
+`GET /api/getUserInfo` Retrieves a list of posts.
+
+| Parameter | Type
+| --- | --- |---|
+| email | string
+
+### Request
+
+```JavaScript
+axios.get('/api/getUserInfo', {
+     params: {
+          "email": "pillsbury.doughboy@gmail.com"
+     }
+});
+```
+
+### Response
+
+`Status: 200 OK`
+
+```json
+{
+    "gender": "Male",
+    "city": "Sacramento",
+    "id": "2b0a3840-8c98-4eda-94ca-7035393c094a",
+    "state": "CA",
+    "birthDate": "1630382373725",
+    "email": "pillsbury.doughboy@gmail.com",
+    "username": "PillsburyDoughBoy"
+}
+```
+
+---
+
+## Create User
+
+`POST /api/createUser` Create a new user.
+
+| Parameter | Type
+| --- | ---
+| userName | string
+| email | string
+| birthDate | string
+| city | string
+| state | string
+| gender | string
+
+### Request Body Shape
+
+```JavaScript
+axios.post('/api/createUser', {
+     "username": "PillsburyDoughBoy",
+     "email": "pillsbury.doughboy@gmail.com",
+     "birthDate": "1630382373725",
+     "city": "Sacramento",
+     "state": "CA",
+     "gender": "Male"
+});
+```
+
+### Response
+
+`Status: 201 Created`
+
+---
+
+## Update User Interests
+
+`POST /api/updateInterests` Create a new user.
+
+| Parameter | Type
+| --- | ---
+| email | string
+| interests | array of strings
+
+### Request
+
+```JavaScript
+axios.post('/api/updateInterests', {
+     "email": "pillsbury.doughboy@gmail.com",
+     "interests": ["Food", "Politics"]
+});
+```
+
+### Response
+
+`Status: 201 Created`
+
+---
+
+## Create Post
+
+`POST /api/createPost` Create a new user.
+
+| Parameter | Type
+| --- | ---
+| category | string
+| email | string
+| body | string
+| title | string
+
+### Request
+
+```JavaScript
+axios.post('/api/createPost', {
+    "category": "Food",
+    "email": "pillsbury.doughboy@gmail.com",
+    "body": "I have the best buns ;)",
+    "title": "Tasty Treats"
+});
+```
+
+### Response
+
+`Status: 201 Created`
+
+---
+
+## Update User Interests
+
+`POST /api/updateInterests` Create a new user.
+
+| Parameter | Type
+| --- | ---
+| email | string
+| interests | array of strings
+
+### Request
+
+```JavaScript
+axios.post('/api/updateInterests', {
+    "email": "pillsbury.doughboy@gmail.com",
+    "interests": ["Food", "Politics"]
+});
+```
+
+### Response
+
+`Status: 201 Created`
+
+---
+
+## Update Interaction
+
+`POST /api/updateInteraction` Create a new user.
+
+| Parameter | Type
+| --- | ---
+| email | string
+| postId | string
+| interaction | number between -100 and 100
+
+### Request Body Shape
+
+```JavaScript
+axios.post('/api/updateInteraction', {
+    "email": "pillsbury.doughboy@gmail.com",
+    "postId": "8d80cbfc-2520-407b-a0df-7ba33d429bfd",
+    "interaction": -100
+});
+```
+
+### Response
+
+`Status: 201 Created`
+
+---
