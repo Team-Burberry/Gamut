@@ -1,8 +1,13 @@
 import {createContext} from 'react';
 
 const MainContext = createContext({
-  user: null
-});
+  exploreData: [],
+  searchData: () => {},
+  filterPostByCategory: () => {},
+  category: [],
+  filterData: [],
+})
+
 
 export default MainContext;
 
