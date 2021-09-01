@@ -12,7 +12,7 @@ const SearchPost = () => {
 
   return (
     <div className={`${style.bigContainer}`}>
-      <p>Trending</p>
+      <p className={style.text}>Trending</p>
 
       {filterData.sort((a, b) => b.interactions - a.interactions).map((item, key) => (
         <div
@@ -72,7 +72,6 @@ const SearchPost = () => {
           </div>
         </div>
       ))}
-      {/* <button onClick={() => setPost(post + 1)}>Load More</button> */}
     </div>
   );
 };

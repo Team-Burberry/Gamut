@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
 import Router from 'next/router';
+
 import firebase from '../../firebase.js';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
+import Categories from '../categories/Categories.jsx';
+
 import styles from '../../styles/Home.module.css';
 import {Heading, VStack, Input, Select, Button} from "@chakra-ui/react";
+
+import moment from 'moment';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
@@ -14,7 +19,18 @@ const SignUp = () => {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [gender, setGender] = useState('');
-  const [interests, setInterests] =useState([]);
+  const [interests, setInterests] = useState([]);
+
+  const updateInterests = (value) => {
+    const valIndex = interests.indexOf(value);
+    if (valIndex === -1) {
+      setInterests([...interests, value]);
+    } else {
+      setInterests(
+        interests.filter((interest) => interest !== value)
+      );
+    }
+  }
 
   return (
     <div className = {styles.container}>
@@ -80,23 +96,25 @@ const SignUp = () => {
             <option value="Female">Female</option>
             <option value="non-binary">Non Binary</option>
           </Select>
+          <Categories clickHandler={updateInterests}/>
           {/* <button>Next</button> */}
           <Button colorScheme="orange" onClick={e=>{
             e.preventDefault();
             //verify all the form data
-            //if account is created
+            //if account is successfully created
               //submit account info to db
                 //if post is successful
                   //forward user to feed page
             let userInfo = {
               username: username,
               email: email,
-              birthdate: birthdate,//unix date number
+              birthdate: moment(birthdate).unix(),//unix date number
               city: city,
               state: state,
               gender: gender,
               interests: interests//array of strings
             }
+            console.log(userInfo);
                 //else
                   //notify user of error
             //else
