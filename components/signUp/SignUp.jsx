@@ -1,59 +1,124 @@
-import React from 'react';
-import firebase from '../../firebase.js'
+import React, {useState} from 'react';
+import Router from 'next/router';
+import firebase from '../../firebase.js';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-import {Heading, VStack, Input, Select, Button} from "@chakra-ui/react"
+import styles from '../../styles/Home.module.css';
+import {Heading, VStack, Input, Select, Button} from "@chakra-ui/react";
 
-const SignUp = () => (
-  <div>
-    <Heading>SignUp</Heading>
-    <form>
-      <VStack>
-        <Input size="sm" type="text" placeholder="name"/>
-        <Input size="sm" type="email" placeholder="email@email.com"/>
-        <Input size="sm" type="password" placeholder="******"/>
-        <Input size="sm" type="date"/>
-        <Input size="sm" type="text" placeholder="city"/>
-        <Input size="sm" type="text" placeholder="state"/>
-        <Select name="gender" size="sm">
-          <option value="">Gender selection</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="non-binary">Non Binary</option>
-        </Select>
-        {/* <button>Next</button> */}
-        <Button colorScheme="orange" onClick={e=>{
-          e.preventDefault();
-          //verify all the form data
-          //if account is created
-            //submit account info to db
-              //if post is successful
-                //forward user to feed page
-              //else
-                //notify user of error
-          //else
-            //notify user of error
+const SignUp = () => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [birthdate, setBirthdate] = useState(null); //unix date number
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [gender, setGender] = useState('');
+  const [interests, setInterests] =useState([]);
 
-          const email = 'teamBurberry@gmail.com';
-          const password = 'topSecretP455word';
+  return (
+    <div className = {styles.container}>
+      <Heading>SignUp</Heading>
+      <form>
+        <VStack>
+          <Input
+            size="sm"
+            type="text"
+            placeholder="name"
+            onChange = {
+              e => {
+                setUsername(e.target.value);
+          }}/>
+          <Input
+            size="sm"
+            type="email"
+            placeholder="email@email.com"
+            onChange = {
+              e => {
+                setEmail(e.target.value);
+          }}/>
+          <Input
+            size="sm"
+            type="password"
+            placeholder="******"
+            onChange = {
+              e => {
+                setPassword(e.target.value);
+          }}/>
+          <Input
+            size="sm"
+            type="date"
+            onChange = {
+              e => {
+                setBirthdate(e.target.value);
+          }}/>
+          <Input
+            size="sm"
+            type="text"
+            placeholder="city"
+            onChange = {
+              e => {
+                setCity(e.target.value);
+          }}/>
+          <Input
+            size="sm"
+            type="text"
+            placeholder="state"
+            onChange = {
+              e => {
+                setState(e.target.value);
+          }}/>
+          <Select
+            name="gender"
+            size="sm"
+            onChange = {
+              e => {
+                setGender(e.target.value);
+            }}>
+            <option value="">Gender selection</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="non-binary">Non Binary</option>
+          </Select>
+          {/* <button>Next</button> */}
+          <Button colorScheme="orange" onClick={e=>{
+            e.preventDefault();
+            //verify all the form data
+            //if account is created
+              //submit account info to db
+                //if post is successful
+                  //forward user to feed page
+            let userInfo = {
+              username: username,
+              email: email,
+              birthdate: birthdate,//unix date number
+              city: city,
+              state: state,
+              gender: gender,
+              interests: interests//array of strings
+            }
+                //else
+                  //notify user of error
+            //else
+              //notify user of error
 
-          const auth = getAuth();
-          createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-              const user = userCredential.user;
-              console.log(userCredential);
-            })
-            .catch((error) => {
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              console.log(errorCode, errorMessage);
-            });
-        }}>Sign Up</Button>
-      </VStack>
+            const auth = getAuth();
+            createUserWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(userCredential);
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+              });
+          }}>Sign Up</Button>
+        </VStack>
 
-    </form>
-    {/* <p>Have an account? <a href="./login">login</a></p> */}
-  </div>
-);
+      </form>
+      <p>Have an account? <a href="./login">log in</a></p>
+    </div>
+)};
 
 export default SignUp;

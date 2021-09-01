@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import firebase from '../firebase.js'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
-import LogOut from '../components/logOut/LogOut.jsx'
+import Splash from '../components/splash/Splash.jsx'
 import Login from '../components/login/Login.jsx'
 import SignUp from '../components/signUp/SignUp.jsx'
 
@@ -18,9 +18,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <LogOut/>
-        <Login/>
-        <SignUp/>
+        <Splash/>
       </main>
     </div>
   )
