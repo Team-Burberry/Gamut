@@ -17,7 +17,7 @@ const SearchPost = () => {
     <div className={`${style.bigContainer}`}>
       <p>Trending</p>
 
-      {filterData.map((item, key) => (
+      {filterData.sort((a, b) => b.interactions - a.interactions).map((item, key) => (
         <div
           onClick={() => router.push(`/feed/${item.id}`)}
           className={`${style.container}`}

@@ -20,7 +20,7 @@ const Provider = ({children})=>{
   })
 
   const searchData = async() => {
-    const {data} = await axios.get('/api/getPosts')
+    let {data} = await axios.get('/api/getPosts')
     setExploreData(data)
     setFilterData(data)
     setCategory([...new Set(data.map(item => item.category))])
