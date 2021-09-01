@@ -14,9 +14,13 @@ const Provider = ({children})=>{
     'Politics': 'fa fa-balance-scale',
     'Travel': 'fa fa-plane"',
     'Religion': 'fa fa-book',
-    'Music': 'fa fa-music'
-
-
+    'Music': 'fa fa-music',
+    'Science & Nature': 'fa-flask',
+    'Celebrity': 'fa fa-camera-retro',
+    'Technology': 'fa fa-laptop',
+    'Fashion': 'fa-shopping-bag',
+    'Arts & Crafts': 'fa-paint-brush',
+    'Video Games': 'fa-gamepad',
   })
 
   const searchData = async() => {

@@ -7,6 +7,7 @@ const MenuBar = dynamic(() => import('../../components/search/MenuBar'), {
 import SearchPost from '../../components/search/SearchPost';
 import Nav from '../../components/navbar/Nav';
 
+
 const Search = () => {
   return (
     <>
