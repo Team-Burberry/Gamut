@@ -23,7 +23,7 @@
 }
 
 .date {
-  margin-left: 100px;
+  margin-left: 200px;
 }
 
 .category {
@@ -47,6 +47,8 @@
   border:1px solid;
   border-radius: 20px;
   color:black;
+  display: flex;
+  flex-direction: column;
 }
 
 .text {

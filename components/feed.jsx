@@ -1,39 +1,31 @@
 import styles from '../styles/Feed.module.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Carousel from 'react-elastic-carousel';
 import Image from 'next/image'
 import logo from '../public/Gamut_logo_small.png'
 import firebase from '../firebase.js'
 import { getAuth} from "firebase/auth";
-import NavBar from './navbar/Nav.jsx'
+import NavBar from './navbar/Nav.jsx';
+import MainContext from "../context/MainContext";
 
 export default function Feed() {
-  const [data, setData] = useState([]);
+  const { exploreData } = useContext(MainContext);
   const [votes, setVotes] = useState(0);
 
-
+console.log(exploreData)
   const checkLoginStatus = () => {
     const auth = getAuth();
     if(auth.currentUser !== null) {
     }
   };
 
-  useEffect(()=>{
-    checkLoginStatus();
-    axios.get('http://localhost:3000/api/getPosts')
-         .then(res => {
-           setData(res.data)
-         })
-         .catch(err => console.log(err))
-  }, [])
-
   return (
     <>
     <div className={styles.cardContainer}>
     <Carousel verticalMode itemsToShow={1} showArrows={false} onChange={(currentItem, pageIndex) =>
     console.log(pageIndex)}>
-      {data.map((post,index) =>
+      {exploreData.map((post,index) =>
         <div className={styles.card} key={index}>
           <div className={styles.feedContainer}>
             <span className={styles.username}>{post.user}</span>
