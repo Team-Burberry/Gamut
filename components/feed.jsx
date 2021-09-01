@@ -5,7 +5,7 @@ import Carousel from 'react-elastic-carousel';
 import Image from 'next/image'
 import logo from '../public/Gamut_logo_small.png'
 import firebase from '../firebase.js'
-import { getAuth} from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import NavBar from './navbar/Nav.jsx';
 import MainContext from "../context/MainContext";
 
@@ -18,27 +18,25 @@ export default function Feed() {
 
   const checkLoginStatus = () => {
     if(auth.currentUser !== null) {
-      axios.get('http://localhost:3000/getPosts', {params: {email: auth.currentUser.email}})
+      axios.get('http://localhost:3000/api/getPosts', {params: {email: auth.currentUser.email}})
             .then((res) => {
               setFilteredPosts(res.data)
-          }
-        )
+          })
             .catch(err => console.log(err))
-    }
-  };
+    }};
 
   useEffect(()=>{
     checkLoginStatus();
-  })
+  },[])
 
   const handleSwipe = (index) => {
     if(auth.currentUser !== null){
       axios
-        .post(`http://localhost:3000/updateInteraction`, {email: auth.currentUser.email, postId: posts[index].id, interaction: votes})
+        .post(`http://localhost:3000/api/updateInteraction`, {email: auth.currentUser.email, postId: posts[index].id, interaction: votes})
         .then((res) => {
           res.send('Success')
         })
-        .catch((err) => res.send(err));
+        .catch((err) => console.log(err));
     }
   };
 
