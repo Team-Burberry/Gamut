@@ -2,36 +2,125 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: #EBEBEB;
+  /* background-color: var(--lightGray); */
   padding: 1rem;
   justify-content: center;
   margin-bottom: 1rem;
   border-radius: 10px;
-  color: #484848;
+  color: var( --darkGray);
+  position: relative;
+
 }
 
 .bigContainer {
   padding: 12px;
-  background-color:#1E3D59;
+  background-color: var(#1E3D59);
+  z-index: -2;
 }
 
 .text {
-  color: #FF6E40;
+  color: var(--orange);
   padding-bottom: 1rem;
+  z-index: 1;
 }
 
 .container h2 {
   align-self: center;
+  margin-bottom: 10px;
+
 }
 
 .interaction {
   display: flex;
   align-self: flex-end;
-  min-width: 50px;
+  /* min-width: 50px; */
 }
 
 .interaction img {
   width: 10px;
   height: 15px;
   margin: 4px;
+}
+
+.cardInfo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardBg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 10px;
+}
+
+.sport {
+  background-image: linear-gradient(#ffffffcc,#edf2fb9c),url(https://images.unsplash.com/photo-1448387473223-5c37445527e7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.food {
+  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.celebrity {
+  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.music {
+  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1495305379050-64540d6ee95d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.technology {
+  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1478432780021-b8d273730d8c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.arts {
+  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.religion {
+  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1564373072072-3b38727f9d97?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.game {
+  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/10/wii.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.fashion {
+  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.science {
+  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1534777410147-084a460870fc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
