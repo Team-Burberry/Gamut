@@ -1,11 +1,10 @@
-
-import  style  from '../../styles/modal.module.css';
 import {
 
   Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton,
   Input, Button, useDisclosure, FormControl, FormLabel, Textarea, Lorem
 } from "@chakra-ui/react";
 import Login from '../login/Login';
+import Link from "next/link";
 
 const MyModal = ({isOpen, onClose}) =>  {
   // const { isOpen, onOpen, onClose } = useDisclosure()
@@ -15,13 +14,13 @@ const MyModal = ({isOpen, onClose}) =>  {
       <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>oops, You Need to Login to Access</ModalHeader>
-          <ModalCloseButton />
+          <ModalHeader>Please Login to Access</ModalHeader>
           <ModalBody>
-           <Button>Login</Button>
+          <Link href="/login">
+            <a><Button>Login</Button></a>
+          </Link>
           </ModalBody>
           <ModalFooter>
-            <Button onClick={onClose}>Close</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

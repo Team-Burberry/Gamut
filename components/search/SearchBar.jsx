@@ -29,8 +29,10 @@ const SearchBar = () => {
         <form w='100%'onSubmit={(e) => submitForm(e)}>
           <InputGroup w='100%'>
             <InputLeftElement pointerEvents="none"/>
+
             <Input onChange={(e) => inputFilter(e)}  w='100%' type="tel" placeholder="search" />
           </InputGroup>
+          <i className={`fa fa-search ${styles.searchIcon}`} ></i>
         </form>
     </Flex>
   );

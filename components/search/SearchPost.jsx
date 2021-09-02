@@ -1,75 +1,132 @@
-import { Box, Flex, Text, Spacer, Grid, HStack } from "@chakra-ui/react";
-import { useContext, useState } from "react";
+import { Box, Flex, Text, Spacer, Grid, HStack, useDisclosure } from "@chakra-ui/react";
+import { useContext, useState, useEffect } from "react";
 import style from "../../styles/SearchPost.module.css";
 import MainContext from "../../context/MainContext";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faMusic, faPrayingHands, faPizzaSlice, faShoppingBag, faGamepad, faMicroscope, faPaintBrush } from '@fortawesome/free-solid-svg-icons';
+import PostModal from './PostModal';
+import MyModal from '../navbar/Modal';
+import useAuth from '../../firebase';
+
 
 const SearchPost = () => {
   const { exploreData, filterData } = useContext(MainContext);
   const router = useRouter();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen:logInIsOpen, onOpen: logInOnOpen, onClose: logInOnClose } = useDisclosure();
+
+  const [selectedPost, setSelectedPost] = useState()
+  const user = useAuth();
+
+  const handleOpenModal = (item) => {
+    if(user) setSelectedPost(item);
+    else logInOnOpen();
+  };
+
+  useEffect(() => {
+    if(selectedPost) onOpen()
+  }, [selectedPost]);
 
   return (
     <div className={`${style.bigContainer}`}>
       <p className={style.text}>Trending</p>
-
+      <MyModal isOpen={logInIsOpen} onClose={logInOnClose}/>
+    <PostModal isOpen={isOpen} onClose={onClose} post={selectedPost}/>
       {filterData.sort((a, b) => b.interactions - a.interactions).map((item, key) => (
-        <div
-          onClick={() => router.push(`/feed/${item.id}`)}
+        <div onClick={()=> handleOpenModal(item)}
+
           className={`${style.container}`}
           key={key}>
+            <div className={style.cardInfo}>
 
           {item.category === "Science & Nature" && (
-            <FontAwesomeIcon icon={faMicroscope} className={style.title}/>
+            <>
+              <div className={`${style.cardBg} ${style.science}`}></div>
+              <FontAwesomeIcon icon={faMicroscope} className={style.title}/>
+            </>
           )}
 
           {item.category === "Celebrity" && (
-            <i className={`fa fa-camera-retro ${style.title}`} />
+            <>
+              <div className={`${style.cardBg} ${style.celebrity}`}></div>
+              <i className={`fa fa-camera-retro ${style.title}`} />
+            </>
           )}
 
           {item.category === "Technology" && (
-            <i className={`fa fa-laptop ${style.title}`} />
+            <>
+              <div className={`${style.cardBg} ${style.technology}`}></div>
+              <i className={`fa fa-laptop ${style.title}`} />
+            </>
           )}
 
           {item.category === "Fashion" && (
-             <FontAwesomeIcon icon={faShoppingBag} className={style.title}/>
+            <>
+              <div className={`${style.cardBg} ${style.fashion}`}></div>
+              <FontAwesomeIcon icon={faShoppingBag} className={style.title}/>
+            </>
           )}
 
           {item.category === "Arts & Crafts" && (
-           <FontAwesomeIcon icon={faPaintBrush} className={style.title}/>
+            <>
+              <div className={`${style.cardBg} ${style.arts}`}></div>
+            <FontAwesomeIcon icon={faPaintBrush} className={style.title}/>
+            </>
           )}
 
           {item.category === "Video Games" && (
-             <FontAwesomeIcon icon={faGamepad} className={style.title}/>
+            <>
+              <div className={`${style.cardBg} ${style.game}`}></div>
+              <FontAwesomeIcon icon={faGamepad} className={style.title}/>
+            </>
           )}
 
           {item.category === "Sports" && (
+            <>
+            <div className={`${style.cardBg} ${style.sport}`}></div>
             <i className={`fa fa-futbol-o ${style.title}`} />
+            </>
           )}
 
           {item.category === "Food" && (
-            <i className={`fa fa-cutlery ${style.title}`} />
+            <>
+              <div className={`${style.cardBg} ${style.food}`}></div>
+              <i className={`fa fa-cutlery ${style.title}`} />
+            </>
 
           )}
           {item.category === "Politics" && (
-            <i className={`fa fa-balance-scale ${style.title}`} />
+            <>
+              <div className={`${style.cardBg} ${style.politics}`}></div>
+              <i className={`fa fa-balance-scale ${style.title}`} />
+            </>
           )}
            {item.category === "Travel" && (
-            <i className={`fa fa-plane ${style.title}`} />
+             <>
+              <div className={`${style.cardBg} ${style.travel}`}></div>
+              <i className={`fa fa-plane ${style.title}`} />
+             </>
           )}
            {item.category === "Religion" && (
-             <FontAwesomeIcon icon={faPrayingHands} className={style.title}/>
+             <>
+              <div className={`${style.cardBg} ${style.religion}`}></div>
+              <FontAwesomeIcon icon={faPrayingHands} className={style.title}/>
+             </>
           )}
            {item.category === "Music" && (
-             <FontAwesomeIcon icon={faMusic} className={style.title}/>
+             <>
+              <div className={`${style.cardBg} ${style.music}`}></div>
+              <FontAwesomeIcon icon={faMusic} className={style.title}/>
+             </>
 
           )}
-          <h2>{item.title}</h2>
-          <div className={style.interaction}>
+           <div className={style.interaction}>
             <img src="logo.png" alt='gamut logo'/>
             <p>{item.interactions}</p>
           </div>
+          </div>
+          <h2>{item.title}</h2>
         </div>
       ))}
     </div>
