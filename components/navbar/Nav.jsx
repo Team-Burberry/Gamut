@@ -19,7 +19,7 @@ import MyModal from "./Modal";
 import { useDisclosure } from "@chakra-ui/react";
 import LogOut from "../logOut/LogOut";
 import MainContext from '../../context/MainContext';
-import useAuth from '../../firebase'
+import useAuth from '../../firebase';
 
 const Nav = () => {
   // const [user, setUser] = useState(false)
@@ -76,7 +76,7 @@ const Nav = () => {
             </a>
           </Link>
         )}
-         {/* <LogOut /> */}
+         <LogOut />
       </div>
     </>
   );

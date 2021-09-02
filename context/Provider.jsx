@@ -35,8 +35,6 @@ const Provider = ({children})=>{
     getAuthUser()
   }, []);
 
-
-
   const searchData = async() => {
     let {data} = await axios.get('/api/getPosts')
     setExploreData(data)

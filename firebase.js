@@ -21,14 +21,14 @@ const useAuth=()=>{
   useEffect(() => {
     onAuthStateChanged(auth, user=>{
       if (user !== null) {
-        setUserLogin(user.email)
+        setUserLogin(user.email);
       } else {
-        setUserLogin(null)
+        setUserLogin(null);
       }
     })
   },[])
 
-  return userLogin
+  return userLogin;
 }
 
 export default useAuth;

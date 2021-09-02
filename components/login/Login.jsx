@@ -16,7 +16,7 @@ const Login = () => {
   return (
     <Center h="100vh" bg={`var(--navyBlue)`} color="#fff">
       <VStack spacing={4}>
-      <Heading color={`var(--orange)`} mb="20px">Log In</Heading>
+        <Heading color={`var(--orange)`} mb="20px">Log In</Heading>
         <Input
           align="center"
           size = "md"
@@ -40,14 +40,7 @@ const Login = () => {
             const auth = getAuth();
             signInWithEmailAndPassword(auth, email, password)
               .then((userCredential) => {
-<<<<<<< HEAD
                 Router.push('/feed');
-=======
-                const user = userCredential.user;
-                console.log('[SIGN IN]:', user);
-                getAuthUser()
-                Router.push('/search');
->>>>>>> main
               })
               .catch((error) => {
                 const errorCode = error.code;
@@ -55,9 +48,9 @@ const Login = () => {
                 alert('error.message');
               });
         }}>Log In</Button>
-      <p align="center">Don&apos;t have an account? <br/>
-        <a href="./signup" color={`var(--orange)`}>Sign up here</a></p>
-      <p><a href="./search">View site as a guest</a></p>
+        <p align="center">Don&apos;t have an account? <br/>
+          <a href="./signup" color={`var(--orange)`}>Sign up here</a></p>
+        <p><a href="./search">View site as a guest</a></p>
       </VStack>
     </Center>
   )};
