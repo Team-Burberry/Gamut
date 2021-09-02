@@ -4,7 +4,6 @@ import axios from 'axios'
 import firebase from "../firebase.js";
 import { getAuth } from "firebase/auth";
 
-
 const Provider = ({children})=>{
   //this is for when the page loads for the trending result
   const [exploreData, setExploreData] = useState([]);
@@ -29,10 +28,8 @@ const Provider = ({children})=>{
   const getAuthUser = () => {
     const auth = getAuth();
     if (auth.currentUser) setUserLogIn(auth.currentUser);
-    console.log(auth.currentUser);
+  };
 
-  }
-  
   useEffect(() => {
     getAuthUser()
   }, []);
@@ -45,11 +42,11 @@ const Provider = ({children})=>{
     setFilterData(data)
     setCategory([...new Set(data.map(item => item.category))])
     // console.log(category)
-  }
+  };
 
   useEffect(() => {
     searchData()
-  }, [])
+  }, []);
 
   const filterPostByCategory = (category) => {
     let copy = [...exploreData];
@@ -65,4 +62,3 @@ const Provider = ({children})=>{
 }
 
 export default Provider
-

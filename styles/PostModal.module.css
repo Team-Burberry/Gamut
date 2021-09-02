@@ -10,7 +10,6 @@
   background-color: var(--navyBlue) !important;
   height: 100px;
   width: 50px;
-
 }
 
 .card {
@@ -20,7 +19,6 @@
 }
 
 .feedContainer {
-
   color: black;
   font-size:small;
 }
