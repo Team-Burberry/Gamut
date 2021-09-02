@@ -6,6 +6,8 @@ const MainContext = createContext({
   filterPostByCategory: () => {},
   category: [],
   filterData: [],
+  userLogIn: null,
+  getAuthUser: () => {}
 })
 
 
