@@ -11,7 +11,7 @@
 
 A mobile-first social media app that shows users a feed of posts tailored to their interests based on their previous interactions with the app.
 
-<img src="docs/logo.png" width="150"/>
+![gamut banner](docs/img/gamut_banner.png)
 
 ## Contents
 
