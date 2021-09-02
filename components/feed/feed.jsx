@@ -19,7 +19,7 @@ export default function Feed() {
 
   useEffect(()=>{
     if(email !== null) {
-      axios.get('http://localhost:3000/api/getPosts', {params: {email: email}})
+      axios.get('/api/getPosts', {params: {email: email}})
             .then((res) => {
               setFilteredPosts(res.data)
           })
@@ -32,7 +32,7 @@ export default function Feed() {
   const handleSwipe = (index) => {
     if(email !== null){
       axios
-        .post(`http://localhost:3000/api/updateInteraction`, {email: email, postId: posts[index].id, interaction: votes})
+        .post(`/api/updateInteraction`, {email: email, postId: posts[index].id, interaction: votes})
         .then((res) => {
           console.log('Success')
         })
