@@ -3,9 +3,8 @@ import { useState, useEffect, useContext, useReducer } from 'react';
 import axios from 'axios';
 import Carousel from 'react-elastic-carousel';
 import Image from 'next/image';
-import logo from '../../public/Gamut_logo_small.png'
-import firebase from '../../firebase.js'
-import { getAuth } from "firebase/auth";
+import logo from '../../public/Gamut_logo_small.png';
+import useAuth from '../../firebase.js';
 import NavBar from '../navbar/Nav.jsx';
 import MainContext from "../../context/MainContext";
 import Lottie from './lottie.js';
@@ -16,11 +15,11 @@ export default function Feed() {
   const { exploreData } = useContext(MainContext);
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [votes, setVotes] = useState(0);
-  const auth = getAuth();
+  const email = useAuth();
 
   useEffect(()=>{
-    if(auth.currentUser !== null) {
-      axios.get('http://localhost:3000/api/getPosts', {params: {email: auth.currentUser.email}})
+    if(email !== null) {
+      axios.get('http://localhost:3000/api/getPosts', {params: {email: email}})
             .then((res) => {
               setFilteredPosts(res.data)
           })
@@ -31,9 +30,9 @@ export default function Feed() {
   let posts = filteredPosts.length === 0 ? exploreData : filteredPosts;
 
   const handleSwipe = (index) => {
-    if(auth.currentUser !== null){
+    if(email !== null){
       axios
-        .post(`http://localhost:3000/api/updateInteraction`, {email: auth.currentUser.email, postId: posts[index].id, interaction: votes})
+        .post(`http://localhost:3000/api/updateInteraction`, {email: email, postId: posts[index].id, interaction: votes})
         .then((res) => {
           console.log('Success')
         })
