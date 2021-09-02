@@ -12,12 +12,14 @@ import {Heading, VStack} from "@chakra-ui/react";
 
 const Splash = () => {
   useEffect(() => {
-    const auth = getAuth();
+    setTimeout(()=>{
+      const auth = getAuth();
     if (auth.currentUser) {
       Router.push('/search');
     } else {
       Router.push('/login');
     }
+  }, 5000);
   });
 
   return (
