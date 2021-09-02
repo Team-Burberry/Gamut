@@ -20,7 +20,7 @@ const SignUp = () => {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [gender, setGender] = useState('');
-  const [interests, setInterests] = useState([]);
+  // const [interests, setInterests] = useState([]);
 
   const updateInterests = (value) => {
     const valIndex = interests.indexOf(value);
