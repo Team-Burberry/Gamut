@@ -12,23 +12,14 @@ import Nav from '../../components/navbar/Nav';
 
 const Search = () => {
   return (
-<<<<<<< HEAD
-    <motion.div
-      exit = {{ opacity: 0 }}
-      initial = {{ opacity: 0 }}
-      animate = {{ opacity: 1 }}
-      >
-      <div style={{position: 'sticky', top: '0', backgroundColor: 'white'}}>
-=======
     <>
       <div style={{position: 'sticky', top: '0', backgroundColor: '#1E3D59'}}>
->>>>>>> main
         <SearchBar/>
         <MenuBar/>
       </div>
       <SearchPost/>
       <Nav/>
-    </motion.div>
+    </>
   )
 }
 export default Search;

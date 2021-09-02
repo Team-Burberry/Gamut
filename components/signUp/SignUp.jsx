@@ -7,7 +7,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Categories from '../categories/Categories.jsx';
 
 import styles from '../../styles/Home.module.css';
-import {Heading, VStack, Input, Select, Button} from "@chakra-ui/react";
+import {Heading, VStack, Input, Select, SimpleGrid, Box, Button} from "@chakra-ui/react";
 
 import moment from 'moment';
 
@@ -33,7 +33,7 @@ const SignUp = () => {
   }
 
   return (
-    <div className = {styles.container}>
+    <div className = {styles.container} bg={`var(--navyBlue)`}>
       <Heading>SignUp</Heading>
       <form>
         <VStack>
@@ -97,6 +97,20 @@ const SignUp = () => {
             <option value="non-binary">Non Binary</option>
           </Select>
           <Categories clickHandler={updateInterests}/>
+          <SimpleGrid columns = {3} spacing = {2}>
+            <Box px="35px" py="11px" bg = "orange">Cat</Box>
+            <Box px="35px" py="11px" bg = "orange">Cat</Box>
+            <Box px="35px" py="11px" bg = "orange">Cat</Box>
+            <Box px="35px" py="11px" bg = "orange">Cat</Box>
+            <Box px="35px" py="11px" bg = "orange">Cat</Box>
+            <Box px="35px" py="11px" bg = "orange">Cat</Box>
+            <Box px="35px" py="11px" bg = "orange">Cat</Box>
+            <Box px="35px" py="11px" bg = "orange">Cat</Box>
+            <Box px="35px" py="11px" bg = "orange">Cat</Box>
+            <Box px="35px" py="11px" bg = "orange">Cat</Box>
+            <Box px="35px" py="11px" bg = "orange">Cat</Box>
+            <Box px="35px" py="11px" bg = "orange">Cat</Box>
+          </SimpleGrid>
           {/* <button>Next</button> */}
           <Button colorScheme="orange" onClick={e=>{
             e.preventDefault();

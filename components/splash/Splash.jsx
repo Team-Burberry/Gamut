@@ -8,25 +8,25 @@ import { getAuth } from "firebase/auth";
 import LogOut from '../logOut/LogOut.jsx';
 
 import Logo from '../../public/Gamut_logo_small.png';
-import {Heading, VStack} from "@chakra-ui/react";
+import {Heading, Box} from "@chakra-ui/react";
 
 const Splash = () => {
-  useEffect(() => {
-    setTimeout(()=>{
-      const auth = getAuth();
-    if (auth.currentUser) {
-      Router.push('/search');
-    } else {
-      Router.push('/login');
-    }
-  }, 5000);
-  });
+  // useEffect(() => {
+  //   setTimeout(()=>{
+  //     const auth = getAuth();
+  //   if (auth.currentUser) {
+  //     Router.push('/feed');
+  //   } else {
+  //     Router.push('/login');
+  //   }
+  // }, 5000);
+  // });
 
   return (
-    <VStack>
-      <Heading>Gamut</Heading>
+    <Box h="100vh" bg={`var(--navyBlue)`} align="center" justifyContent="space-between" verticalAlign="center">
       <Image src = {Logo} alt = "Gamut fire logo"/>
-    </VStack>
+      <Heading >Gamut</Heading>
+    </Box>
   );
 }
 
