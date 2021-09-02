@@ -15,3 +15,41 @@ WHERE NOT
 RETURN
   u, p
 ```
+
+## Display all Posts per each Category
+
+![posts per category](img/posts_per_category.png)
+
+```SQL
+MATCH
+  (c)-[:INCLUDED_IN]->(p)
+RETURN
+  c, p
+```
+
+## Display All Users Interests
+
+![user interests](img/user_interests.png)
+
+```SQL
+MATCH
+    (u)-[:INTERESTED_IN]->(c:Category)
+RETURN
+    u, c
+```
+
+## Find Posts a user may like
+
+Based on interactions with Posts in the same category as Posts interacted with
+
+![interacted with](img/posts_user_may_like.png)
+
+```SQL
+MATCH
+    (u {email: "pillsbury.doughboy@gmail.com"})-[*1..2]->(c:Category),
+    (c)-[:INCLUDED_IN]-(p:Post)
+WHERE NOT
+    (u)-[:INTERACTED_WITH]->(p)
+RETURN
+    p
+```
