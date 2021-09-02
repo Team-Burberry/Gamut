@@ -2,13 +2,16 @@ import React, {useState} from 'react';
 import Router from 'next/router';
 import firebase from '../../firebase.js';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
+import {useContext} from 'react';
+import MainContext from '../../context/MainContext'
 import styles from '../../styles/Home.module.css'
 import {Center, Heading, VStack, Button, Input} from "@chakra-ui/react"
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const {getAuthUser} = useContext(MainContext)
+
 
   return (
     <Center h="100vh" bg={`var(--navyBlue)`} color="#fff">
@@ -37,7 +40,14 @@ const Login = () => {
             const auth = getAuth();
             signInWithEmailAndPassword(auth, email, password)
               .then((userCredential) => {
+<<<<<<< HEAD
                 Router.push('/feed');
+=======
+                const user = userCredential.user;
+                console.log('[SIGN IN]:', user);
+                getAuthUser()
+                Router.push('/search');
+>>>>>>> main
               })
               .catch((error) => {
                 const errorCode = error.code;

@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import {getAuth, onAuthStateChanged} from 'firebase/auth';
+import {useState, useEffect} from 'react';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBLbvxaz9xaPcAK06O-YcwsTQfjOtWZzMM",
@@ -14,12 +15,20 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 
-// onAuthStateChanged(auth, user=>{
-//   if (user !== null) {
-//     //update user to show currentUser.email
-//     console.log('Signed in as user: ', user);
-//   } else {
-//     //update context to show "guest"
-//     console.log('Guest mode. If you would like to access the entire app, please sign in. Or if you do not have an account, please sign up');
-//   }
-// })
+const useAuth=()=>{
+  const [userLogin,setUserLogin] = useState();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, user=>{
+      if (user !== null) {
+        setUserLogin(user.email)
+      } else {
+        setUserLogin(null)
+      }
+    })
+  },[])
+
+  return userLogin
+}
+
+export default useAuth;
