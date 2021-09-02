@@ -1,4 +1,5 @@
 import React, {useContext, useState} from 'react';
+import axios from 'axios';
 import Router from 'next/router';
 import MainContext from "../../context/MainContext";
 
@@ -117,37 +118,69 @@ const SignUp = () => {
               {/* <button>Next</button> */}
               <Button colorScheme="orange" onClick={e=>{
                 e.preventDefault();
-                //verify all the form data
-                //if account is successfully created
-                  //submit account info to db
-                    //if post is successful
-                      //forward user to feed page
-                let userInfo = {
+                let valid = true;
+
+                const userInfo = {
                   username: username,
                   email: email,
-                  birthdate: moment(birthdate).unix(),//unix date number
+                  birthDate: `${moment(birthdate).unix()}`,
                   city: city,
                   state: state,
-                  gender: gender,
-                  interests: interests//array of strings
+                  gender: gender
                 }
-                console.log(userInfo);
-                    //else
-                      //notify user of error
-                //else
-                  //notify user of error
 
-                const auth = getAuth();
-                createUserWithEmailAndPassword(auth, email, password)
-                  .then((userCredential) => {
-                    const user = userCredential.user;
-                    console.log(userCredential);
-                  })
-                  .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    console.log(errorCode, errorMessage);
-                  });
+                if (password.length < 7) {
+                  valid = false;
+                  alert('Password must be at least 7 characters');
+                }
+
+                if (valid) {
+                  for (let field in userInfo) {
+                    if (field === "birthDate") {
+                      if (birthdate === null) {
+                        valid = false;
+                        alert(`Please fill out ${field}`);
+                        break;
+                      }
+                    }
+                    if (!userInfo[field]) {
+                      valid = false;
+                      alert(`Please fill out ${field}`);
+                      break;
+                    }
+                  }
+                }
+
+                if (valid) {
+                  console.log('creating account');
+                  const auth = getAuth();
+                  createUserWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                      const user = userCredential.user;
+                      console.log('account created with firebase');
+                      axios.post('/api/createUser', userInfo)
+                        .then(res=>{
+                          console.log('account created:', res);
+                          Router.push('/feed');
+                        })
+                        .catch(err=>{
+                          console.log(`Unable to create account on DB:`, err);
+                        })
+                      })
+                      .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        let msgText = null;
+                        switch (error.message) {
+                          case "auth/email-already-in-use" :
+                            msgText = "The email address entered already has an account. Please try again";
+                            break;
+                          default:
+                            msgText = "Something went wrong. Please check the information entered and try again."
+                        }
+                        console.log(error);
+                      });
+                }
               }}>Sign Up</Button>
             </VStack>
           </form>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Router from 'next/router';
 import firebase from '../../firebase.js'
 import { getAuth, signOut } from "firebase/auth";
 
@@ -9,9 +10,10 @@ const LogOut = () => (
     (e)=>{
       const auth = getAuth();
       signOut(auth).then(() => {
-        console.log('Session has terminated. Please sign in again');
-      }).catch((error) => {
-        console.log('Something went wrong with the sign out process: ');
+        Router.push('/');
+      })
+      .catch((error) => {
+        alert('Something went wrong with the sign out process, please try again');
       });
     }
   }>Sign Out</Button>
