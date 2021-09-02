@@ -76,7 +76,7 @@ const Nav = () => {
             </a>
           </Link>
         )}
-         <LogOut />
+         {/* <LogOut /> */}
       </div>
     </>
   );

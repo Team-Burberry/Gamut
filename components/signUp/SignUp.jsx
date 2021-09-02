@@ -7,9 +7,7 @@ import firebase from '../../firebase.js';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 import Categories from '../categories/Categories.jsx';
-
-import styles from '../../styles/Home.module.css';
-import {Box, Heading, VStack, Input, Select, SimpleGrid, Button} from "@chakra-ui/react";
+import {Center, Box, Heading, VStack, Input, Select, Button} from "@chakra-ui/react";
 
 import moment from 'moment';
 
@@ -21,26 +19,16 @@ const SignUp = () => {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [gender, setGender] = useState('');
-  // const [interests, setInterests] = useState([]);
 
-  const updateInterests = (value) => {
-    const valIndex = interests.indexOf(value);
-    if (valIndex === -1) {
-      setInterests([...interests, value]);
-    } else {
-      setInterests(
-        interests.filter((interest) => interest !== value)
-      );
-    }
-  }
+
 
   return (
-    <Box h="100vh" bg={`var(--navyBlue)`} color="#fff">
-      <VStack spacing={4}>
-        <div className = {styles.container} bg={`var(--navyBlue)`}>
-          <Heading color={`var(--orange)`} align="center">SignUp</Heading>
+    <Center h="100vh" bg={`var(--navyBlue)`} color="#fff">
+      <VStack spacing={7}>
+        <div bg={`var(--navyBlue)`}>
+          <Heading color={`var(--orange)`} align="center" mb="20px">SignUp</Heading>
           <form>
-            <VStack>
+            <VStack spacing={5}>
               <Input
                 size="sm"
                 type="text"
@@ -100,23 +88,7 @@ const SignUp = () => {
                 <option value="Female">Female</option>
                 <option value="non-binary">Non Binary</option>
               </Select>
-              <Categories clickHandler={updateInterests}/>
-              <SimpleGrid columns = {3} spacing = {2}>
-                <Box px="35px" py="11px" bg = "orange">Cat</Box>
-                <Box px="35px" py="11px" bg = "orange">Cat</Box>
-                <Box px="35px" py="11px" bg = "orange">Cat</Box>
-                <Box px="35px" py="11px" bg = "orange">Cat</Box>
-                <Box px="35px" py="11px" bg = "orange">Cat</Box>
-                <Box px="35px" py="11px" bg = "orange">Cat</Box>
-                <Box px="35px" py="11px" bg = "orange">Cat</Box>
-                <Box px="35px" py="11px" bg = "orange">Cat</Box>
-                <Box px="35px" py="11px" bg = "orange">Cat</Box>
-                <Box px="35px" py="11px" bg = "orange">Cat</Box>
-                <Box px="35px" py="11px" bg = "orange">Cat</Box>
-                <Box px="35px" py="11px" bg = "orange">Cat</Box>
-              </SimpleGrid>
-              {/* <button>Next</button> */}
-              <Button colorScheme="orange" onClick={e=>{
+              <Button mb="20px" colorScheme="orange" onClick={e=>{
                 e.preventDefault();
                 let valid = true;
 
@@ -160,8 +132,7 @@ const SignUp = () => {
                       console.log('account created with firebase');
                       axios.post('/api/createUser', userInfo)
                         .then(res=>{
-                          console.log('account created:', res);
-                          Router.push('/feed');
+                          Router.push('/interests');
                         })
                         .catch(err=>{
                           console.log(`Unable to create account on DB:`, err);
@@ -181,13 +152,13 @@ const SignUp = () => {
                         console.log(error);
                       });
                 }
-              }}>Sign Up</Button>
+              }}>Next</Button>
             </VStack>
           </form>
           <p>Have an account? <a href="./login">log in</a></p>
         </div>
       </VStack>
-    </Box>
+    </Center>
 )};
 
 export default SignUp;
