@@ -69,14 +69,11 @@ export default function Feed() {
            </div>
           </div>
 
-          <div className={styles.field}>
+          {email !== null ? <div className={styles.field}>
             <input className={styles.slider} type='range' min='-100' max='100' value={votes} steps='1'
             onChange={(e)=>{setVotes(e.target.value); }}></input>
-          </div>
+          </div> : null}
 
-          {/* <div className={styles.bottom}>
-            {votes === 100 ? <Lottie lotti={animationBottom} height={150} width={150}/> : null}
-          </div> */}
         </div> )}
     </Carousel>
     <NavBar />
