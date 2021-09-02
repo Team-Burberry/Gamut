@@ -1,16 +1,8 @@
 import MainContext from './MainContext';
-<<<<<<< HEAD
-import {useState, useEffect} from 'react';
-import axios from 'axios';
-
-import firebase from '../firebase.js';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-=======
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import firebase from "../firebase.js";
 import { getAuth } from "firebase/auth";
->>>>>>> main
 
 const Provider = ({children})=>{
   //this is for when the page loads for the trending result
