@@ -3,6 +3,7 @@
 ## Contents
 
 - [getPosts](#get-posts-for-feed)
+- [getMyPosts](#get-posts-for-profile)
 - [getTrendingPosts](#get-posts-for-explore-page)
 - [getUserInfo](#get-user-info)
 - [createUser](#create-user)
@@ -62,6 +63,62 @@
         "body": "Kanye is the goat",
         "interactions": 2,
         "username": "BobLoblaw"
+    },
+    // ...
+]
+```
+
+---
+
+## Get Posts for Profile
+
+`GET /api/getMyPosts`
+
+| Parameter | Type |
+| --- | --- |
+| email | string |
+
+### Request
+
+- Guest
+
+     ```JavaScript
+     axios.get('/api/getMyPosts');
+     ```
+
+- Registered User
+
+     ```JavaScript
+     axios.get('/api/getMyPosts', {
+          params: {
+               email: "pillsbury.doughboy@gmail.com"
+          }
+     });
+     ```
+
+### Response
+
+`Status: 200 OK`
+
+```json
+[
+    {
+        "date": 1630559840791,
+        "id": "618891c4-5309-4525-8ac3-3e35de74a29c",
+        "title": "Logan is the best",
+        "category": "Religion",
+        "body": "ask Zadok about it",
+        "interactions": 1,
+        "username": "PillsburyDoughBoy"
+    },
+    {
+        "date": 1630559443454,
+        "id": "fbb42d3e-d1ef-4c3d-ba58-7cf42afda386",
+        "title": "You need to pay me now ",
+        "category": "Celebrity",
+        "body": "Venmo me for QA testing ",
+        "interactions": 1,
+        "username": "PillsburyDoughBoy"
     },
     // ...
 ]
