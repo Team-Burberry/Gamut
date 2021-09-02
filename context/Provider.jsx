@@ -1,10 +1,13 @@
 import MainContext from './MainContext';
-import {useState, useEffect} from 'react'
-import axios from 'axios'
+import {useState, useEffect} from 'react';
+import axios from 'axios';
 
+import firebase from '../firebase.js';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Provider = ({children})=>{
   //this is for when the page loads for the trending result
+  const [user, setUser] = useState(null);
   const [exploreData, setExploreData] = useState([]);
   const [category, setCategory] = useState([]);
   const [filterData, setFilterData] = useState([])
@@ -39,7 +42,20 @@ const Provider = ({children})=>{
   }
 
   useEffect(() => {
-    searchData()
+    searchData();
+  }, [])
+
+  const auth = getAuth();
+  useEffect(() => {
+    //checks if user is logged in or not
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user.email);
+      } else {
+        setUser(null);
+        alert('Session is terminated');
+      }
+    });
   }, [])
 
   const filterPostByCategory = (category) => {
@@ -49,11 +65,10 @@ const Provider = ({children})=>{
   }
 
   return (
-    <MainContext.Provider value={{exploreData, searchData, filterPostByCategory, category, filterData}}>
+    <MainContext.Provider value={{exploreData, searchData, filterPostByCategory, category, filterData, user, setUser}}>
       {children}
     </MainContext.Provider>
   )
 }
 
 export default Provider
-

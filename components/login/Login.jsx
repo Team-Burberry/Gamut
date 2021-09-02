@@ -4,24 +4,26 @@ import firebase from '../../firebase.js';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 import styles from '../../styles/Home.module.css'
-import {Heading, VStack, Button, Input} from "@chakra-ui/react"
+import {Center, Heading, VStack, Button, Input} from "@chakra-ui/react"
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   return (
-    <div className={styles.container}>
-      <Heading>Log In</Heading>
-      <VStack>
+    <Center h="100vh" bg={`var(--navyBlue)`} color="#fff">
+      <VStack spacing={4}>
+      <Heading color={`var(--orange)`} mb="20px">Log In</Heading>
         <Input
+          align="center"
           size = "md"
           type = "email"
-          placeholder = "teamBurberry@gmail.com"
+          placeholder = "burberry@gmail.com"
           onChange = {e => {
             setEmail(e.target.value);
         }}/>
         <Input
+          align="center"
           size = "md"
           type = "password"
           placeholder = "topSecretP455word"
@@ -29,25 +31,25 @@ const Login = () => {
             setPassword(e.target.value);
         }}/>
         <Button
-          colorScheme = "orange"
+          bg = {'var(--orange)'}
+          color = '#fff'
           onClick = {e => {
             const auth = getAuth();
             signInWithEmailAndPassword(auth, email, password)
               .then((userCredential) => {
-                const user = userCredential.user;
-                console.log('[SIGN IN]:', user);
-                Router.push('/search');
+                Router.push('/feed');
               })
               .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(errorMessage);
+                alert('error.message');
               });
         }}>Log In</Button>
-      </VStack>
-      <p>Don&apos;t have an account? <a href="./signup">Sign Up</a></p>
+      <p align="center">Don&apos;t have an account? <br/>
+        <a href="./signup" color={`var(--orange)`}>Sign up here</a></p>
       <p><a href="./search">View site as a guest</a></p>
-    </div>
+      </VStack>
+    </Center>
   )};
 
 export default Login;

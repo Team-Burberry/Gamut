@@ -14,12 +14,12 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 
-onAuthStateChanged(auth, user=>{
-  if (user !== null) {
-    //update user to show currentUser.email
-    console.log('Signed in as user: ', user);
-  } else {
-    //update context to show "guest"
-    console.log('Guest mode. If you would like to access the entire app, please sign in. Or if you do not have an account, please sign up');
-  }
-})
+// onAuthStateChanged(auth, user=>{
+//   if (user !== null) {
+//     //update user to show currentUser.email
+//     console.log('Signed in as user: ', user);
+//   } else {
+//     //update context to show "guest"
+//     console.log('Guest mode. If you would like to access the entire app, please sign in. Or if you do not have an account, please sign up');
+//   }
+// })
