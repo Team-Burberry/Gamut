@@ -18,6 +18,7 @@ A mobile-first social media app that shows users a feed of posts tailored to the
 - [Contributing](CONTRIBUTING.md)
 - [API docs](docs/API-guide.md)
 - [Tech Stack](#tech-stack)
+- [Insights from the Data](docs/Learnings.md)
 
 ## Getting Started
 
