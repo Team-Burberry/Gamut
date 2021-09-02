@@ -38,7 +38,7 @@ const Provider = ({children})=>{
   }
 
   return (
-    <MainContext.Provider value={{exploreData, searchData, filterPostByCategory, category, filterData}}>
+    <MainContext.Provider value={{exploreData, searchData, filterPostByCategory, category, filterData }}>
       {children}
     </MainContext.Provider>
   )
