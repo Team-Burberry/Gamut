@@ -13,40 +13,44 @@ import Link from "next/link";
 import style from "../../styles/Nav.module.css";
 import firebase from "../../firebase.js";
 import { getAuth } from "firebase/auth";
-import { useState, useEffect } from "react";
-import styles from "../../styles/modal.module.css";
+import { useState, useEffect, useContext } from "react";
+
 import MyModal from "./Modal";
 import { useDisclosure } from "@chakra-ui/react";
 import LogOut from "../logOut/LogOut";
+import MainContext from '../../context/MainContext';
+import useAuth from '../../firebase'
 
 const Nav = () => {
   // const [user, setUser] = useState(false)
   const [openModal, setOpenModal] = useState(false);
-  const [userLogIn, setUserLogIn] = useState(false);
-  const auth = getAuth();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const user = useAuth();
 
-  useEffect(() => {
-    if (auth.currentUser) setUserLogIn(true);
-  }, []);
 
   const showModal = () => {
-    if (!auth.currentUser) onOpen();
+    if (!user) onOpen();
   };
   return (
     <>
-      <div className={styles.modalContainer}>
+      <div>
         <MyModal isOpen={isOpen} onClose={onClose} />
       </div>
 
       <div className={`${style.container}`}>
-        <i className={`fa fa-home fa-lg ${style.icon}`} />
+
+      <Link href="/feed">
+          <a>
+            <i className={`fa fa-home fa-lg ${style.icon}`} />
+          </a>
+        </Link>
+
         <Link href="/search">
           <a>
             <i className={`fa fa-search fa-lg ${style.icon}`} />
           </a>
         </Link>
-        {!userLogIn ? (
+        {!user ? (
           <i
             onClick={() => showModal()}
             className={`fa fa-plus fa-lg ${style.icon}`}
@@ -58,7 +62,7 @@ const Nav = () => {
             </a>
           </Link>
         )}
-        {!userLogIn ? (
+        {!user ? (
           <a>
             <i
               onClick={() => showModal()}
@@ -72,7 +76,7 @@ const Nav = () => {
             </a>
           </Link>
         )}
-         <LogOut />
+         {/* <LogOut /> */}
       </div>
     </>
   );
