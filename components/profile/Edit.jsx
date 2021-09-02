@@ -5,9 +5,31 @@ import {
 } from "@chakra-ui/react";
 import { WarningTwoIcon } from '@chakra-ui/icons'
 
-const Edit = () => {
+const Edit = (props) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { username, gender, city, state } = props.userInfo;
+  console.log(props.userInfo);
+  const [tempName, setName] = useState(null);
+  const [tempGen, setGen] = useState(null);
+  const [tempCity, setCity] = useState(null);
+  const [tempState, setState] = useState(null);
+  const handName = (e) => {
+    setName(e.target.value);
+    console.log(e.target.value);
+  }
+  const handleGen = (e) => {
+    setGen(e.target.value);
+    console.log(e.target.value);
+  }
+  const handleCity = (e) => {
+    setCity(e.target.value);
+    console.log(e.target.value);
+  }
+  const handleState = (e) => {
+    setState(e.target.value);
+    console.log(e.target.value);
+  }
 
   return (
     <>
@@ -22,16 +44,20 @@ const Edit = () => {
           <ModalHeader>Edit Your Profile</ModalHeader>
           <ModalBody>
             <FormControl>
-              <FormLabel>Dirth of Birth</FormLabel>
-              <Input />
+              <FormLabel>Username</FormLabel>
+              <Input onChange={handName} placeholder={username} />
+            </FormControl>
+            <FormControl>
+              <FormLabel>Gender</FormLabel>
+              <Input onChange={handleGen} placeholder={gender} />
             </FormControl>
             <FormControl>
               <FormLabel>City</FormLabel>
-              <Input />
+              <Input onChange={handleCity} placeholder={city} />
             </FormControl>
             <FormControl>
               <FormLabel>State</FormLabel>
-              <Input />
+              <Input onChange={handleState} placeholder={state} />
             </FormControl>
             {/* <FormControl>
               <FormLabel>Bio</FormLabel>

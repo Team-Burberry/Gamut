@@ -1,10 +1,11 @@
 import MainContext from '../context/MainContext.js'
 import { useState, useContext } from 'react';
 import Nav from '../components/navbar/Nav.jsx';
-import { FormControl, FormLabel, Textarea, Input, Select, Button } from "@chakra-ui/react";
+import { FormControl, FormLabel, Textarea, Input, Select, Button, Heading } from "@chakra-ui/react";
 import Confirm from '../components/new-post/Confirm.jsx';
 import Head from 'next/head';
 import axios from 'axios';
+
 
 const NewPost = () => {
 
@@ -39,28 +40,16 @@ const NewPost = () => {
 
 
   // const { handleSubmit } = useContext(MainContext);
-  const allcat = ['Sports', 'Food', 'Politics', 'Arts & Crafts', 'Film & TV', 'Video Games', 'Fashion', 'Technology', 'Travel', 'Automotive', 'Celebrity', 'Music', 'Science & Nature', 'Religion'];
+  const allcat = ['Sports', 'Food', 'Politics', 'Art', 'Film & TV', 'Games', 'Fashion', 'Technology', 'Travel', 'Automotive', 'Celebrity', 'Music', 'Science', 'Religion'];
 
   return (
-    <>
+    <div className="new-post-wrapper">
       <Head>
         <title>Create New Post</title>
       </Head>
-      <h1 className="newP">
-        Welcome to New Post Page.
-      </h1>
-      <form>
-        <FormControl isRequired>
-          <FormLabel>Category</FormLabel>
-          <Select placeholder="Select your category" onChange={handleCat} isRequired>
-            {allcat.map((item) => {
-              return (
-                <option value={item}>{item}</option>
-              )
-            })}
-          </Select>
-        </FormControl>
-        <br></br>
+      <Heading className="post-title" mb={5} as='h1' size="xl">New Post</Heading>
+      <Confirm colorScheme="red" done={(!top || !cat ? false: true)} handleSubmit={handleSubmit} />
+      <form className="new-post-form">
         <FormControl isRequired>
           <FormLabel>Topic</FormLabel>
           <Input onChange={handleTop} placeholder="Topic" />
@@ -71,10 +60,20 @@ const NewPost = () => {
           <Textarea onChange={handleTxt} placeholder="Please feel free to share your ideas!" />
         </FormControl>
         <br></br>
-        <Confirm colorScheme="red" done={(!top || !cat ? false: true)} handleSubmit={handleSubmit} />
+        <FormControl isRequired>
+          <FormLabel>Category</FormLabel>
+          <Select placeholder="Select your category" onChange={handleCat} isRequired>
+            {allcat.map((item,index) => {
+              return (
+                <option key={index} value={item}>{item}</option>
+              )
+            })}
+          </Select>
+        </FormControl>
+        <br></br>
       </form>
       <Nav />
-    </>
+    </div>
   )
 }
 
