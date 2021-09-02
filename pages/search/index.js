@@ -11,7 +11,7 @@ import Nav from '../../components/navbar/Nav';
 const Search = () => {
   return (
     <>
-      <div style={{position: 'sticky', top: '0', backgroundColor: '#1E3D59'}}>
+      <div style={{position: 'sticky', top: '0', backgroundColor: '#1E3D59', zIndex: '3'}}>
         <SearchBar/>
         <MenuBar/>
       </div>

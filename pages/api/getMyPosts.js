@@ -1,9 +1,8 @@
-import { getUserInfo } from '../../lib/models';
+import { getMyPosts } from '../../lib/models';
 
 export default function handler(req, res) {
-  // console.log(req.query.email);
   return new Promise(resolve => {
-    getUserInfo(req.query.email)
+    getMyPosts(req.query.email)
     .then(result => {
       res.status(200).send(result)
       resolve()
