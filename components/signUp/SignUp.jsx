@@ -8,7 +8,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Categories from '../categories/Categories.jsx';
 
 import styles from '../../styles/Home.module.css';
-import {Center, Heading, VStack, Input, Select, SimpleGrid, Box, Button} from "@chakra-ui/react";
+import {Box, Heading, VStack, Input, Select, SimpleGrid, Button} from "@chakra-ui/react";
 
 import moment from 'moment';
 
@@ -34,7 +34,7 @@ const SignUp = () => {
   }
 
   return (
-    <Center h="100vh" bg={`var(--navyBlue)`} color="#fff">
+    <Box h="100vh" bg={`var(--navyBlue)`} color="#fff">
       <VStack spacing={4}>
         <div className = {styles.container} bg={`var(--navyBlue)`}>
           <Heading color={`var(--orange)`} align="center">SignUp</Heading>
@@ -154,7 +154,7 @@ const SignUp = () => {
           <p>Have an account? <a href="./login">log in</a></p>
         </div>
       </VStack>
-    </Center>
+    </Box>
 )};
 
 export default SignUp;

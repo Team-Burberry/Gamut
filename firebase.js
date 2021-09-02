@@ -16,7 +16,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 
 const useAuth=()=>{
-  const [userLogin,setUserLogin] = useState();
+  const [userLogin, setUserLogin] = useState();
 
   useEffect(() => {
     onAuthStateChanged(auth, user=>{
