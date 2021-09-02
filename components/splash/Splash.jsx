@@ -5,7 +5,7 @@ import useAuth from '../../firebase';
 import Image from 'next/image';
 import Router from 'next/router';
 
-import Logo from '../../public/Gamut_logo_small.png';
+import Logo from '../../public/gamut_word_logo.png';
 import {Heading, Center, VStack} from "@chakra-ui/react";
 
 const Splash = () => {
@@ -19,11 +19,8 @@ const Splash = () => {
   });
 
   return (
-    <Center h="100vh" bg={`var(--navyBlue)`} >
-      <VStack>
-        <Image src = {Logo} alt = "Gamut fire logo"/>
-        <Heading color={'var(--orange)'}>GAMUT</Heading>
-      </VStack>
+    <Center h="100vh" bg={`var(--navyBlue)`} p="30px">
+      <Image src = {Logo} alt = "Gamut fire logo"/>
     </Center>
   );
 }
