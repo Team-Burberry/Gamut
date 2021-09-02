@@ -14,12 +14,12 @@ const Splash = () => {
   useEffect(() => {
     setTimeout(()=>{
       const auth = getAuth();
-      if (auth.currentUser) {
-        Router.push('/search');
-      } else {
-        Router.push('/login');
-      }
-    }, 3000);
+    if (auth.currentUser) {
+      Router.push('/search');
+    } else {
+      Router.push('/login');
+    }
+  }, 5000);
   });
 
   return (

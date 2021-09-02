@@ -1,0 +1,89 @@
+.cardContainer {
+  width: 100vw;
+  height: 100vh;
+}
+
+.card {
+  height: 100vh;
+  border: 1px solid white;
+  place-items: center;
+  border-radius: 30px;
+}
+
+.feedContainer {
+  height:100px;
+  margin-top: 60px;
+  margin-left:15px;
+  color: black;
+  font-size:small;
+}
+
+.username {
+  margin-top: 100px;
+}
+
+.date {
+  margin-left: 200px;
+}
+
+.category {
+  display: block;
+  font-size: large;
+  padding-top:40px;
+}
+
+.topic {
+  margin-left:15px;
+  margin-top: 10px;
+}
+
+.post {
+  background-color:rgb(216, 235, 201);
+  height:400px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8px;
+  border:1px solid;
+  border-radius: 20px;
+  color:black;
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  display: block;
+  text-align: center;
+}
+
+.sliderLeft, .sliderRight {
+  font-size: smaller;
+  text-align: center;
+}
+
+.slider {
+  width: 70%;
+  margin-top: 100px;
+}
+
+.field {
+  position: relative;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 7%;
+  height: 7%;
+  display: flex;
+  margin-left:200px;
+  margin-top: 260px;
+}
+
+.interactions {
+  position:absolute;
+  display: flex;
+  margin-left: 20px;
+  font-size: smaller;
+}
