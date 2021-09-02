@@ -18,7 +18,7 @@ export default function Feed() {
 
   const checkLoginStatus = () => {
     if(auth.currentUser !== null) {
-      axios.get('http://localhost:3000/api/getPosts', {params: {email: auth.currentUser.email}})
+      axios.get('/api/getPosts', {params: {email: auth.currentUser.email}})
             .then((res) => {
               setFilteredPosts(res.data)
           })

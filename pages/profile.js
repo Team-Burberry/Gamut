@@ -6,12 +6,19 @@ import { useState, useEffect, useContext } from 'react';
 import moment from 'moment';
 import { Heading } from "@chakra-ui/react";
 import useAuth from '../firebase';
+import MyPost from '../components/profile/MyPost.jsx';
 
 
 const Profile = () => {
 
   const user = useAuth();
-  
+  const [currentPost, setCurrentPost] = useState(null);
+
+  const retrievePost = async(user) => {
+    let { data } = await axios.get('/api/getMyPosts', {params: {email: user}})
+    setCurrentPost(data);
+  }
+
   let dummy = {
     id: 10010,
     name: "Bob Dylan",
@@ -46,6 +53,7 @@ const Profile = () => {
           <title>Create New Post</title>
         </Head>
         <Heading className="post-title" mb={5} as='h1' size="xl">Profile</Heading>
+        <Edit userInfo={userInfo}/>
         <div>
           <img className="profile-img" src={dummy.img} />
           <div className="profile-info">
@@ -55,7 +63,7 @@ const Profile = () => {
             <div className="profile-location">{userInfo.city}, {userInfo.state}</div>
           </div>
         </div>
-        <Edit userInfo={userInfo}/>
+        <MyPost />
         <Nav />
       </div>
     )

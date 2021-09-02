@@ -3,7 +3,6 @@ import {
   Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton,
   Input, Button, useDisclosure, FormControl, FormLabel, Textarea
 } from "@chakra-ui/react";
-import { WarningTwoIcon } from '@chakra-ui/icons'
 
 const Edit = (props) => {
 
@@ -33,46 +32,48 @@ const Edit = (props) => {
 
   return (
     <>
-      <Button className="edit-btn" colorScheme="yellow" onClick={onOpen}>
-        <WarningTwoIcon />
-        Edit Profile
-      </Button>
-
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Edit Your Profile</ModalHeader>
-          <ModalBody>
-            <FormControl>
-              <FormLabel>Username</FormLabel>
-              <Input onChange={handName} placeholder={username} />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Gender</FormLabel>
-              <Input onChange={handleGen} placeholder={gender} />
-            </FormControl>
-            <FormControl>
-              <FormLabel>City</FormLabel>
-              <Input onChange={handleCity} placeholder={city} />
-            </FormControl>
-            <FormControl>
-              <FormLabel>State</FormLabel>
-              <Input onChange={handleState} placeholder={state} />
-            </FormControl>
-            {/* <FormControl>
+      <div>
+        <Button className="edit-btn" background="transparent" onClick={onOpen}>
+          Edit
+        </Button>
+      </div>
+      <div>
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Edit Your Profile</ModalHeader>
+            <ModalBody>
+              <FormControl>
+                <FormLabel>Username</FormLabel>
+                <Input onChange={handName} placeholder={username} />
+              </FormControl>
+              <FormControl>
+                <FormLabel>Gender</FormLabel>
+                <Input onChange={handleGen} placeholder={gender} />
+              </FormControl>
+              <FormControl>
+                <FormLabel>City</FormLabel>
+                <Input onChange={handleCity} placeholder={city} />
+              </FormControl>
+              <FormControl>
+                <FormLabel>State</FormLabel>
+                <Input onChange={handleState} placeholder={state} />
+              </FormControl>
+              {/* <FormControl>
               <FormLabel>Bio</FormLabel>
               <Textarea placeholder="Enter Your Bio Here"></Textarea>
             </FormControl> */}
-          </ModalBody>
+            </ModalBody>
 
-          <ModalFooter>
-            <Button colorScheme="red" mr={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme="blue">Update the Change</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+            <ModalFooter>
+              <Button colorScheme="red" mr={3} onClick={onClose}>
+                Cancel
+              </Button>
+              <Button colorScheme="blue">Update the Change</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </div>
     </>
   )
 }
