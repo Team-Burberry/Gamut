@@ -4,6 +4,8 @@ import Provider from '../context/Provider';
 import { AnimatePresence } from 'framer-motion';
 import 'font-awesome/css/font-awesome.css';
 
+
+
 function MyApp({ Component, pageProps }) {
 
   return (
