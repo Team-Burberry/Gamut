@@ -17,17 +17,6 @@ const Profile = () => {
 
   const [userInfo, setUserinfo] = useState(null);
 
-  // const getData = () => {
-  //   axios.get('/api/getUserInfo', { email: "pillsbury.doughboy@gmail.com" })
-  //     .then((response) => {
-  //       // console.log(response.data);
-  //       setUserinfo(response.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log('fetch err: ', err);
-  //     })
-  // }
-
   useEffect(() => {
     axios.get('/api/getUserInfo', { params: {email: "pillsbury.doughboy@gmail.com" }})
       .then((response) => {

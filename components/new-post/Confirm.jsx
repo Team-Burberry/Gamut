@@ -1,6 +1,6 @@
 import {
   Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton,
-  Input, Button, useDisclosure, FormControl, FormLabel, Textarea
+  Input, Button, useDisclosure, FormControl, FormLabel, Textarea,extendTheme
 } from "@chakra-ui/react";
 import { WarningTwoIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
@@ -31,9 +31,21 @@ const Confirm = (props) => {
     open1();
   }
 
+  // const theme = extendTheme({
+  //   colors: {
+  //     brand: {
+  //       100: '#FF6E40',
+  //       200: '#EBEBEB',
+  //       300: ' #484848',
+  //       400: '#1E3D59',
+  //       500: '#fff',
+  //     }
+  //   }
+  // })
+
   return (
     <>
-      <Button background="transparent" font="blue" onClick={onOpen}>Create new post</Button>
+      <Button background="transparent" className="post-btn" onClick={onOpen}>Post</Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -45,10 +57,10 @@ const Confirm = (props) => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="red" onClick={onClose}>
+            <Button onClick={onClose}>
               Continue Editing
             </Button>
-            <Button colorScheme="blue" onClick={complete}>Submit</Button>
+            <Button colorScheme="orange" onClick={complete}>Submit</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
