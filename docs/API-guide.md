@@ -1,5 +1,18 @@
 # API Usage Guide
 
+## Contents
+
+- [getPosts](#get-posts-for-feed)
+- [getTrendingPosts](#get-posts-for-explore-page)
+- [getUserInfo](#get-user-info)
+- [createUser](#create-user)
+- [updateInterests](#update-user-interests)
+- [createPost](#create-post)
+- [updateInterests](#update-user-interests)
+- [updateInteraction](#update-interaction)
+
+---
+
 ## Get Posts for Feed
 
 `GET /api/getPosts`
