@@ -31,6 +31,12 @@ const Provider = ({children})=>{
     'White': '#fff',
   })
 
+  const [currentPost, setCurrentPost] = useState(null);
+
+  const retrievePost = async() => {
+    let { data } = await axios.get('')
+  }
+
   const searchData = async() => {
     let {data} = await axios.get('/api/getPosts')
     setExploreData(data)

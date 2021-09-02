@@ -2,12 +2,16 @@ import Edit from '../components/profile/Edit.jsx';
 import Nav from '../components/navbar/Nav.jsx';
 import Head from 'next/head';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import moment from 'moment';
+import { Heading } from "@chakra-ui/react";
+import useAuth from '../firebase';
 
 
 const Profile = () => {
 
+  const user = useAuth();
+  
   let dummy = {
     id: 10010,
     name: "Bob Dylan",
@@ -16,6 +20,7 @@ const Profile = () => {
   }
 
   const [userInfo, setUserinfo] = useState(null);
+
 
   useEffect(() => {
     axios.get('/api/getUserInfo', { params: {email: "pillsbury.doughboy@gmail.com" }})
@@ -36,24 +41,23 @@ const Profile = () => {
 
 
     return (
-      <>
+      <div className="profile-wrapper">
         <Head>
           <title>Create New Post</title>
         </Head>
-        <h1>Profile</h1>
+        <Heading className="post-title" mb={5} as='h1' size="xl">Profile</Heading>
         <div>
           <img className="profile-img" src={dummy.img} />
-          <div>
-            <div>{userInfo.username}</div>
-            <div>{formatted}</div>
-            <div>{userInfo.gender}</div>
-            <div>{userInfo.city}, {userInfo.state}</div>
+          <div className="profile-info">
+            <div className="profile-name">{userInfo.username}</div>
+            <div className="profile-date">{formatted}</div>
+            <div className="profile-gender">{userInfo.gender}</div>
+            <div className="profile-location">{userInfo.city}, {userInfo.state}</div>
           </div>
         </div>
         <Edit userInfo={userInfo}/>
-        {/* <div>Bio</div> */}
         <Nav />
-      </>
+      </div>
     )
   } else {
     return (

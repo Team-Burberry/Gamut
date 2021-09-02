@@ -33,7 +33,7 @@ const Edit = (props) => {
 
   return (
     <>
-      <Button colorScheme="yellow" onClick={onOpen}>
+      <Button className="edit-btn" colorScheme="yellow" onClick={onOpen}>
         <WarningTwoIcon />
         Edit Profile
       </Button>

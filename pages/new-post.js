@@ -48,15 +48,15 @@ const NewPost = () => {
         <title>Create New Post</title>
       </Head>
       <Heading className="post-title" mb={5} as='h1' size="xl">New Post</Heading>
-      <Confirm colorScheme="red" done={(!top || !cat ? false: true)} handleSubmit={handleSubmit} />
+      <Confirm colorScheme="red" done={(!top || !cat || !txt ? false: true)} handleSubmit={handleSubmit} />
       <form className="new-post-form">
         <FormControl isRequired>
           <FormLabel>Topic</FormLabel>
           <Input onChange={handleTop} placeholder="Topic" />
         </FormControl>
         <br></br>
-        <FormControl>
-          <FormLabel>Share your idea here (optional)</FormLabel>
+        <FormControl isRequired>
+          <FormLabel>Share your idea here</FormLabel>
           <Textarea onChange={handleTxt} placeholder="Please feel free to share your ideas!" />
         </FormControl>
         <br></br>

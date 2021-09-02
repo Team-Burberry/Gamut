@@ -60,3 +60,30 @@ a {
 .new-post-form {
   color: #FF6E40;
 }
+
+.profile-wrapper {
+  height: 750px;
+  background: #1E3D59;
+  color: #FF6E40;
+}
+
+.profile-info {
+  float: right;
+  padding-right: 20px;
+}
+
+.profile-img {
+  float: left;
+  margin-left: 50px;
+  height: 100px;
+  width: 100px;
+}
+
+.edit-btn {
+  margin-top: 50px;
+  margin-left: -30px;
+}
+
+.profile-name {
+  font-weight: bolder;
+}
