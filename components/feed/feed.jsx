@@ -19,7 +19,7 @@ export default function Feed() {
 
   useEffect(()=>{
     if(email !== null) {
-      axios.get('/api/getPosts', {params: {email: email}})
+      axios.get(`/api/getPosts`, {params: {email: email}})
             .then((res) => {
               setFilteredPosts(res.data)
           })
