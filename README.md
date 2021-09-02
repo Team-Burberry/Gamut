@@ -7,6 +7,8 @@
 ![chakra](https://img.shields.io/badge/Chakra--UI-319795?style=for-the-badge&logo=chakra-ui&logoColor=white)
 ![neo4j](	https://img.shields.io/badge/Neo4j-018bff?style=for-the-badge&logo=neo4j&logoColor=white)
 
+<img src="docs/logo.png" width="150"/>
+
 ## Contents
 
 - [Getting Started](#getting-started)
