@@ -1,45 +1,61 @@
 .cardContainer {
   width: 100vw;
   height: 100vh;
+  background-color: #1E3D59 !important;
 }
 
 .card {
-  height: 100vh;
-  border: 1px solid white;
+  height: 100%;
+  width: 100%;
   place-items: center;
   border-radius: 30px;
 }
 
 .feedContainer {
-  height:100px;
-  margin-top: 60px;
+  height:80px;
   margin-left:15px;
-  color: black;
+  color: white;
   font-size:small;
 }
 
-.username {
-  margin-top: 100px;
-}
-
 .date {
-  margin-left: 200px;
+  margin-left: 170px;
 }
 
-.category {
+.home {
   display: block;
-  font-size: large;
-  padding-top:40px;
+  font-weight: bold;
+  font-size:xx-large;
+  margin-left: 20px;
+  color: #FF6E40;
+  margin-top: 50px;
 }
 
 .topic {
-  margin-left:15px;
-  margin-top: 10px;
+  height: 80px;
+  text-align: center;
+  font-size:x-large;
+  background-color: #EBEBEB;
+  border-radius: 10px;
+}
+
+.category {
+  text-align: left;
+  font-size: large;
+  margin-top: 2px;
+  margin-left: 1px;
+  height: 30px;
+  width: 65px;
+  background-color: #FF6E40;
+  color: white;
+  border-radius: 15px;
+  text-align: center;
+  font-weight:500;
 }
 
 .post {
-  background-color:rgb(216, 235, 201);
-  height:400px;
+  background-color:white;
+  height:350px;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -56,14 +72,35 @@
   text-align: center;
 }
 
-.sliderLeft, .sliderRight {
-  font-size: smaller;
-  text-align: center;
+.effect {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
 }
 
 .slider {
-  width: 70%;
-  margin-top: 100px;
+  -webkit-appearance: none;
+  background-color: darkgrey;
+  height: 20px;
+  overflow: hidden;
+  width: 230px;
+  margin-top:60px;
+}
+
+.slider::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 20px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: white;
+  border-radius: 50%;
+  box-shadow: -210px 0 0 200px #FF6E40;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  border: 0;
 }
 
 .field {
@@ -71,6 +108,7 @@
   display:flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .logo {
@@ -78,7 +116,7 @@
   height: 7%;
   display: flex;
   margin-left:200px;
-  margin-top: 260px;
+  margin-top: 170px;
 }
 
 .interactions {
@@ -87,3 +125,8 @@
   margin-left: 20px;
   font-size: smaller;
 }
+
+
+
+
+
