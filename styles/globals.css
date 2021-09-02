@@ -33,3 +33,30 @@ a {
 ::-webkit-scrollbar {
   display: none
 }
+
+/* Logan's part  */
+
+.new-post-wrapper {
+  height: 750px;
+  background: #1E3D59;
+}
+.new-post-form {
+  color: #FF6E40;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.post-btn {
+  color: #FF6E40;
+  float: right;
+  top: -70px;
+}
+
+.post-title {
+  color: #FF6E40;
+  padding: 15px;
+}
+
+.new-post-form {
+  color: #FF6E40;
+}
