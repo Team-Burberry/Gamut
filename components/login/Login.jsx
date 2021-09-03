@@ -18,11 +18,12 @@ const Login = () => {
   const [msgText, setMsgText] = useState(null);
 
   return (
-    <Center h="100vh" bg={`var(--navyBlue)`} color="#fff">
+    <Center h="100vh" bg={`var(--navyBlue)`} color="var(--white)">
       <Modal isOpen={isOpen} onClose={onClose} msgText={msgText}/>
       <VStack spacing={4}>
         <Heading color={`var(--orange)`} mb="20px">Log In</Heading>
         <Input
+          variant = "filled"
           align="center"
           size = "md"
           type = "email"
@@ -31,6 +32,7 @@ const Login = () => {
             setEmail(e.target.value);
         }}/>
         <Input
+          variant = "filled"
           align="center"
           size = "md"
           type = "password"
