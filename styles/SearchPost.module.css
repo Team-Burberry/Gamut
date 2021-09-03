@@ -7,8 +7,9 @@
   justify-content: center;
   margin-bottom: 1rem;
   border-radius: 10px;
-  color: var( --darkGray);
+  color: var( --navyBlue);
   position: relative;
+
 
 }
 
@@ -16,6 +17,7 @@
   padding: 12px;
   background-color: var(#1E3D59);
   z-index: -2;
+  padding-bottom: 60px;
 }
 
 .text {
@@ -27,6 +29,8 @@
 .container h2 {
   align-self: center;
   margin-bottom: 10px;
+  font-weight: bold;
+  font-size:1.2rem;
 
 }
 
@@ -58,68 +62,82 @@
   border-radius: 10px;
 }
 
-.sport {
-  background-image: linear-gradient(#ffffffcc,#edf2fb9c),url(https://images.unsplash.com/photo-1448387473223-5c37445527e7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-.food {
-  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-.celebrity {
-  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80);
+.Politics {
+  background-image: linear-gradient(#ffffffa8,#ffffff),url(https://images.unsplash.com/photo-1523292562811-8fa7962a78c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
-.music {
-  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1495305379050-64540d6ee95d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-.technology {
-  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1478432780021-b8d273730d8c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80);
+.Travel {
+  background-image: linear-gradient(#ffffffa8,#ffffff),url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2208&q=80);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
-.arts {
-  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80);
+.Sports {
+  background-image: linear-gradient(#ffffffa8,#ffffff),url(https://images.unsplash.com/photo-1448387473223-5c37445527e7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.Food {
+  background-image: linear-gradient(#ffffffa8,#ffffff),url(https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.Celebrity {
+  background-image: linear-gradient(#ffffffa8,#ffffff),url(https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
-.religion {
-  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1564373072072-3b38727f9d97?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80);
+.Music {
+  background-image: linear-gradient(#ffffffa8,#ffffff),url(https://images.unsplash.com/photo-1495305379050-64540d6ee95d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.Technology {
+  background-image: linear-gradient(#ffffffa8,#ffffff),url(https://images.unsplash.com/photo-1483000805330-4eaf0a0d82da?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
-.game {
-  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/10/wii.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80);
+.Art {
+  background-image: linear-gradient(#ffffffa8,#ffffff),url(https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
-.fashion {
-  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80);
+.Religion {
+  background-image: linear-gradient(#ffffffa8,#ffffff),url(https://images.unsplash.com/photo-1564373072072-3b38727f9d97?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
-.science {
-  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1534777410147-084a460870fc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80);
+.Games {
+  background-image: linear-gradient(#ffffffa8,#ffffff),url(https://images.unsplash.com/10/wii.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.Fashion {
+  background-image: linear-gradient(#ffffffcc,#ffffff),url(https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1300&q=80);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.Science {
+  background-image: linear-gradient(#ffffffa8,#ffffff),url(https://images.unsplash.com/photo-1534777410147-084a460870fc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

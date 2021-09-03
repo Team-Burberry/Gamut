@@ -24,6 +24,7 @@ function MenuBar() {
   }
 
   return (
+    <div className={style.menuContainer}>
         <ScrollMenu >
           {category.map((item) => (
             <Card
@@ -35,6 +36,7 @@ function MenuBar() {
             />)
           )}
         </ScrollMenu>
+        </div>
   );
 }
 
