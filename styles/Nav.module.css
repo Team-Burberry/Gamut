@@ -21,6 +21,8 @@
 }
 
 .clicked {
-  color: var(--orange) !important;
+  padding: 1rem;
+  align-self: center;
+  color: var(--orange);
 
 }

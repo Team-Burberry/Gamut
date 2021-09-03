@@ -17,12 +17,12 @@ const Provider = ({children})=>{
     'Travel': 'fa fa-plane"',
     'Religion': 'fa fa-book',
     'Music': 'fa fa-music',
-    'Science & Nature': 'fa-flask',
+    'Science': 'fa-flask',
     'Celebrity': 'fa fa-camera-retro',
     'Technology': 'fa fa-laptop',
     'Fashion': 'fa-shopping-bag',
-    'Arts & Crafts': 'fa-paint-brush',
-    'Video Games': 'fa-gamepad',
+    'Art': 'fa-paint-brush',
+    'Games': 'fa-gamepad',
   });
 
   const getAuthUser = () => {
