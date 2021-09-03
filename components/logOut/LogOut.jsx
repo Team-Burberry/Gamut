@@ -10,6 +10,7 @@ const LogOut = () => (
     (e)=>{
       const auth = getAuth();
       signOut(auth).then(() => {
+        //setTimeout
         Router.push('/login');
       })
       .catch((error) => {

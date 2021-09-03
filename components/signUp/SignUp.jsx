@@ -23,9 +23,9 @@ const SignUp = () => {
 
   return (
     <React.Fragment>
-      <Head>
+      {/* <Head>
         <title>Gamut: Sign Up</title>
-      </Head>
+      </Head> */}
       <Center h="100vh" bg={`var(--navyBlue)`} color="var(--white)">
       <VStack spacing={7}>
         <div bg={`var(--navyBlue)`}>
