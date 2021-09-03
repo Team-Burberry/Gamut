@@ -10,7 +10,7 @@ const LogOut = () => (
     (e)=>{
       const auth = getAuth();
       signOut(auth).then(() => {
-        Router.push('/');
+        Router.push('/login');
       })
       .catch((error) => {
         alert('Something went wrong with the sign out process, please try again');
