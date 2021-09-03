@@ -1,7 +1,8 @@
 import '../styles/globals.css'
 import { ChakraProvider, extendTheme } from "@chakra-ui/react"
 import Provider from '../context/Provider';
-import 'font-awesome/css/font-awesome.css'
+import { AnimatePresence } from 'framer-motion';
+import 'font-awesome/css/font-awesome.css';
 
 
 
