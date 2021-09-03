@@ -40,7 +40,6 @@ const Provider = ({children})=>{
     setExploreData(data)
     setFilterData(data)
     setCategory([...new Set(data.map(item => item.category))])
-    // console.log(category)
   };
 
   useEffect(() => {
