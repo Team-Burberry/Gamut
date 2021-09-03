@@ -14,6 +14,7 @@ import fire from './fire.json';
 import { categoryIcon } from '../search/icon.js';
 import { Heading } from "@chakra-ui/react";
 
+
 export default function Feed() {
   const { exploreData } = useContext(MainContext);
   const [filteredPosts, setFilteredPosts] = useState([]);
