@@ -57,6 +57,7 @@ a {
   color: var(--orange);
   float: right;
   top: -70px;
+  margin-right: 10px;
 }
 
 .post-title {
@@ -66,6 +67,14 @@ a {
 
 .new-post-form {
   color: var(--orange);
+}
+
+.new-post-cat,
+.new-post-idea,
+.new-post-topic,
+.new-post-idea::placeholder,
+.new-post-topic::placeholder{
+  color: var(--lightGray)
 }
 
 .profile-wrapper {

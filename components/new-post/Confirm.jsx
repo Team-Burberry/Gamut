@@ -33,7 +33,7 @@ const Confirm = (props) => {
 
   return (
     <>
-      <Button background="transparent" className="post-btn" onClick={onOpen}>Post</Button>
+      <Button colorScheme="orange" className="post-btn" onClick={onOpen}>Post</Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
