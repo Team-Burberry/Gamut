@@ -53,9 +53,9 @@ const MyPost = () => {
               key={key}>
               <div className={style.cardInfo}>
 
-                {item.category === "Science & Nature" && (
+                {item.category === "Science" && (
                   <>
-                    <div className={`${style.cardBg} ${style.science}`}></div>
+                    <div className={`${style.cardBg} ${style.Science}`}></div>
                     <FontAwesomeIcon icon={faMicroscope} className={style.title} />
                   </>
                 )}
