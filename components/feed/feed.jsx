@@ -43,7 +43,7 @@ export default function Feed() {
     }
     setVotes(0);
   };
-console.log(votes)
+
   return (
     <>
     <div className={styles.cardContainer}>
