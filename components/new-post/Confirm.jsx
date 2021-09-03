@@ -31,18 +31,6 @@ const Confirm = (props) => {
     open1();
   }
 
-  // const theme = extendTheme({
-  //   colors: {
-  //     brand: {
-  //       100: '#FF6E40',
-  //       200: '#EBEBEB',
-  //       300: ' #484848',
-  //       400: '#1E3D59',
-  //       500: '#fff',
-  //     }
-  //   }
-  // })
-
   return (
     <>
       <Button background="transparent" className="post-btn" onClick={onOpen}>Post</Button>
