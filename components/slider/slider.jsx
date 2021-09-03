@@ -1,8 +1,8 @@
-import React from 'react';
-import style from '../../styles/Slider.module.css';
-
-const Slider = () => {
-
+import React from "react";
+import style from "../../styles/Slider.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSnowflake, faFire } from "@fortawesome/free-solid-svg-icons";
+const Slider = ({ setVotes, votes }) => {
   const allRanges = document.querySelectorAll(".range-wrap");
   allRanges.forEach((wrap) => {
     const range = wrap.querySelector(".range");
@@ -24,16 +24,32 @@ const Slider = () => {
     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.12}px))`;
   }
 
+  const handleVote = (e) => {
+    setVotes(e.target.value);
+  };
+
   return (
     <div className={style.sliderContainer}>
-      <i className={`fas fa-snowflake ${style.flake}`}></i>
+      <FontAwesomeIcon
+        icon={faSnowflake}
+        className={votes < -99 ? style.blueSnow : style.flake}
+      />
       <div className={style.rangeWrap}>
-        <input type="range" className={style.range} min="-100" max="100"></input>
-        <output className={style.bubble}></output>
+        <input
+          onChange={(e) => handleVote(e)}
+          type="range"
+          className={style.range}
+          min="-100"
+          max="100"
+        ></input>
+        <p className={style.bubble}>{votes}</p>
       </div>
-      <i className={`fas fa-fire ${style.fire}`}></i>
+      <FontAwesomeIcon
+        icon={faFire}
+        className={votes > 99 ? style.orangeFire : style.fire}
+      />
     </div>
-  )
-}
+  );
+};
 
 export default Slider;

@@ -21,6 +21,7 @@ import styles from "../../styles/PostModal.module.css";
 import axios from "axios";
 import useAuth from "../../firebase";
 import { categoryIcon } from "./icon";
+import Slider from "../slider/slider";
 
 const PostModal = ({ isOpen, onClose, post }) => {
   const [votes, setVotes] = useState(0);
@@ -69,17 +70,7 @@ const PostModal = ({ isOpen, onClose, post }) => {
                   </span>
                 </div>
                 <div className={styles.field}>
-                  <input
-                    className={styles.slider}
-                    type="range"
-                    min="-100"
-                    max="100"
-                    value={votes}
-                    steps="1"
-                    onChange={(e) => {
-                      setVotes(e.target.value);
-                    }}
-                  ></input>
+                  <Slider setVotes={setVotes} votes={votes} />
                 </div>
               </div>
             </ModalBody>
