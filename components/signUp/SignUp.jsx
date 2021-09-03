@@ -6,8 +6,7 @@ import MainContext from "../../context/MainContext";
 import firebase from '../../firebase.js';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-import Categories from '../categories/Categories.jsx';
-import {Center, Box, Heading, VStack, Input, Select, Button} from "@chakra-ui/react";
+import {Head, Center, Box, Heading, VStack, Input, Select, Button} from "@chakra-ui/react";
 
 import moment from 'moment';
 
@@ -23,7 +22,11 @@ const SignUp = () => {
 
 
   return (
-    <Center h="100vh" bg={`var(--navyBlue)`} color="#fff">
+    <React.Fragment>
+      <Head>
+        <title>Gamut: Sign Up</title>
+      </Head>
+      <Center h="100vh" bg={`var(--navyBlue)`} color="var(--white)">
       <VStack spacing={7}>
         <div bg={`var(--navyBlue)`}>
           <Heading color={`var(--orange)`} align="center" mb="20px">SignUp</Heading>
@@ -124,7 +127,6 @@ const SignUp = () => {
                 }
 
                 if (valid) {
-                  console.log('creating account');
                   const auth = getAuth();
                   createUserWithEmailAndPassword(auth, email, password)
                     .then((userCredential) => {
@@ -159,6 +161,7 @@ const SignUp = () => {
         </div>
       </VStack>
     </Center>
+    </React.Fragment>
 )};
 
 export default SignUp;

@@ -61,7 +61,7 @@ const Login = () => {
         }}>Log In</Button>
         <p align="center">Don&apos;t have an account? <br/>
           <a href="./signup" color={`var(--orange)`}>Sign up here</a></p>
-        <p><a href="./search" color = 'var(--lightGray'>Enter in guest mode</a></p>
+        <p><a href="./search" color = 'var(--lightGray)'>Enter in guest mode</a></p>
       </VStack>
     </Center>
   )};
