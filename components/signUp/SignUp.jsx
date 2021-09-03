@@ -19,8 +19,6 @@ const SignUp = () => {
   const [state, setState] = useState('');
   const [gender, setGender] = useState('');
 
-
-
   return (
     <React.Fragment>
       {/* <Head>
