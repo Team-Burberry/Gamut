@@ -30,7 +30,7 @@ const SearchBar = () => {
           <InputGroup w='100%'>
             <InputLeftElement pointerEvents="none"/>
 
-            <Input onChange={(e) => inputFilter(e)}  w='100%' type="tel" placeholder="search" />
+            <Input onChange={(e) => inputFilter(e)}  w='100%'  placeholder="Search" />
           </InputGroup>
           <i className={`fa fa-search ${styles.searchIcon}`} ></i>
         </form>

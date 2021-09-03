@@ -13,7 +13,7 @@ import Link from "next/link";
 import style from "../../styles/Nav.module.css";
 import firebase from "../../firebase.js";
 import { getAuth } from "firebase/auth";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useCallback } from "react";
 
 import MyModal from "./Modal";
 import { useDisclosure } from "@chakra-ui/react";
@@ -22,15 +22,16 @@ import MainContext from '../../context/MainContext';
 import useAuth from '../../firebase'
 
 const Nav = () => {
-  // const [user, setUser] = useState(false)
+  const[buttonClick, setButtonClick] = useState(false)
   const [openModal, setOpenModal] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const user = useAuth();
-
+  console.log(buttonClick)
 
   const showModal = () => {
     if (!user) onOpen();
   };
+
   return (
     <>
       <div>
@@ -40,14 +41,14 @@ const Nav = () => {
       <div className={`${style.container}`}>
 
       <Link href="/feed">
-          <a>
-            <i className={`fa fa-home fa-lg ${style.icon}`} />
+      <a onClick={() => setButtonClick(!buttonClick)}>
+            {buttonClick ? <i className={`fa fa-home fa-lg  ${style.clicked}`} /> : <i className={`fa fa-home fa-lg ${style.icon}`} />}
           </a>
         </Link>
 
         <Link href="/search">
-          <a>
-            <i className={`fa fa-search fa-lg ${style.icon}`} />
+          <a onClick={() => setButtonClick(!buttonClick)}>
+            {buttonClick ? <i className={`fa fa-search fa-lg  ${style.clicked}`} /> : <i className={`fa fa-search fa-lg ${style.icon}`} />}
           </a>
         </Link>
         {!user ? (
@@ -57,9 +58,9 @@ const Nav = () => {
           />
         ) : (
           <Link href="/new-post">
-            <a>
-              <i className={`fa fa-plus fa-lg ${style.icon}`} />
-            </a>
+            <a onClick={() => setButtonClick(!buttonClick)}>
+            {buttonClick ? <i className={`fa fa-plus fa-lg  ${style.clicked}`} /> : <i className={`fa fa-plus fa-lg ${style.icon}`} />}
+          </a>
           </Link>
         )}
         {!user ? (
@@ -71,12 +72,12 @@ const Nav = () => {
           </a>
         ) : (
           <Link href="/profile">
-            <a>
-              <i className={`fa fa-user fa-lg ${style.icon}`} />
-            </a>
+            <a onClick={() => setButtonClick(!buttonClick)}>
+            {buttonClick ? <i className={`fa fa-user fa-lg ${style.clicked}`} /> : <i className={`fa fa-user fa-lg ${style.icon}`} />}
+          </a>
           </Link>
         )}
-         {/* <LogOut /> */}
+
       </div>
     </>
   );
