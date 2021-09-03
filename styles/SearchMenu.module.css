@@ -1,6 +1,5 @@
 .menuBar {
   padding: 12px;
-  /* background-color: var(--lightGray); */
   margin: 5px;
   min-width: 120px;
   border-radius: 10px;
@@ -13,4 +12,17 @@
 
 .menuContainer {
   margin:0 10px;
+}
+
+.selectedBar {
+  padding: 12px;
+  margin: 5px;
+  min-width: 120px;
+  border-radius: 10px;
+  text-align: center;
+  color: var( --white);
+
+  background: #1E3D59;
+  box-shadow: inset 5px 5px 18px #14293c,
+            inset -5px -5px 18px #285176;
 }

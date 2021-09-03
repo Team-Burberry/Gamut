@@ -14,20 +14,29 @@ import style from "../../styles/Nav.module.css";
 import firebase from "../../firebase.js";
 import { getAuth } from "firebase/auth";
 import { useState, useEffect, useContext, useCallback } from "react";
-
+import { useRouter } from "next/router";
 import MyModal from "./Modal";
 import { useDisclosure } from "@chakra-ui/react";
 import LogOut from "../logOut/LogOut";
 import MainContext from '../../context/MainContext';
-import useAuth from '../../firebase'
+import useAuth from '../../firebase';
 
 
 const Nav = () => {
-  const[buttonClick, setButtonClick] = useState(false)
+  const[buttonClick, setButtonClick] = useState('feed');
   const [openModal, setOpenModal] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const user = useAuth();
-  // console.log(buttonClick)
+  const router = useRouter();
+
+  useEffect(() => {
+    console.log(router.pathname)
+    if (router.pathname === '/search') setButtonClick('search');
+    else if (router.pathname === '/feed') setButtonClick('feed');
+    else if (router.pathname === '/new-post') setButtonClick('post');
+    else if (router.pathname === '/profile') setButtonClick('user');
+
+  }, []);
 
   const showModal = () => {
     if (!user) onOpen();
@@ -42,41 +51,40 @@ const Nav = () => {
       <div className={`${style.container}`}>
 
         <Link href="/feed">
-        <a onClick={() => setButtonClick(!buttonClick)}>
-              {buttonClick ? <i className={`fa fa-home fa-lg  ${style.clicked}`} /> : <i className={`fa fa-home fa-lg ${style.icon}`} />}
+          <a onClick={() => setButtonClick('feed')}>
+          <i className={buttonClick === 'feed' ? `fa fa-home fa-lg  ${style.clicked}` : `fa fa-home fa-lg ${style.icon}`}/>
             </a>
-          </Link>
+        </Link>
 
-          <Link href="/search">
-            <a onClick={() => setButtonClick(!buttonClick)}>
-              {buttonClick ? <i className={`fa fa-search fa-lg  ${style.clicked}`} /> : <i className={`fa fa-search fa-lg ${style.icon}`} />}
+        <Link href="/search">
+          <a onClick={() => setButtonClick('search')}>
+          <i className={buttonClick === 'search' ? `fa fa-search fa-lg  ${style.clicked}` : `fa fa-search fa-lg ${style.icon}`}/>
             </a>
-          </Link>
-          {!user ? (
+        </Link>
+        {!user ? (
             <i
               onClick={() => showModal()}
               className={`fa fa-plus fa-lg ${style.icon}`}
             />
-          ) : (
-            <Link href="/new-post">
-              <a onClick={() => setButtonClick(!buttonClick)}>
-              {buttonClick ? <i className={`fa fa-plus fa-lg  ${style.clicked}`} /> : <i className={`fa fa-plus fa-lg ${style.icon}`} />}
+        ) : (
+        <Link href="/new-post">
+          <a onClick={() => setButtonClick('post')}>
+            <i className={buttonClick === 'post' ? `fa fa-plus fa-lg  ${style.clicked}` : `fa fa-plus fa-lg ${style.icon}`}/>
             </a>
-            </Link>
+        </Link>
           )}
-          {!user ? (
-            <a>
-              <i
-                onClick={() => showModal()}
-                className={`fa fa-user fa-lg ${style.icon}`}
-              />
+        {!user ? (
+          <a>
+            <i onClick={() => showModal()}
+            className={`fa fa-user fa-lg ${style.icon}`}
+            />
             </a>
           ) : (
-            <Link href="/profile">
-              <a onClick={() => setButtonClick(!buttonClick)}>
-              {buttonClick ? <i className={`fa fa-user fa-lg ${style.clicked}`} /> : <i className={`fa fa-user fa-lg ${style.icon}`} />}
-            </a>
-            </Link>
+        <Link href="/profile">
+          <a onClick={() => setButtonClick('user')}>
+            <i className={buttonClick === 'user' ? `fa fa-user fa-lg  ${style.clicked}` : `fa fa-user fa-lg ${style.icon}`}/>
+          </a>
+        </Link>
           )}
       </div>
     </>
