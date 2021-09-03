@@ -1,9 +1,16 @@
 .menuBar {
   padding: 12px;
-  background-color: var(--lightGray);
-  margin: 10px;
-  min-width: 160px;
+  /* background-color: var(--lightGray); */
+  margin: 5px;
+  min-width: 120px;
   border-radius: 10px;
   text-align: center;
-  color: var(--darkGray);
+  color: var( --white);
+  background: linear-gradient(145deg, #20415f, #1b3750);
+  box-shadow:  2px 2px 5px #0d1e2e,
+               -2px -2px 5px #30577c;
+}
+
+.menuContainer {
+  margin:0 10px;
 }
