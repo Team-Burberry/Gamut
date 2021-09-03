@@ -33,9 +33,6 @@ const PostModal = ({ isOpen, onClose, post }) => {
         postId: post.id,
         interaction: votes,
       })
-      .then((res) => {
-        res.send("Success");
-      })
       .catch((err) => console.log(err));
   };
 
