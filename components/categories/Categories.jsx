@@ -1,6 +1,5 @@
 import React, {useState, useContext} from 'react';
-import Category from './Category.jsx';
-import {Head, Center, VStack, Heading, SimpleGrid, Button, Box} from "@chakra-ui/react";
+import {Head, Center, VStack, Heading, SimpleGrid, Button} from "@chakra-ui/react";
 import axios from 'axios';
 import Router from 'next/router';
 import MainContext from "../../context/MainContext.js";
@@ -12,6 +11,7 @@ const Categories = () => {
   const {category} = useContext(MainContext);
 
   const [interests, setInterests] = useState([]);
+
   const updateInterests = (value) => {
     const valIndex = interests.indexOf(value);
     if (valIndex === -1) {
@@ -24,20 +24,25 @@ const Categories = () => {
   }
   return (
     <React.Fragment>
-      {/* <Head>
-        <title>Gamut: Interests</title>
-      </Head> */}
       <Center>
         <VStack>
           <Heading my="8" color="var(--orange)">Categories</Heading>
-            <SimpleGrid my="10" columns = {3} spacing = {2}>
+            <SimpleGrid my="10" columns = {3} spacing = {3}>
               {
                 category.map((c, i) =>
-                <Box
+                <Button
+                  align = "center"
                   px="5px"
                   py="11px"
                   key={i}
-                  bg = "var(--lightGray)">{c}</Box>
+                  bg = {interests.includes(c)?"var(--orange)":"var(--lightGray)"}
+                  value = {c}
+                  onClick = {
+                    e => {
+                      updateInterests(e.target.value);
+                    }
+                  }
+                >{c}</Button>
                 )
               }
             </SimpleGrid>
