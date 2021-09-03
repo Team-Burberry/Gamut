@@ -5,6 +5,7 @@ import {
 } from "@chakra-ui/react";
 import Login from '../login/Login';
 import Link from "next/link";
+import style from "../../styles/NavModal.module.css";
 
 const MyModal = ({isOpen, onClose}) =>  {
   // const { isOpen, onOpen, onClose } = useDisclosure()
@@ -14,10 +15,10 @@ const MyModal = ({isOpen, onClose}) =>  {
       <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Please Login to Access</ModalHeader>
+          <ModalHeader className={style.navModal}>Please Login to Access</ModalHeader>
           <ModalBody>
           <Link href="/login">
-            <a><Button>Login</Button></a>
+            <a ><Button colorScheme = "orange">Login</Button></a>
           </Link>
           </ModalBody>
           <ModalFooter>
