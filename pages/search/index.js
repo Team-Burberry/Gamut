@@ -1,6 +1,8 @@
 import SearchBar from '../../components/search/SearchBar';
 import dynamic from 'next/dynamic';
 import axios from 'axios';
+import {motion} from 'framer-motion';
+
 const MenuBar = dynamic(() => import('../../components/search/MenuBar'), {
   ssr: false
 });

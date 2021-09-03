@@ -1,4 +1,5 @@
 import React from 'react';
+import Router from 'next/router';
 import firebase from '../../firebase.js'
 import { getAuth, signOut } from "firebase/auth";
 import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Input, Button, useDisclosure, FormControl, FormLabel, Textarea, extendTheme } from "@chakra-ui/react";
@@ -31,7 +32,7 @@ const LogOut = () => {
             You have been successfully logged out!
           </ModalBody>
           <ModalFooter>
-            <Button onClick={onClose}>
+            <Button onClick={() => {onClose(); Router.push('/login');}}>
               OK
             </Button>
           </ModalFooter>

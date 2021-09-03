@@ -7,6 +7,14 @@
   --white: #fff;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px var(--white) inset !important;
+    -webkit-box-shadow: 0 0 0 30px var(--white) inset !important;
+}
+
 html,
 body {
   padding: 0;

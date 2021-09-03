@@ -1,30 +1,27 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
+
+import useAuth from '../../firebase';
+
 import Image from 'next/image';
 import Router from 'next/router';
 
-import firebase from '../../firebase.js';
-import { getAuth } from "firebase/auth";
-
-import LogOut from '../logOut/LogOut.jsx';
-
-import Logo from '../../public/Gamut_logo_small.png';
-import {Heading, VStack} from "@chakra-ui/react";
+import Logo from '../../public/gamut_word_logo.png';
+import {Heading, Center, VStack} from "@chakra-ui/react";
 
 const Splash = () => {
+  const user = useAuth();
+
   useEffect(() => {
-    const auth = getAuth();
-    if (auth.currentUser) {
-      Router.push('/search');
-    } else {
-      Router.push('/login');
-    }
+    setTimeout(()=>{
+      //FIXME: this still flashes login page before rerouting to feed why?
+      Router.push(`/${user?'feed':'login'}`);
+     }, 3000);
   });
 
   return (
-    <VStack>
-      <Heading>Gamut</Heading>
+    <Center h="100vh" bg={`var(--navyBlue)`} p="30px">
       <Image src = {Logo} alt = "Gamut fire logo"/>
-    </VStack>
+    </Center>
   );
 }
 
