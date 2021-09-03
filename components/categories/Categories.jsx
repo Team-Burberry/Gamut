@@ -21,11 +21,12 @@ const Categories = () => {
       );
     }
   }
+
   return (
     <React.Fragment>
       <Center>
         <VStack>
-          <Heading my="8" color="var(--orange)">Categories</Heading>
+          <Heading my="8" color="var(--orange)">Choose up to<br/> 5 Categories</Heading>
             <SimpleGrid my="10" columns = {3} spacing = {3}>
               {
                 category.map((c, i) =>
@@ -49,7 +50,14 @@ const Categories = () => {
             mt = "5"
             bg = {`var(--orange)`}
             onClick = {()=> {
-              // Router.push('/feed');
+              axios.post('/api/updateInterests', {
+                email: user,
+                interests: interests
+              }).then(res => {
+                Router.push('/feed');
+              }).catch(err=>{
+                alert('Something went wrong');
+              })
             }
           }>Get Started!</Button>
         </VStack>

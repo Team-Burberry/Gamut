@@ -16,13 +16,11 @@
 .icon {
   padding: 1rem;
   align-self: center;
-  color: var(--navyBlue)
-
+  color: var(--navyBlue);
 }
 
 .clicked {
   padding: 1rem;
   align-self: center;
   color: var(--orange);
-
 }

@@ -24,7 +24,7 @@ const SearchBar = () => {
   return (
     <Flex className={styles.text}direction="column" p={3}>
       <Heading mb={5}as='h1' size="xl">Search</Heading>
-        <form w='100%'onSubmit={(e) => submitForm(e)}>
+        <form className={styles.searchForm}w='100%'onSubmit={(e) => submitForm(e)}>
           <InputGroup w='100%'>
             <InputLeftElement pointerEvents="none"/>
             <Input onChange={(e) => inputFilter(e)}  w='100%'  placeholder="Search" />
