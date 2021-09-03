@@ -7,13 +7,22 @@
   flex-direction: row;
   align-content: center;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   z-index: 3;
   background-color: var(--white);
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  font-size: 1.2rem;
 }
 .icon {
   padding: 1rem;
   align-self: center;
+  color: var(--navyBlue)
+
+}
+
+.clicked {
+  padding: 1rem;
+  align-self: center;
+  color: var(--orange);
 
 }
