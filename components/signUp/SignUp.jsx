@@ -27,9 +27,6 @@ const SignUp = () => {
 
   return (
     <React.Fragment>
-      {/* <Head>
-        <title>Gamut: Sign Up</title>
-      </Head> */}
       <Modal isOpen={isOpen} onClose={onClose} msgText={msgText}/>
       <Center h="100vh" bg={`var(--navyBlue)`} color="var(--white)">
       <VStack spacing={7}>
@@ -96,7 +93,7 @@ const SignUp = () => {
                 <option value="Female">Female</option>
                 <option value="non-binary">Non Binary</option>
               </Select>
-              <Button mb="20px" colorScheme="var(--orange)" onClick={e=>{
+              <Button mb="20px" bg="var(--orange)" onClick={e=>{
                 e.preventDefault();
                 let valid = true;
 
@@ -111,7 +108,8 @@ const SignUp = () => {
 
                 if (password.length < 7) {
                   valid = false;
-                  alert('Password must be at least 7 characters');
+                  setMsgText('Password must be at least 7 characters');
+                        onOpen();
                 }
 
                 if (valid) {
@@ -139,10 +137,11 @@ const SignUp = () => {
                     .then((userCredential) => {
                       const user = userCredential.user;
                       axios.post('/api/createUser', userInfo)
-                        .then(res=>{
+                        .then(res => {
+                          //FIXME: update user in context
                           Router.push('/interests');
                         })
-                        .catch(err=>{
+                        .catch(err => {
                           setMsgText('Something went wrong. Please try again');
                           onOpen();
                           console.log(`Unable to create account on DB:`, err);
