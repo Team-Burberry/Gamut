@@ -54,17 +54,17 @@ const NewPost = () => {
       <form className="new-post-form">
         <FormControl isRequired>
           <FormLabel>Topic</FormLabel>
-          <Input onChange={handleTop} placeholder="Topic" />
+          <Input className="new-post-topic" onChange={handleTop} placeholder="Topic" />
         </FormControl>
         <br></br>
         <FormControl isRequired>
           <FormLabel>Share your idea here</FormLabel>
-          <Textarea onChange={handleTxt} placeholder="Please feel free to share your ideas!" />
+          <Textarea className="new-post-idea" onChange={handleTxt} placeholder="Please feel free to share your ideas!" />
         </FormControl>
         <br></br>
         <FormControl isRequired>
           <FormLabel>Category</FormLabel>
-          <Select placeholder="Select your category" onChange={handleCat} isRequired>
+          <Select className="new-post-cat" placeholder="Select your category" onChange={handleCat} isRequired>
             {category.map((item, index) => {
               return (
                 <option key={index} value={item}>{item}</option>
