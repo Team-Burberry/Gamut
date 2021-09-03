@@ -2,63 +2,65 @@ import Edit from '../components/profile/Edit.jsx';
 import Nav from '../components/navbar/Nav.jsx';
 import Head from 'next/head';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import moment from 'moment';
-
+import { Heading } from "@chakra-ui/react";
+import useAuth from '../firebase';
+import MyPost from '../components/profile/MyPost.jsx';
+import LogOut from '../components/logOut/LogOut.jsx';
 
 const Profile = () => {
 
-  let dummy = {
-    id: 10010,
-    name: "Bob Dylan",
-    img: 'https://st2.depositphotos.com/1104517/11965/v/600/depositphotos_119659092-stock-illustration-male-avatar-profile-picture-vector.jpg',
-    bio: 'I am the goat!'
-  }
+  const user = useAuth();
+  let img = 'https://res.cloudinary.com/de6ct75k5/image/upload/v1630619315/Screen_Shot_2021-09-02_at_2.48.20_PM_wavxfb.png';
 
   const [userInfo, setUserinfo] = useState(null);
 
+
   useEffect(() => {
-    axios.get('/api/getUserInfo', { params: {email: "pillsbury.doughboy@gmail.com" }})
-      .then((response) => {
-        console.log(response.data);
-        setUserinfo(response.data);
-      })
-      .catch((err) => {
-        console.log('fetch err: ', err);
-      })
-  }, [])
+    if (user) {
+      axios.get('/api/getUserInfo', { params: { email: user } })
+        .then((response) => {
+          setUserinfo(response.data);
+        })
+        .catch((err) => {
+          console.log('fetch err: ', err);
+        })
+    }
+  }, [user])
 
   if (userInfo) {
     var timeStamp = userInfo.birthDate;
     var formatted = moment.unix(timeStamp / 1000).fromNow();
-    // var age = moment().diff((moment.unix(userInfo.birthDate).format("MM/DD/YYYY")), 'years');
-    console.log(formatted);
-
 
     return (
       <>
-        <Head>
-          <title>Create New Post</title>
-        </Head>
-        <h1>Profile</h1>
-        <div>
-          <img className="profile-img" src={dummy.img} />
+        <div className="profile-wrapper">
+          <Head>
+            <title>Gamut: Profile Page</title>
+          </Head>
+          <Heading className="post-title" mb={5} as='h1' size="xl">Profile</Heading>
+          <Edit email={user} userInfo={userInfo} />
           <div>
-            <div>{userInfo.username}</div>
-            <div>{formatted}</div>
-            <div>{userInfo.gender}</div>
-            <div>{userInfo.city}, {userInfo.state}</div>
+            <img className="profile-img" src={img} />
+            <div className="profile-info">
+              <div className="profile-name">{userInfo.username}</div>
+              <div className="profile-date">{formatted}</div>
+              <div className="profile-gender">{userInfo.gender}</div>
+              <div className="profile-location">{userInfo.city}, {userInfo.state}</div>
+            </div>
+            <LogOut />
           </div>
+          <MyPost />
         </div>
-        <Edit userInfo={userInfo}/>
-        {/* <div>Bio</div> */}
         <Nav />
       </>
     )
   } else {
     return (
-      <>
-      </>
+      <h1>
+        still loading..
+      </h1>
     )
   }
 }

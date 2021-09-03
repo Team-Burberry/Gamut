@@ -2,7 +2,6 @@
 import { Flex, Spacer, InputGroup, InputLeftElement, Input,SearchIcon , PhoneIcon, Heading} from "@chakra-ui/react";
 import MainContext from '../../context/MainContext';
 import {useContext, useState} from 'react';
-
 import styles from '../../styles/SearchNav.module.css';
 
 const SearchBar = () => {
@@ -25,12 +24,10 @@ const SearchBar = () => {
   return (
     <Flex className={styles.text}direction="column" p={3}>
       <Heading mb={5}as='h1' size="xl">Search</Heading>
-
-        <form w='100%'onSubmit={(e) => submitForm(e)}>
+        <form className={styles.searchForm}w='100%'onSubmit={(e) => submitForm(e)}>
           <InputGroup w='100%'>
             <InputLeftElement pointerEvents="none"/>
-
-            <Input onChange={(e) => inputFilter(e)}  w='100%' type="tel" placeholder="search" />
+            <Input onChange={(e) => inputFilter(e)}  w='100%'  placeholder="Search" />
           </InputGroup>
           <i className={`fa fa-search ${styles.searchIcon}`} ></i>
         </form>

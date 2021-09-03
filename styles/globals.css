@@ -1,10 +1,17 @@
-
 :root {
-  --orange: #FF6E40;
-  --lightGray: #EBEBEB;
-  --darkGray:  #484848;
-  --navyBlue: #1E3D59;
+  --orange: #ff6e40;
+  --lightGray: #ebebeb;
+  --darkGray: #484848;
+  --navyBlue: #1e3d59;
   --white: #fff;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px var(--white) inset !important;
+  -webkit-box-shadow: 0 0 0 30px var(--white) inset !important;
 }
 
 html,
@@ -13,8 +20,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background-color: var(--navyBlue) !important;
-    z-index: -2;
+  background-color: var(--navyBlue) !important;
+  z-index: -2;
 }
 
 a {
@@ -24,7 +31,6 @@ a {
 
 * {
   box-sizing: border-box;
-
 }
 
 .profile-img {
@@ -32,32 +38,86 @@ a {
   width: 70px;
 }
 ::-webkit-scrollbar {
-  display: none
+  display: none;
 }
 
 /* Logan's part  */
 
 .new-post-wrapper {
   height: 750px;
-  background: #1E3D59;
+  background: #1e3d59;
 }
 .new-post-form {
-  color: #FF6E40;
+  color: var(--orange);
   padding-left: 10px;
   padding-right: 10px;
 }
 
 .post-btn {
-  color: #FF6E40;
+  color: var(--orange);
   float: right;
   top: -70px;
+  margin-right: 10px;
 }
 
 .post-title {
-  color: #FF6E40;
+  color: #ff6e40;
   padding: 15px;
 }
 
 .new-post-form {
-  color: #FF6E40;
+  color: var(--orange);
+}
+
+.new-post-cat,
+.new-post-idea,
+.new-post-topic,
+.new-post-idea::placeholder,
+.new-post-topic::placeholder{
+  color: var(--lightGray)
+}
+
+.profile-wrapper {
+  color: var(--orange);
+}
+
+.profile-info {
+  float: right;
+  padding-right: 20px;
+  margin-top: 10px;
+  color: var(--lightGray);
+}
+
+.profile-img {
+  float: left;
+  margin-left: 40px;
+  height: 120px;
+  width: 120px;
+  border-radius: 60px;
+  border: 4px solid var(--white)
+}
+
+.edit-btn {
+  top: 140px;
+  left: 183px;
+  /* border: 1px solid var(--orange); */
+}
+
+.profile-name {
+  font-weight: bolder;
+}
+
+
+.profile-loading {
+  margin-top: 200px;
+  margin-left: 40px;
+  align-self: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size:1.2rem;
+}
+
+.signout-btn {
+  bottom: 220px;
+  left: 100px;
 }
