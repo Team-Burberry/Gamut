@@ -11,7 +11,7 @@ const LogOut = () => {
 
   return (
     <>
-      <Button colorScheme="orange" onClick={
+      <Button className="signout-btn" colorScheme="orange" onClick={
         (e) => {
           const auth = getAuth();
           signOut(auth).then(() => {

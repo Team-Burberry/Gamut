@@ -52,7 +52,7 @@ const Edit = (props) => {
     <>
       <div>
         <Button className="edit-btn" background="transparent" onClick={onOpen}>
-          Edit
+          Edit Info
         </Button>
       </div>
       <div>
@@ -80,10 +80,6 @@ const Edit = (props) => {
                 <FormLabel>State</FormLabel>
                 <Input onChange={handleState} placeholder={state} />
               </FormControl>
-              {/* <FormControl>
-              <FormLabel>Bio</FormLabel>
-              <Textarea placeholder="Enter Your Bio Here"></Textarea>
-            </FormControl> */}
             </ModalBody>
 
             <ModalFooter>

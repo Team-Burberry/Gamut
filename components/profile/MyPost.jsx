@@ -62,74 +62,74 @@ const MyPost = () => {
 
                 {item.category === "Celebrity" && (
                   <>
-                    <div className={`${style.cardBg} ${style.celebrity}`}></div>
+                    <div className={`${style.cardBg} ${style.Celebrity}`}></div>
                     <i className={`fa fa-camera-retro ${style.title}`} />
                   </>
                 )}
 
                 {item.category === "Technology" && (
                   <>
-                    <div className={`${style.cardBg} ${style.technology}`}></div>
+                    <div className={`${style.cardBg} ${style.Technology}`}></div>
                     <i className={`fa fa-laptop ${style.title}`} />
                   </>
                 )}
 
                 {item.category === "Fashion" && (
                   <>
-                    <div className={`${style.cardBg} ${style.fashion}`}></div>
+                    <div className={`${style.cardBg} ${style.Fashion}`}></div>
                     <FontAwesomeIcon icon={faShoppingBag} className={style.title} />
                   </>
                 )}
 
-                {item.category === "Arts & Crafts" && (
+                {item.category === "Art" && (
                   <>
-                    <div className={`${style.cardBg} ${style.arts}`}></div>
+                    <div className={`${style.cardBg} ${style.Art}`}></div>
                     <FontAwesomeIcon icon={faPaintBrush} className={style.title} />
                   </>
                 )}
 
-                {item.category === "Video Games" && (
+                {item.category === "Games" && (
                   <>
-                    <div className={`${style.cardBg} ${style.game}`}></div>
+                    <div className={`${style.cardBg} ${style.Games}`}></div>
                     <FontAwesomeIcon icon={faGamepad} className={style.title} />
                   </>
                 )}
 
                 {item.category === "Sports" && (
                   <>
-                    <div className={`${style.cardBg} ${style.sport}`}></div>
+                    <div className={`${style.cardBg} ${style.Sports}`}></div>
                     <i className={`fa fa-futbol-o ${style.title}`} />
                   </>
                 )}
 
                 {item.category === "Food" && (
                   <>
-                    <div className={`${style.cardBg} ${style.food}`}></div>
+                    <div className={`${style.cardBg} ${style.Food}`}></div>
                     <i className={`fa fa-cutlery ${style.title}`} />
                   </>
 
                 )}
                 {item.category === "Politics" && (
                   <>
-                    <div className={`${style.cardBg} ${style.politics}`}></div>
+                    <div className={`${style.cardBg} ${style.Politics}`}></div>
                     <i className={`fa fa-balance-scale ${style.title}`} />
                   </>
                 )}
                 {item.category === "Travel" && (
                   <>
-                    <div className={`${style.cardBg} ${style.travel}`}></div>
+                    <div className={`${style.cardBg} ${style.Travel}`}></div>
                     <i className={`fa fa-plane ${style.title}`} />
                   </>
                 )}
                 {item.category === "Religion" && (
                   <>
-                    <div className={`${style.cardBg} ${style.religion}`}></div>
+                    <div className={`${style.cardBg} ${style.Religion}`}></div>
                     <FontAwesomeIcon icon={faPrayingHands} className={style.title} />
                   </>
                 )}
                 {item.category === "Music" && (
                   <>
-                    <div className={`${style.cardBg} ${style.music}`}></div>
+                    <div className={`${style.cardBg} ${style.Music}`}></div>
                     <FontAwesomeIcon icon={faMusic} className={style.title} />
                   </>
 
