@@ -13,6 +13,7 @@ import snowflake from './snowflake.json';
 import fire from './fire.json';
 import { categoryIcon } from '../search/icon.js';
 import { Heading } from "@chakra-ui/react";
+import Slider from "../slider/slider";
 
 
 export default function Feed() {
@@ -64,10 +65,10 @@ export default function Feed() {
              <Image src={logo} alt='logo' />
              <p className={styles.interactions}>{post.interactions}</p>
            </div>
-           <div className={styles.effectInPost}>
+           {/* <div className={styles.effectInPost}>
             {votes < -99 ? <Lottie lotti={snowflake} height={100} width={100} speed={0.5}/> : null}
             {votes > 99 ? <Lottie lotti={animationConfetti} height={300} width={300} speed={0.5}/> : null}
-           </div>
+           </div> */}
          </div>
        </div>
        <div className={styles.feedContainer}>
@@ -78,17 +79,7 @@ export default function Feed() {
        </div>
 
        <div className={styles.field}>
-         <input
-           className={styles.slider}
-           type='range'
-           min='-100'
-           max='100'
-           value={votes}
-           steps='1'
-           onChange={(e) => {
-             setVotes(e.target.value);
-           }}
-         ></input>
+       <Slider setVotes={setVotes} votes={votes} />
        </div>
      </div>
      )}
