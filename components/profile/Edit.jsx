@@ -1,33 +1,51 @@
 import { useContext, useState } from 'react';
 import {
   Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton,
-  Input, Button, useDisclosure, FormControl, FormLabel, Textarea
+  Input, Button, useDisclosure, FormControl, FormLabel, Textarea, Select
 } from "@chakra-ui/react";
+import axios from 'axios';
 
 const Edit = (props) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { username, gender, city, state } = props.userInfo;
-  console.log(props.userInfo);
+  const { username, gender, city, state, birthDate, email } = props.userInfo;
+  // console.log(props.userInfo);
   const [tempName, setName] = useState(null);
   const [tempGen, setGen] = useState(null);
   const [tempCity, setCity] = useState(null);
   const [tempState, setState] = useState(null);
   const handName = (e) => {
     setName(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
   const handleGen = (e) => {
     setGen(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
   const handleCity = (e) => {
     setCity(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
   const handleState = (e) => {
     setState(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
+  }
+
+  const info = {
+    email: email,
+    username: tempName || username,
+    gender: tempGen || gender,
+    city: tempCity || city,
+    state: tempState || state,
+    birthDate: birthDate
+  }
+
+  // console.log(info);
+
+  const handleUpdate = () => {
+    axios.post('/api/createUser', info)
+    console.log('done user done')
+    onClose();
   }
 
   return (
@@ -49,7 +67,10 @@ const Edit = (props) => {
               </FormControl>
               <FormControl>
                 <FormLabel>Gender</FormLabel>
-                <Input onChange={handleGen} placeholder={gender} />
+                <Select onChange={handleGen} placeholder="Change gender?">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </Select>
               </FormControl>
               <FormControl>
                 <FormLabel>City</FormLabel>
@@ -66,10 +87,10 @@ const Edit = (props) => {
             </ModalBody>
 
             <ModalFooter>
-              <Button colorScheme="red" mr={3} onClick={onClose}>
+              <Button mr={3} onClick={onClose}>
                 Cancel
               </Button>
-              <Button colorScheme="blue">Update the Change</Button>
+              <Button colorScheme="orange" onClick={handleUpdate}>Update the Change</Button>
             </ModalFooter>
           </ModalContent>
         </Modal>

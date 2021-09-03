@@ -5,6 +5,7 @@ import { FormControl, FormLabel, Textarea, Input, Select, Button, Heading } from
 import Confirm from '../components/new-post/Confirm.jsx';
 import Head from 'next/head';
 import axios from 'axios';
+import useAuth from '../firebase';
 
 
 const NewPost = () => {
@@ -25,30 +26,36 @@ const NewPost = () => {
     console.log(e.target.value);
   };
 
+  const user = useAuth();
+
   const info = {
     category: cat || '',
-    email: 'pillsbury.doughboy@gmail.com',
+    email: user || '',
     body: txt || '',
     title: top || ''
   };
 
   const handleSubmit = () => {
     event.preventDefault();
-    // console.log(info);
-    axios.post('/api/createPost', info)
+    if (info.email) {
+      axios.post('/api/createPost', info)
+    } else {
+      alert('Please log in!')
+    }
   }
 
 
   // const { handleSubmit } = useContext(MainContext);
   const allcat = ['Sports', 'Food', 'Politics', 'Art', 'Film & TV', 'Games', 'Fashion', 'Technology', 'Travel', 'Automotive', 'Celebrity', 'Music', 'Science', 'Religion'];
 
+
   return (
     <div className="new-post-wrapper">
       <Head>
-        <title>Create New Post</title>
+        <title>Gamut: New Post</title>
       </Head>
       <Heading className="post-title" mb={5} as='h1' size="xl">New Post</Heading>
-      <Confirm colorScheme="red" done={(!top || !cat || !txt ? false: true)} handleSubmit={handleSubmit} />
+      <Confirm colorScheme="red" done={(!top || !cat || !txt ? false : true)} handleSubmit={handleSubmit} />
       <form className="new-post-form">
         <FormControl isRequired>
           <FormLabel>Topic</FormLabel>
@@ -63,7 +70,7 @@ const NewPost = () => {
         <FormControl isRequired>
           <FormLabel>Category</FormLabel>
           <Select placeholder="Select your category" onChange={handleCat} isRequired>
-            {allcat.map((item,index) => {
+            {allcat.map((item, index) => {
               return (
                 <option key={index} value={item}>{item}</option>
               )

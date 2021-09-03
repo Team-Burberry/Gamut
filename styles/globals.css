@@ -13,7 +13,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
+  background-color: var(--navyBlue) !important;
+  z-index: -2;
 }
 
 a {
@@ -41,43 +42,44 @@ a {
   background: #1E3D59;
 }
 .new-post-form {
-  color: #FF6E40;
+  color: var(--orange);
   padding-left: 10px;
   padding-right: 10px;
 }
 
 .post-btn {
-  color: #FF6E40;
+  color: var(--orange);
   float: right;
   top: -70px;
 }
 
 .post-title {
-  color: #FF6E40;
+  color: var(--orange);
   padding: 15px;
 }
 
 .new-post-form {
-  color: #FF6E40;
+  color: var(--orange);
 }
 
 .profile-wrapper {
-  height: 2550px;
-  background: #1E3D59;
-  color: #FF6E40;
+  color: var(--orange);
 }
 
 .profile-info {
   float: right;
   padding-right: 20px;
   margin-top: -35px;
+  color: var(--lightGray);
 }
 
 .profile-img {
   float: left;
-  margin-left: 50px;
-  height: 100px;
-  width: 100px;
+  margin-left: 40px;
+  height: 120px;
+  width: 120px;
+  border-radius: 60px;
+  border: 4px solid var(--white)
 }
 
 .edit-btn {
@@ -91,4 +93,13 @@ a {
 
 .mypost-wrapper {
   margin-top: 150px;
+}
+
+.profile-loading {
+  margin-top: 200px;
+  margin-left: 40px;
+  align-self: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size:1.2rem;
 }

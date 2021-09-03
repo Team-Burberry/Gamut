@@ -8,128 +8,150 @@ import { faCoffee, faMusic, faPrayingHands, faPizzaSlice, faShoppingBag, faGamep
 // import PostModal from './PostModal';
 // import MyModal from '../navbar/Modal';
 import useAuth from '../../firebase';
+import axios from 'axios';
 
 
 const MyPost = () => {
   // const router = useRouter();
-  // const { isOpen, onOpen, onClose } = useDisclosure();
-  // const { isOpen:logInIsOpen, onOpen: logInOnOpen, onClose: logInOnClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen: logInIsOpen, onOpen: logInOnOpen, onClose: logInOnClose } = useDisclosure();
   const { exploreData, filterData } = useContext(MainContext);
-  const [selectedPost, setSelectedPost] = useState()
+  const [selectedPost, setSelectedPost] = useState(null)
   const user = useAuth();
 
-  // const handleOpenModal = (item) => {
-  //   if(user) setSelectedPost(item);
-  //   else logInOnOpen();
-  // };
+  const handleOpenModal = (item) => {
+    if (user) setSelectedPost(item);
+    else logInOnOpen();
+  };
+
+  const [currentPost, setCurrentPost] = useState(null);
+  const retrievePost = async (user) => {
+    let { data } = await axios.get('/api/getMyPosts', { params: { email: user } })
+    setCurrentPost(data);
+  }
 
   useEffect(() => {
     if (selectedPost) onOpen()
   }, [selectedPost]);
 
-  return (
-    <div className="mypost-wrapper">
-      <div className={`${style.bigContainer}`}>
-        <p className={style.text}>My Post</p>
-        {filterData.sort((a, b) => b.interactions - a.interactions).map((item, key) => (
-          <div onClick={() => handleOpenModal(item)}
+  useEffect(() => {
+    if (user) {
+      retrievePost(user)
+    }
+  }, [user])
 
-            className={`${style.container}`}
-            key={key}>
-            <div className={style.cardInfo}>
 
-              {item.category === "Science & Nature" && (
-                <>
-                  <div className={`${style.cardBg} ${style.science}`}></div>
-                  <FontAwesomeIcon icon={faMicroscope} className={style.title} />
-                </>
-              )}
+  if (currentPost) {
+    return (
+      <div className="mypost-wrapper">
+        <div className={`${style.bigContainer}`}>
+          <p className={style.text}>My Post</p>
+          {currentPost.sort((a, b) => b.interactions - a.interactions).map((item, key) => (
+            <div onClick={() => handleOpenModal(item)}
 
-              {item.category === "Celebrity" && (
-                <>
-                  <div className={`${style.cardBg} ${style.celebrity}`}></div>
-                  <i className={`fa fa-camera-retro ${style.title}`} />
-                </>
-              )}
+              className={`${style.container}`}
+              key={key}>
+              <div className={style.cardInfo}>
 
-              {item.category === "Technology" && (
-                <>
-                  <div className={`${style.cardBg} ${style.technology}`}></div>
-                  <i className={`fa fa-laptop ${style.title}`} />
-                </>
-              )}
+                {item.category === "Science & Nature" && (
+                  <>
+                    <div className={`${style.cardBg} ${style.science}`}></div>
+                    <FontAwesomeIcon icon={faMicroscope} className={style.title} />
+                  </>
+                )}
 
-              {item.category === "Fashion" && (
-                <>
-                  <div className={`${style.cardBg} ${style.fashion}`}></div>
-                  <FontAwesomeIcon icon={faShoppingBag} className={style.title} />
-                </>
-              )}
+                {item.category === "Celebrity" && (
+                  <>
+                    <div className={`${style.cardBg} ${style.celebrity}`}></div>
+                    <i className={`fa fa-camera-retro ${style.title}`} />
+                  </>
+                )}
 
-              {item.category === "Arts & Crafts" && (
-                <>
-                  <div className={`${style.cardBg} ${style.arts}`}></div>
-                  <FontAwesomeIcon icon={faPaintBrush} className={style.title} />
-                </>
-              )}
+                {item.category === "Technology" && (
+                  <>
+                    <div className={`${style.cardBg} ${style.technology}`}></div>
+                    <i className={`fa fa-laptop ${style.title}`} />
+                  </>
+                )}
 
-              {item.category === "Video Games" && (
-                <>
-                  <div className={`${style.cardBg} ${style.game}`}></div>
-                  <FontAwesomeIcon icon={faGamepad} className={style.title} />
-                </>
-              )}
+                {item.category === "Fashion" && (
+                  <>
+                    <div className={`${style.cardBg} ${style.fashion}`}></div>
+                    <FontAwesomeIcon icon={faShoppingBag} className={style.title} />
+                  </>
+                )}
 
-              {item.category === "Sports" && (
-                <>
-                  <div className={`${style.cardBg} ${style.sport}`}></div>
-                  <i className={`fa fa-futbol-o ${style.title}`} />
-                </>
-              )}
+                {item.category === "Arts & Crafts" && (
+                  <>
+                    <div className={`${style.cardBg} ${style.arts}`}></div>
+                    <FontAwesomeIcon icon={faPaintBrush} className={style.title} />
+                  </>
+                )}
 
-              {item.category === "Food" && (
-                <>
-                  <div className={`${style.cardBg} ${style.food}`}></div>
-                  <i className={`fa fa-cutlery ${style.title}`} />
-                </>
+                {item.category === "Video Games" && (
+                  <>
+                    <div className={`${style.cardBg} ${style.game}`}></div>
+                    <FontAwesomeIcon icon={faGamepad} className={style.title} />
+                  </>
+                )}
 
-              )}
-              {item.category === "Politics" && (
-                <>
-                  <div className={`${style.cardBg} ${style.politics}`}></div>
-                  <i className={`fa fa-balance-scale ${style.title}`} />
-                </>
-              )}
-              {item.category === "Travel" && (
-                <>
-                  <div className={`${style.cardBg} ${style.travel}`}></div>
-                  <i className={`fa fa-plane ${style.title}`} />
-                </>
-              )}
-              {item.category === "Religion" && (
-                <>
-                  <div className={`${style.cardBg} ${style.religion}`}></div>
-                  <FontAwesomeIcon icon={faPrayingHands} className={style.title} />
-                </>
-              )}
-              {item.category === "Music" && (
-                <>
-                  <div className={`${style.cardBg} ${style.music}`}></div>
-                  <FontAwesomeIcon icon={faMusic} className={style.title} />
-                </>
+                {item.category === "Sports" && (
+                  <>
+                    <div className={`${style.cardBg} ${style.sport}`}></div>
+                    <i className={`fa fa-futbol-o ${style.title}`} />
+                  </>
+                )}
 
-              )}
-              <div className={style.interaction}>
-                <img src="logo.png" alt='gamut logo' />
-                <p>{item.interactions}</p>
+                {item.category === "Food" && (
+                  <>
+                    <div className={`${style.cardBg} ${style.food}`}></div>
+                    <i className={`fa fa-cutlery ${style.title}`} />
+                  </>
+
+                )}
+                {item.category === "Politics" && (
+                  <>
+                    <div className={`${style.cardBg} ${style.politics}`}></div>
+                    <i className={`fa fa-balance-scale ${style.title}`} />
+                  </>
+                )}
+                {item.category === "Travel" && (
+                  <>
+                    <div className={`${style.cardBg} ${style.travel}`}></div>
+                    <i className={`fa fa-plane ${style.title}`} />
+                  </>
+                )}
+                {item.category === "Religion" && (
+                  <>
+                    <div className={`${style.cardBg} ${style.religion}`}></div>
+                    <FontAwesomeIcon icon={faPrayingHands} className={style.title} />
+                  </>
+                )}
+                {item.category === "Music" && (
+                  <>
+                    <div className={`${style.cardBg} ${style.music}`}></div>
+                    <FontAwesomeIcon icon={faMusic} className={style.title} />
+                  </>
+
+                )}
+                <div className={style.interaction}>
+                  <img src="logo.png" alt='gamut logo' />
+                  <p>{item.interactions}</p>
+                </div>
               </div>
+              <h2>{item.title}</h2>
             </div>
-            <h2>{item.title}</h2>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="profile-loading">
+        Your posts are still being loaded..
+      </div>
+    )
+  }
 };
 
 export default MyPost;
