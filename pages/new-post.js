@@ -13,17 +13,14 @@ const NewPost = () => {
   const [cat, setCat] = useState(null);
   const handleCat = (e) => {
     setCat(e.target.value);
-    console.log(e.target.value);
   };
   const [top, setTop] = useState(null);
   const handleTop = (e) => {
     setTop(e.target.value);
-    console.log(e.target.value);
   };
   const [txt, setTxt] = useState(null);
   const handleTxt = (e) => {
     setTxt(e.target.value);
-    console.log(e.target.value);
   };
 
   const user = useAuth();
@@ -44,9 +41,7 @@ const NewPost = () => {
     }
   }
 
-
-  // const { handleSubmit } = useContext(MainContext);
-  const allcat = ['Sports', 'Food', 'Politics', 'Art', 'Film & TV', 'Games', 'Fashion', 'Technology', 'Travel', 'Automotive', 'Celebrity', 'Music', 'Science', 'Religion'];
+  const { category } = useContext(MainContext);
 
 
   return (
@@ -70,7 +65,7 @@ const NewPost = () => {
         <FormControl isRequired>
           <FormLabel>Category</FormLabel>
           <Select placeholder="Select your category" onChange={handleCat} isRequired>
-            {allcat.map((item, index) => {
+            {category.map((item, index) => {
               return (
                 <option key={index} value={item}>{item}</option>
               )

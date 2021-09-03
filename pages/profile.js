@@ -12,11 +12,7 @@ import LogOut from '../components/logOut/LogOut.jsx';
 const Profile = () => {
 
   const user = useAuth();
-  // console.log(user)
-
-  let dummy = {
-    img: 'https://res.cloudinary.com/de6ct75k5/image/upload/v1630619315/Screen_Shot_2021-09-02_at_2.48.20_PM_wavxfb.png',
-  }
+  let img = 'https://res.cloudinary.com/de6ct75k5/image/upload/v1630619315/Screen_Shot_2021-09-02_at_2.48.20_PM_wavxfb.png';
 
   const [userInfo, setUserinfo] = useState(null);
 
@@ -47,7 +43,7 @@ const Profile = () => {
           <Heading className="post-title" mb={5} as='h1' size="xl">Profile</Heading>
           <Edit email={user} userInfo={userInfo} />
           <div>
-            <img className="profile-img" src={dummy.img} />
+            <img className="profile-img" src={img} />
             <div className="profile-info">
               <div className="profile-name">{userInfo.username}</div>
               <div className="profile-date">{formatted}</div>

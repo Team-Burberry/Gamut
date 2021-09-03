@@ -9,26 +9,21 @@ const Edit = (props) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { username, gender, city, state, birthDate, email } = props.userInfo;
-  // console.log(props.userInfo);
   const [tempName, setName] = useState(null);
   const [tempGen, setGen] = useState(null);
   const [tempCity, setCity] = useState(null);
   const [tempState, setState] = useState(null);
   const handName = (e) => {
     setName(e.target.value);
-    // console.log(e.target.value);
   }
   const handleGen = (e) => {
     setGen(e.target.value);
-    // console.log(e.target.value);
   }
   const handleCity = (e) => {
     setCity(e.target.value);
-    // console.log(e.target.value);
   }
   const handleState = (e) => {
     setState(e.target.value);
-    // console.log(e.target.value);
   }
 
   const info = {
@@ -40,11 +35,8 @@ const Edit = (props) => {
     birthDate: birthDate
   }
 
-  // console.log(info);
-
   const handleUpdate = () => {
     axios.post('/api/createUser', info)
-    console.log('done user done')
     onClose();
   }
 
