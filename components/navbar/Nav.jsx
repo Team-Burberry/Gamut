@@ -52,20 +52,17 @@ const Nav = () => {
 
         <Link href="/feed">
           <a onClick={() => setButtonClick('feed')}>
-          <i className={buttonClick === 'feed' ? `fa fa-home fa-lg  ${style.clicked}` : `fa fa-home fa-lg ${style.icon}`}/>
+            <i className={buttonClick === 'feed' ? `fa fa-home fa-lg  ${style.clicked}` : `fa fa-home fa-lg ${style.icon}`}/>
             </a>
         </Link>
 
         <Link href="/search">
           <a onClick={() => setButtonClick('search')}>
-          <i className={buttonClick === 'search' ? `fa fa-search fa-lg  ${style.clicked}` : `fa fa-search fa-lg ${style.icon}`}/>
+            <i className={buttonClick === 'search' ? `fa fa-search fa-lg  ${style.clicked}` : `fa fa-search fa-lg ${style.icon}`}/>
             </a>
         </Link>
         {!user ? (
-            <i
-              onClick={() => showModal()}
-              className={`fa fa-plus fa-lg ${style.icon}`}
-            />
+          <i onClick={() => showModal()} className={`fa fa-plus fa-lg ${style.icon}`}/>
         ) : (
         <Link href="/new-post">
           <a onClick={() => setButtonClick('post')}>

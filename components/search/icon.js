@@ -57,7 +57,6 @@ export const categoryIcon = (category) => {
       bg = <div className={`${style.cardBg} ${style.Travel}`}></div>;
       icon = <i className={`fa fa-plane ${style.title}`} />;
       break;
-
     case "Religion":
       bg = <div className={`${style.cardBg} ${style.Religion}`}></div>;
       icon = <FontAwesomeIcon icon={faPrayingHands} className={style.title} />;

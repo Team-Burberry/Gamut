@@ -4,14 +4,13 @@
   min-width: 120px;
   border-radius: 10px;
   text-align: center;
-  color: var( --white);
+  color: var(--white);
   background: linear-gradient(145deg, #20415f, #1b3750);
-  box-shadow:  2px 2px 5px #0d1e2e,
-               -2px -2px 5px #30577c;
+  box-shadow: 2px 2px 5px #0d1e2e, -2px -2px 5px #30577c;
 }
 
 .menuContainer {
-  margin:0 10px;
+  margin: 0 10px;
 }
 
 .selectedBar {
@@ -20,9 +19,7 @@
   min-width: 120px;
   border-radius: 10px;
   text-align: center;
-  color: var( --white);
-
-  background: #1E3D59;
-  box-shadow: inset 5px 5px 18px #14293c,
-            inset -5px -5px 18px #285176;
+  color: var(--white);
+  background: #1e3d59;
+  box-shadow: inset 5px 5px 18px #14293c, inset -5px -5px 18px #285176;
 }
