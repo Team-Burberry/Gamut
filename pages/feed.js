@@ -1,4 +1,4 @@
-import Feed from '../components/feed.jsx';
+import Feed from '../components/feed/feed.jsx';
 
 const FeedPage = () => {
 
