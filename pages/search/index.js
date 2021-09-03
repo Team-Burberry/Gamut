@@ -1,11 +1,12 @@
 import SearchBar from "../../components/search/SearchBar";
-import dynamic from "next/dynamic";
 import axios from "axios";
-const MenuBar = dynamic(() => import("../../components/search/MenuBar"), {
-  ssr: false,
-});
-import SearchPost from "../../components/search/SearchPost";
+import dynamic from 'next/dynamic';
 import Nav from "../../components/navbar/Nav";
+import SearchPost from '../../components/search/SearchPost'
+const MenuBar = dynamic(() => import('../../components/search/MenuBar'), {
+  ssr: false
+
+});
 
 const Search = () => {
   return (

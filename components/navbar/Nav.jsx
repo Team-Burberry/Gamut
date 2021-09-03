@@ -30,7 +30,6 @@ const Nav = () => {
   const router = useRouter();
 
   useEffect(() => {
-    console.log(router.pathname)
     if (router.pathname === '/search') setButtonClick('search');
     else if (router.pathname === '/feed') setButtonClick('feed');
     else if (router.pathname === '/new-post') setButtonClick('post');

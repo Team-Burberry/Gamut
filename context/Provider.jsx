@@ -6,6 +6,7 @@ import { getAuth } from "firebase/auth";
 
 const Provider = ({children})=>{
   //this is for when the page loads for the trending result
+  const [user, setUser] = useState(null);
   const [exploreData, setExploreData] = useState([]);
   const [category, setCategory] = useState([]);
   const [filterData, setFilterData] = useState([]);
@@ -33,8 +34,6 @@ const Provider = ({children})=>{
   useEffect(() => {
     getAuthUser()
   }, []);
-
-
 
   const searchData = async() => {
     let {data} = await axios.get('/api/getPosts')

@@ -1,22 +1,62 @@
-import React from 'react';
-import Category from './Category.jsx'
-import {Heading} from "@chakra-ui/react";
+import React, {useState, useContext} from 'react';
+import {Head, Center, VStack, Heading, SimpleGrid, Button} from "@chakra-ui/react";
+import axios from 'axios';
+import Router from 'next/router';
+import MainContext from "../../context/MainContext.js";
+import useAuth from "../../firebase.js";
 
-const Categories = ({clickHandler}) => {
-  const categoriesOptions = {
-    'sports' : 'fa-futbol-o',
-    'food' : 'fa-cutlery',
-    'religion' : 'fa-universal-access',
-    'politics' : 'fa-university',
-    'music' : 'fa-music'
+const Categories = () => {
+  const user = useAuth();
+
+  const {category} = useContext(MainContext);
+
+  const [interests, setInterests] = useState([]);
+
+  const updateInterests = (value) => {
+    const valIndex = interests.indexOf(value);
+    if (valIndex === -1) {
+      setInterests([...interests, value]);
+    } else {
+      setInterests(
+        interests.filter((interest) => interest !== value)
+      );
+    }
   }
   return (
-    <div>
-      <Heading>Categories</Heading>
-      {Object.entries(categoriesOptions).map((cat, i) => {
-        return <Category key = {i} category = {cat} clickHandler = {clickHandler}/>
-      })}
-    </div>
+    <React.Fragment>
+      <Center>
+        <VStack>
+          <Heading my="8" color="var(--orange)">Categories</Heading>
+            <SimpleGrid my="10" columns = {3} spacing = {3}>
+              {
+                category.map((c, i) =>
+                <Button
+                  align = "center"
+                  px="5px"
+                  py="11px"
+                  key={i}
+                  bg = {interests.includes(c)?"var(--orange)":"var(--lightGray)"}
+                  value = {c}
+                  onClick = {
+                    e => {
+                      updateInterests(e.target.value);
+                    }
+                  }
+                >{c}</Button>
+                )
+              }
+            </SimpleGrid>
+          <Button
+            mt = "5"
+            bg = {`var(--orange)`}
+            onClick = {()=> {
+              console.log('click')
+              //submit the interests to the api
+            }
+          }>Get Started!</Button>
+        </VStack>
+      </Center>
+    </React.Fragment>
   )
 }
 
