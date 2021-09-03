@@ -7,7 +7,7 @@ import moment from 'moment';
 import { Heading } from "@chakra-ui/react";
 import useAuth from '../firebase';
 import MyPost from '../components/profile/MyPost.jsx';
-
+import LogOut from '../components/logOut/LogOut.jsx';
 
 const Profile = () => {
 
@@ -54,6 +54,7 @@ const Profile = () => {
               <div className="profile-gender">{userInfo.gender}</div>
               <div className="profile-location">{userInfo.city}, {userInfo.state}</div>
             </div>
+            <LogOut />
           </div>
           <MyPost />
         </div>
@@ -63,7 +64,7 @@ const Profile = () => {
   } else {
     return (
       <h1>
-      still loading..
+        still loading..
       </h1>
     )
   }
