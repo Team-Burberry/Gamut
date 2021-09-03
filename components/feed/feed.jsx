@@ -14,6 +14,7 @@ import heart2 from './heart.json';
 import moreHearts from './morehearts.json';
 import leaf from './leaf.json';
 
+
 export default function Feed() {
   const { exploreData } = useContext(MainContext);
   const [filteredPosts, setFilteredPosts] = useState([]);
