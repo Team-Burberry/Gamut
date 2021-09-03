@@ -2,15 +2,21 @@ import React, {useContext, useState} from 'react';
 import axios from 'axios';
 import Router from 'next/router';
 import MainContext from "../../context/MainContext";
+import Modal from '../modal/Modal.jsx';
 
 import firebase from '../../firebase.js';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 import {Head, Center, Box, Heading, VStack, Input, Select, Button} from "@chakra-ui/react";
+import { useDisclosure } from "@chakra-ui/react";
 
 import moment from 'moment';
 
 const SignUp = () => {
+  const [openModal, setOpenModal] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [msgText, setMsgText] = useState('');
+
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,13 +25,12 @@ const SignUp = () => {
   const [state, setState] = useState('');
   const [gender, setGender] = useState('');
 
-
-
   return (
     <React.Fragment>
       {/* <Head>
         <title>Gamut: Sign Up</title>
       </Head> */}
+      <Modal isOpen={isOpen} onClose={onClose} msgText={msgText}/>
       <Center h="100vh" bg={`var(--navyBlue)`} color="var(--white)">
       <VStack spacing={7}>
         <div bg={`var(--navyBlue)`}>
@@ -114,13 +119,15 @@ const SignUp = () => {
                     if (field === "birthDate") {
                       if (birthdate === null) {
                         valid = false;
-                        alert(`Please fill out ${field}`);
+                        setMsgText(`Please fill out ${field}`);
+                        onOpen();
                         break;
                       }
                     }
                     if (!userInfo[field]) {
                       valid = false;
-                      alert(`Please fill out ${field}`);
+                      setMsgText(`Please fill out ${field}`);
+                      onOpen();
                       break;
                     }
                   }
@@ -131,13 +138,13 @@ const SignUp = () => {
                   createUserWithEmailAndPassword(auth, email, password)
                     .then((userCredential) => {
                       const user = userCredential.user;
-                      console.log('account created with firebase');
                       axios.post('/api/createUser', userInfo)
                         .then(res=>{
                           Router.push('/interests');
                         })
                         .catch(err=>{
-                          alert('Something went wrong. Please try again')
+                          setMsgText('Something went wrong. Please try again');
+                          onOpen();
                           console.log(`Unable to create account on DB:`, err);
                         })
                       })
