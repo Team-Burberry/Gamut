@@ -7,7 +7,6 @@ import useAuth from "../../firebase.js";
 
 const Categories = () => {
   const user = useAuth();
-
   const {category} = useContext(MainContext);
 
   const [interests, setInterests] = useState([]);
@@ -50,8 +49,7 @@ const Categories = () => {
             mt = "5"
             bg = {`var(--orange)`}
             onClick = {()=> {
-              console.log('click')
-              //submit the interests to the api
+              // Router.push('/feed');
             }
           }>Get Started!</Button>
         </VStack>

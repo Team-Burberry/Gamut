@@ -91,7 +91,7 @@ const SignUp = () => {
                 <option value="Female">Female</option>
                 <option value="non-binary">Non Binary</option>
               </Select>
-              <Button mb="20px" colorScheme="orange" onClick={e=>{
+              <Button mb="20px" colorScheme="var(--orange)" onClick={e=>{
                 e.preventDefault();
                 let valid = true;
 
@@ -137,6 +137,7 @@ const SignUp = () => {
                           Router.push('/interests');
                         })
                         .catch(err=>{
+                          alert('Something went wrong. Please try again')
                           console.log(`Unable to create account on DB:`, err);
                         })
                       })
