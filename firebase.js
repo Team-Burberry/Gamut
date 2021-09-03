@@ -19,7 +19,7 @@ const useAuth=()=>{
   const [userLogin, setUserLogin] = useState();
 
   useEffect(() => {
-    onAuthStateChanged(auth, user=>{
+    onAuthStateChanged(auth, user => {
       if (user !== null) {
         setUserLogin(user.email);
       } else {
