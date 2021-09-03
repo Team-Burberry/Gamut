@@ -10,6 +10,9 @@ import MainContext from "../../context/MainContext";
 import Lottie from './lottie.js';
 import animationDislike from './dislike.json';
 import animationConfetti from './sliderEffect.json';
+import heart2 from './heart.json';
+import moreHearts from './morehearts.json';
+import leaf from './leaf.json';
 
 export default function Feed() {
   const { exploreData } = useContext(MainContext);
@@ -38,8 +41,9 @@ export default function Feed() {
         })
         .catch((err) => console.log(err));
     }
+    setVotes(0);
   };
-
+console.log(votes)
   return (
     <>
     <div className={styles.cardContainer}>
@@ -54,26 +58,39 @@ export default function Feed() {
           </div>
 
           <div className={styles.post}>
-            <div className={styles.topic}>
+            <div className={styles.topicArea}>
             <div className={styles.category}>{post.category}</div>
-             {post.title}
+            <span className={styles.topic}>{post.title}</span>
             </div>
             <p className={styles.text}>{post.body}</p>
             <div className={styles.logo}>
             <Image src={logo} alt='logo'/>
             <span className={styles.interactions}>{post.interactions}</span>
             </div>
-           <div className={styles.effect}>
-            {votes < -99 ? <Lottie lotti={animationDislike} height={300} width={300} speed={0.5}/> : null}
+           <div className={styles.effectInPost}>
+            {votes < -99 ? <Lottie lotti={leaf} height={300} width={300} speed={0.5}/> : null}
             {votes > 99 ? <Lottie lotti={animationConfetti} height={500} width={500} speed={0.5}/> : null}
            </div>
           </div>
 
           {email !== null ? <div className={styles.field}>
-            <input className={styles.slider} type='range' min='-100' max='100' value={votes} steps='1'
+           <div className={styles.like}>
+            {votes > 0 && votes <= 20 ? <Lottie lotti={heart2} height={100} width={100} /> : null}
+            {votes > 20 && votes <= 40 ? <Lottie lotti={heart2} height={100} width={100} /> : null}
+            {votes > 40 && votes <= 60 ? <Lottie lotti={heart2} height={100} width={100} /> : null}
+            {votes > 60 && votes <= 80 ? <Lottie lotti={moreHearts} height={100} width={100} /> : null}
+            {votes > 80 && votes <= 99 ? <Lottie lotti={moreHearts} height={100} width={100} /> : null}
+           </div>
+           <div className={styles.dislike}>
+            {votes < 0 && votes >= -20 ? <Lottie lotti={animationDislike} height={50} width={50} /> : null}
+            {votes < -20 && votes >= -40 ? <Lottie lotti={animationDislike} height={50} width={50} /> : null}
+            {votes < -40 && votes >= -60 ? <Lottie lotti={animationDislike} height={50} width={50} /> : null}
+            {votes < -60 && votes >= -80 ? <Lottie lotti={animationDislike} height={50} width={50} /> : null}
+            {votes < -80 && votes >= -99 ? <Lottie lotti={animationDislike} height={50} width={50} /> : null}
+           </div>
+            <input id={styles.slider} type='range' min='-100' max='100' value={votes} steps='1'
             onChange={(e)=>{setVotes(e.target.value); }}></input>
           </div> : null}
-
         </div> )}
     </Carousel>
     <NavBar />
