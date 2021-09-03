@@ -157,7 +157,7 @@ const SignUp = () => {
               }}>Next</Button>
             </VStack>
           </form>
-          <p>Have an account? <a href="./login">log in</a></p>
+          <p>Have an account? <a color = 'var(--orange)' href="./login">log in</a></p>
         </div>
       </VStack>
     </Center>

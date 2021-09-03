@@ -22,6 +22,7 @@ const Categories = () => {
       );
     }
   }
+
   return (
     <React.Fragment>
       <Center>
@@ -54,11 +55,9 @@ const Categories = () => {
                 email: user,
                 interests: interests
               }).then(res => {
-                console.log(res);
                 Router.push('/feed');
               }).catch(err=>{
                 alert('Something went wrong');
-                console.log(err);
               })
             }
           }>Get Started!</Button>
