@@ -8,8 +8,8 @@ import useAuth from '../../firebase.js';
 import NavBar from '../navbar/Nav.jsx';
 import MainContext from "../../context/MainContext";
 import Lottie from './lottie.js';
-import animationConfetti from './sliderEffect.json';
-import leaf from './leaf.json';
+import confetti from './sliderEffect.json';
+import dislike from './dislike.json';
 import { categoryIcon } from '../search/icon.js';
 import { Heading } from "@chakra-ui/react";
 import Slider from "../slider/slider";
@@ -65,8 +65,8 @@ export default function Feed() {
              <p className={styles.interactions}>{post.interactions}</p>
            </div>
            <div className={styles.effectInPost}>
-            {votes < -99 ? <Lottie lotti={leaf} height={200} width={200} speed={0.5}/> : null}
-            {votes > 99 ? <Lottie lotti={animationConfetti} height={200} width={300} speed={0.5}/> : null}
+            {votes < -99 ? <Lottie lotti={dislike} height={200} width={200} speed={0.5}/> : null}
+            {votes > 99 ? <Lottie lotti={confetti} height={200} width={300} speed={0.5}/> : null}
            </div>
          </div>
        </div>
