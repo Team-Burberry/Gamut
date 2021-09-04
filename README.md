@@ -42,6 +42,7 @@ A mobile-first social media experience tailored to users' interests based on pre
 ### [Explore & Search](components/search)
 
 - Developed by [Sophie Partovi](https://github.com/sadafpartovi)
+- On the explore page, users can search and filter posts by category. Also, users are able to see the trending posts. However, only registered users can intreact with posts and vote in favor of or against the posts.
 
 ### [Create a Post](components/new-post)
 
