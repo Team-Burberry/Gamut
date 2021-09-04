@@ -66,7 +66,7 @@ export default function Feed() {
            </div>
            <div className={styles.effectInPost}>
             {votes < -99 ? <Lottie lotti={leaf} height={200} width={200} speed={0.5}/> : null}
-            {votes > 99 ? <Lottie lotti={animationConfetti} height={500} width={500} speed={0.5}/> : null}
+            {votes > 99 ? <Lottie lotti={animationConfetti} height={200} width={300} speed={0.5}/> : null}
            </div>
          </div>
        </div>
