@@ -24,7 +24,7 @@
 
 .username,
 .date {
-  color: var(--darkGray)
+  color: var(--darkGray);
 }
 
 .date {
