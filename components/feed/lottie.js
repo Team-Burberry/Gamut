@@ -2,7 +2,7 @@ import Lottie from "react-lottie";
 
 export default function LottieAnimation({ lotti, width, height }) {
   const defaultOptions = {
-    loop: false,
+    loop: true,
     autoplay: true,
     animationData: lotti,
     rendererSettings: {

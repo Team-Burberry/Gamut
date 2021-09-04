@@ -38,6 +38,7 @@ const Slider = ({ setVotes, votes }) => {
         <input
           onChange={(e) => handleVote(e)}
           type="range"
+          value={votes}
           className={style.range}
           min="-100"
           max="100"
