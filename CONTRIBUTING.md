@@ -13,6 +13,16 @@ Git workflow
   2. Check out into the new branch: `git checkout -b <feature_name>`
   3. Apply those changes to the new branch: `git stash pop`
 
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 ## Creating a new Feature Branch
 
 1. Clone from [this repo](https://github.com/Team-Burberry/gamut.git)
