@@ -23,9 +23,11 @@ A mobile-first social media experience tailored to users' interests based on pre
 
 ---
 
-## App Components
+<p align="center">
+  <img alt="app demo" src="docs/img/demo.gif">
+</p>
 
-![app demo video](docs/img/demo.gif)
+## App Components
 
 ### [Log In and Sign Up](components/login)
 
@@ -52,3 +54,5 @@ Developed by [Logan Qiu](https://github.com/logan-qiu)
 ### [Backend Architecture](docs/API-guide.md) and [Database](docs/Learnings.md)
 
 Developed by [Corey Robinson](https://github.com/robin-son1), [Matt Heindel](https://github.com/matt-heindel), and [Tyler Peterson](https://github.com/tylerpetersen02)
+
+We chose a graph database to represent Users, Posts, and Interactions for efficient querying patterns when looking for posts to suggest to users based on what categories they've interacted with before.
