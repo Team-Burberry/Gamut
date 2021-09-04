@@ -43,6 +43,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## App Components
 
+### [LOG IN](components/login)
+
+Developed by [Amalia Bryant](https://github.com/cookieByte4130)
+
+
+
 ### [HOME](components/feed)
 
 Developed by [Emily Liu](https://github.com/yyliu11)
