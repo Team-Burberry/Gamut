@@ -1,4 +1,4 @@
-import styles from '../../styles/FeedNew.module.css';
+import styles from '../../styles/Feed.module.css';
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Carousel from 'react-elastic-carousel';
@@ -9,8 +9,7 @@ import NavBar from '../navbar/Nav.jsx';
 import MainContext from "../../context/MainContext";
 import Lottie from './lottie.js';
 import animationConfetti from './sliderEffect.json';
-import snowflake from './snowflake.json';
-import fire from './fire.json';
+import leaf from './leaf.json';
 import { categoryIcon } from '../search/icon.js';
 import { Heading } from "@chakra-ui/react";
 import Slider from "../slider/slider";
@@ -65,10 +64,10 @@ export default function Feed() {
              <Image src={logo} alt='logo' />
              <p className={styles.interactions}>{post.interactions}</p>
            </div>
-           {/* <div className={styles.effectInPost}>
-            {votes < -99 ? <Lottie lotti={snowflake} height={100} width={100} speed={0.5}/> : null}
-            {votes > 99 ? <Lottie lotti={animationConfetti} height={300} width={300} speed={0.5}/> : null}
-           </div> */}
+           <div className={styles.effectInPost}>
+            {votes < -99 ? <Lottie lotti={leaf} height={200} width={200} speed={0.5}/> : null}
+            {votes > 99 ? <Lottie lotti={animationConfetti} height={500} width={500} speed={0.5}/> : null}
+           </div>
          </div>
        </div>
        <div className={styles.feedContainer}>
