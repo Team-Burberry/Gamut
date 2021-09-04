@@ -47,4 +47,4 @@ Developed by [Emily Liu](https://github.com/yyliu11)
 
 ![image](https://user-images.githubusercontent.com/79947457/132080603-07e812ae-96e4-4491-9a87-9896b6b70110.png)
 
-
+Logged in user lands on the Home page. He is able to see the posts from the categories selected at signup by scrolling up and scrolling down. He can also vote in favor of or against the posts. Min/max voting triggers animations which adds more fun to user's interaction with our app. 
