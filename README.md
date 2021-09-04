@@ -38,3 +38,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Chakra
 - React
 - Neo4j
+
+## App Components
+
+### [HOME](components/feed)
+
+Developed by [Emily Liu](https://github.com/yyliu11)
+
+![image](https://user-images.githubusercontent.com/79947457/132080603-07e812ae-96e4-4491-9a87-9896b6b70110.png)
+
+
