@@ -36,7 +36,6 @@ A mobile-first social media experience tailored to users' interests based on pre
 ### [Home Feed](components/feed)
 
 - Developed by [Emily Liu](https://github.com/yyliu11)
-
 - Logged in user lands on the Home page. He is able to see the posts from the categories selected at signup by scrolling up and scrolling down. He can also vote in favor of or against the posts. Min/max voting triggers animations which adds more fun to user's interaction with our app.
 
 ### [Explore & Search](components/search)
@@ -57,5 +56,4 @@ A mobile-first social media experience tailored to users' interests based on pre
 ### [Backend Architecture](docs/API-guide.md) and [Database](docs/Learnings.md)
 
 - Developed by [Corey Robinson](https://github.com/robin-son1), [Matt Heindel](https://github.com/matt-heindel), and [Tyler Peterson](https://github.com/tylerpetersen02)
-
 - We chose a graph database to represent Users, Posts, and Interactions for efficient querying patterns when looking for posts to suggest to users based on what categories they've interacted with before.
