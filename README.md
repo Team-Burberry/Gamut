@@ -47,7 +47,7 @@ A mobile-first social media experience tailored to users' interests based on pre
 ### [Create a Post](components/new-post)
 
 - Developed by [Logan Qiu](https://github.com/logan-qiu)
-- Once logged in, users will be able to create posts with one of the categories retrieved from the Neo4j database, and once completed, a new post will be rendered in home feed, search tab, as well as on the profile page.
+- Once logged in, users will be able to create posts with one of the categories retrieved from the Neo4j database, and once completed, a new post will be logged in the database, and be rendered in home feed, search tab, as well as on the profile page.
 
 ### [Profile](components/profile)
 
