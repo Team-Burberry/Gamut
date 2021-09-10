@@ -22,7 +22,6 @@ const Profile = () => {
       axios.get('/api/getUserInfo', { params: { email: user } })
         .then((response) => {
           setUserinfo(response.data);
-          console.log(response.data)
         })
         .catch((err) => {
           console.log('fetch err: ', err);
