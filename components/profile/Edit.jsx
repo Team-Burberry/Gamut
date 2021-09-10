@@ -35,9 +35,11 @@ const Edit = (props) => {
     birthDate: birthDate
   }
 
+
   const handleUpdate = () => {
     axios.post('/api/createUser', info)
     onClose();
+    props.setUserinfo(info);
   }
 
   return (

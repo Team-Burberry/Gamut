@@ -40,7 +40,7 @@ const Profile = () => {
             <title>Gamut: Profile Page</title>
           </Head>
           <Heading className="post-title" mb={5} as='h1' size="xl">Profile</Heading>
-          <Edit email={user} userInfo={userInfo} />
+          <Edit email={user} setUserinfo={setUserinfo} userInfo={userInfo} />
           <div>
             <img className="profile-img" src={img} />
             <div className="profile-info">
